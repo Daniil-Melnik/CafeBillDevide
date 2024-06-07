@@ -1,13 +1,23 @@
 <template>
   <v-app>
     <v-main>
-      <HelloWorld />
+      <HelloWorld/>
     </v-main>
-
-    <AppFooter />
   </v-app>
 </template>
 
-<script setup>
-  //
+<script>
+import HelloWorld from './components/HelloWorld.vue'
+
+export default {
+  name: 'App',
+
+  components: {
+    HelloWorld,
+  },
+
+  data: () => ({
+    //
+  }),
+}
 </script>
