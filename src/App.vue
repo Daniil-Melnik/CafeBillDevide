@@ -1,23 +1,24 @@
 <template>
   <v-app>
+    <v-app-bar
+      app
+      color="red"
+    >
+
+    <v-app-bar-title>
+      <h3 class="text-h4 white--text">iFood</h3>
+    </v-app-bar-title>
+
+    </v-app-bar>
+
     <v-main>
-      <HelloWorld/>
+      <router-view></router-view>
     </v-main>
-  </v-app>
+     
+   </v-app>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-
-  components: {
-    HelloWorld,
-  },
-
-  data: () => ({
-    //
-  }),
+  name: 'App'
 }
 </script>
