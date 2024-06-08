@@ -1,11 +1,28 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import { createStore } from 'vuex'
 
-Vue.use(Vuex);
+export default createStore({
+  state: {
+    persons: [
+      {name: "Илья Планков", totalMoneY: 856},
+      {name: "Алексей Лечов", totalMoneY: 10},
+      {name: "Никита Варданов", totalMoneY: 300},
+      {name: "Александр Протоиреев", totalMoneY: 150}
+    ]
+  },
+  getters: {
+    PERSONS: state => {
+      return state.persons;
+    },
+  },
 
-export const store = new Vuex.Store({
-  state: {},
-  getters: {},
-  mutations: {},
-  actions: {},
-});
+  mutations: {
+    updAdd(state, data){
+      state.persons.push(data.person)
+    },
+  },
+
+  actions: {
+  },
+  modules: {
+  }
+})
