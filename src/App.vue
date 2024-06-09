@@ -46,13 +46,13 @@ export default {
     menu_items: [
       {
         id: 0,
-        name: 'Список заведения',
+        name: 'Чеки',
         url: '/'
       },
       {
         id: 1,
-        name: 'О нас',
-        url: '#'
+        name: 'Люди',
+        url: '/lsPers'
       },
       {
         id: 2,

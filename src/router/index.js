@@ -1,13 +1,13 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import ListFood from '../components/ListFood.vue'
+import ListChecks from '../components/ListChecks.vue'
 import CafeView from '../components/CafeView.vue'
 import ListPersons from '../components/ListPersons.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'ListFood',
-    component: ListFood
+    name: 'ListChecks',
+    component: ListChecks
   },
   {
     path: '/lsPers',

@@ -3,9 +3,9 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     persons: [
-      {id: 1, name : "Илья Планков", totalMoney: 2550},
-      {id: 2, name : "Алексей Лечов", totalMoney: 50},
-      {id: 3, name : "Никита Варданов", totalMoney: 850}
+      {name : "Илья Планков", totalMoney: 2550},
+      {name : "Алексей Лечов", totalMoney: 50},
+      {name : "Никита Варданов", totalMoney: 850}
     ]
   },
   getters: {
@@ -16,7 +16,7 @@ export default createStore({
 
   mutations: {
     updAdd(state, data){
-      state.persons.push({id: 5, name : data.name, totalMoney: 1300})
+      state.persons.push({name : data.name, totalMoney: 0})
     },
     updRemove(state, data){
       state.persons = state.persons.filter(p => p.name != data.name)
