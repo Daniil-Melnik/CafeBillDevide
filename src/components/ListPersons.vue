@@ -16,6 +16,8 @@
             </td>
           </tr>
         </v-table>
+        <v-text-field label="Имя товарища"  v-on:input="this.personInput = $event.target.value"></v-text-field>
+        <v-btn @click="updAdd(this.personInput)">Добавить</v-btn>
     </v-container>
   </template>
   <script>
@@ -26,9 +28,21 @@
         return this.$store.getters.PERSONS;
       }
     },
+    data() {
+      return {
+        personInput: "",
+      }
+    },
     methods: {
       updRemove(name){
         this.$store.commit('updRemove', {name: name})
+      },
+      updAdd(){
+        console.log(this.personInput)
+        this.$store.commit('updAdd', {name: this.personInput})
+      },
+      controlText(str){
+        this.personInput = str;
       }
     }
     

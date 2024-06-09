@@ -16,7 +16,7 @@ export default createStore({
 
   mutations: {
     updAdd(state, data){
-      state.persons.push(data.person)
+      state.persons.push({id: 5, name : data.name, totalMoney: 1300})
     },
     updRemove(state, data){
       state.persons = state.persons.filter(p => p.name != data.name)
