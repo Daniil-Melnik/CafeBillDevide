@@ -8,6 +8,32 @@
       label="Select an item"
     ></v-select>
     <p>{{this.currPerson.name}}</p>
+
+    <v-table>
+      <thead>
+        <tr>
+          <th>Продукт</th>
+          <th>Цена</th>
+          <th>Ели</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(p, index) in currCheck.products" :key="index">
+          <td>{{ p.prodTitle }}</td>
+          <td>{{ p.price }}</td>
+          <td>
+            <v-list-item
+              v-for="(pp, ppIndex) in p.eatPersons"
+              :key="ppIndex"
+            >
+              <v-list-item-content>
+                <v-list-item-title>{{ pp }}</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </td>
+        </tr>
+      </tbody>
+    </v-table>
   </v-container>
 </template>
   <script>
@@ -17,8 +43,9 @@
 
     }),
     data: () => ({
-     currPerson : {name: "AAAA"},
-     selectedItem: null
+      currPerson : {name: ""},
+      currCheck : {person: ""},
+      selectedItem: null
     }),
 
     methods: {
@@ -33,8 +60,8 @@
 
       onItemChange(value) {
         this.currPerson = this.$store.getters.getPersonByName(value)
-        
-        console.log('Selected item:', this.currPerson);
+        this.currCheck = this.$store.getters.getCheckByName(value)
+        console.log('Selected item:', value);
       },
 
       onChange(event) {

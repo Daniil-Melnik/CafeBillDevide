@@ -29,6 +29,10 @@ export default createStore({
     getPersonByName: (state) => (name) => {
       return state.persons.find(person => person.name === name);
     },
+
+    getCheckByName: (state) => (person) => {
+      return state.checks.find(check => check.person === person);
+    },
   },
 
   mutations: {
