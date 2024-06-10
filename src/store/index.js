@@ -13,9 +13,17 @@ export default createStore({
         person: "Илья Планков",
         products: [
           {
+            id: 0,
             prodTitle: "Молоко",
             price: 355,
             eatPersons: ['Алексей Лечов', 'Никита Варданов']
+          },
+
+          {
+            id: 1,
+            prodTitle: "Вода",
+            price: 53,
+            eatPersons: ['Алексей Лечов', 'Илья Планков']
           }
         ]
       }
@@ -41,6 +49,28 @@ export default createStore({
     },
     updRemove(state, data){
       state.persons = state.persons.filter(p => p.name != data.name)
+    },
+
+    addEatenPerson(state, data){
+      var i = 0;
+      var j = 0;
+      while ((state.checks[i].person != data.person) && (i < state.checks.length)){
+        i++
+      }
+
+      if (state.checks[i].person == data.person){
+        while ((state.checks[i].products[j].prodTitle != data.prodTitle) && (j < state.checks[i].products.length)){
+          j++;
+        }
+        if (state.checks[i].products[data.index].eatPersons.filter(p => p.name != data.name).length == 0){
+          state.checks[i].products[data.index].eatPersons.push(data.name)
+        }
+        // if (state.checks[i].products[j].prodTitle == data.prodTitle){
+        //   if (state.checks[i].products[j].eatPersons.filter(p => p.name != data.name).length == 0){
+        //     state.checks[i].products[j].eatPersons.push(data.name)
+        //   }
+        // }
+      }
     }
   },
 

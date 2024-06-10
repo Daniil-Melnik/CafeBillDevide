@@ -15,10 +15,11 @@
           <th>Продукт</th>
           <th>Цена</th>
           <th>Ели</th>
+          <th></th>
         </tr>
       </thead>
-      <tbody>
-        <tr v-for="(p, index) in currCheck.products" :key="index">
+      <tbody v-if="this.currCheck != null">
+        <tr v-for="(p, index) in currCheck.products" :key="p.id">
           <td>{{ p.prodTitle }}</td>
           <td>{{ p.price }}</td>
           <td>
@@ -31,6 +32,16 @@
               </v-list-item-content>
             </v-list-item>
           </td>
+          <td>
+            <v-select
+              :items="persons()"
+              v-model="selectedPersons[p.id]"
+              @update:modelValue="console.log(this.selectedPersons)"
+              label="Select an item"
+            ></v-select>
+          </td>
+          <td><v-btn >Добавить</v-btn></td>
+          <!-- @click="" -->
         </tr>
       </tbody>
     </v-table>
@@ -40,12 +51,14 @@
   export default {
     name: 'ListChecks',
     computed: () => ({
-
+      
     }),
     data: () => ({
       currPerson : {name: ""},
       currCheck : {person: ""},
-      selectedItem: null
+      selectedItem: null,
+      addPersons : [],
+      selectedPersons: []
     }),
 
     methods: {
@@ -66,7 +79,7 @@
 
       onChange(event) {
           console.log(event.target.value)
-      }
+      },
     },
   }
   </script>
