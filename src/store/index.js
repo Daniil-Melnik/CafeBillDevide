@@ -50,7 +50,7 @@ export default createStore({
     updRemove(state, data){
       state.persons = state.persons.filter(p => p.name != data.name)
     },
-
+    
     addEatenPerson(state, data){
       var i = 0;
       while ((state.checks[i].person != data.checkName) && (i < state.checks.length)){
@@ -62,8 +62,23 @@ export default createStore({
           state.checks[i].products[data.prodID].eatPersons.push(data.addPersName)
         }
       }
+    },
+
+    remEatenPerson(state, data){
+      var i = 0;
+      while ((state.checks[i].person != data.checkName) && (i < state.checks.length)){
+        i++
+      }
+
+      if (state.checks[i].person == data.checkName){
+        if (state.checks[i].products[data.prodID].eatPersons.filter(p => p == data.remPersName).length != 0){
+          state.checks[i].products[data.prodID].eatPersons = state.checks[i].products[data.prodID].eatPersons.filter(p => p != data.remPersName)
+        }
+      }
     }
   },
+
+  
 
   actions: {
   },

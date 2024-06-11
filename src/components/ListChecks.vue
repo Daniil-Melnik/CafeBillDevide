@@ -24,11 +24,11 @@
           <td>{{ p.price }}</td>
           <td>
             <v-list-item
-              v-for="(pp, ppIndex) in p.eatPersons"
+              v-for="(pN, ppIndex) in p.eatPersons"
               :key="ppIndex"
             >
               <v-list-item-content>
-                <v-list-item-title>{{ pp }}</v-list-item-title>
+                <v-list-item-title>{{ pN }}<v-btn @click="remEatenPerson(checkPers, p.id, pN)">Удалить</v-btn></v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </td>
@@ -78,8 +78,12 @@
       },
 
       addEatenPerson(checkName, prodID, addPersName){
-        // console.log(checkName + " " + prodID + " " + addPersName)
         this.$store.commit('addEatenPerson', {checkName : checkName, prodID : prodID, addPersName : addPersName})
+      },
+
+      remEatenPerson(checkName, prodID, remPersName){
+        this.$store.commit('remEatenPerson', {checkName : checkName, prodID : prodID, remPersName : remPersName})
+        // console.log(checkName + " " + prodID + " " + remPersName)
       },
 
       onChange(event) {
