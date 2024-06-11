@@ -3,7 +3,7 @@
     <h2 class="text-center text-h3 py-3">Чек посетителя</h2>
     <v-select
       :items="persons()"
-      v-model="selectedItem"
+      v-model="checkPers"
       @update:modelValue="onItemChange"
       label="Select an item"
     ></v-select>
@@ -19,7 +19,7 @@
         </tr>
       </thead>
       <tbody v-if="this.currCheck != null">
-        <tr v-for="(p, index) in currCheck.products" :key="p.id">
+        <tr v-for="(p) in currCheck.products" :key="p.id">
           <td>{{ p.prodTitle }}</td>
           <td>{{ p.price }}</td>
           <td>
@@ -40,7 +40,7 @@
               label="Select an item"
             ></v-select>
           </td>
-          <td><v-btn >Добавить</v-btn></td>
+          <td><v-btn @click="addEatenPerson(checkPers, p.id, selectedPersons[p.id])">Добавить</v-btn></td>
           <!-- @click="" -->
         </tr>
       </tbody>
@@ -56,7 +56,7 @@
     data: () => ({
       currPerson : {name: ""},
       currCheck : {person: ""},
-      selectedItem: null,
+      checkPers: null,
       addPersons : [],
       selectedPersons: []
     }),
@@ -75,6 +75,11 @@
         this.currPerson = this.$store.getters.getPersonByName(value)
         this.currCheck = this.$store.getters.getCheckByName(value)
         console.log('Selected item:', value);
+      },
+
+      addEatenPerson(checkName, prodID, addPersName){
+        // console.log(checkName + " " + prodID + " " + addPersName)
+        this.$store.commit('addEatenPerson', {checkName : checkName, prodID : prodID, addPersName : addPersName})
       },
 
       onChange(event) {

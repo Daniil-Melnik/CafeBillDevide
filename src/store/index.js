@@ -3,9 +3,9 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     persons: [
-      {name : "Илья Планков", totalMoney: 2550},
-      {name : "Алексей Лечов", totalMoney: 50},
-      {name : "Никита Варданов", totalMoney: 850}
+      {id: 1, name : "Илья Планков", totalMoney: 2550},
+      {id: 2, name : "Алексей Лечов", totalMoney: 50},
+      {id: 3, name : "Никита Варданов", totalMoney: 850}
     ],
 
     checks: [
@@ -53,23 +53,14 @@ export default createStore({
 
     addEatenPerson(state, data){
       var i = 0;
-      var j = 0;
-      while ((state.checks[i].person != data.person) && (i < state.checks.length)){
+      while ((state.checks[i].person != data.checkName) && (i < state.checks.length)){
         i++
       }
 
-      if (state.checks[i].person == data.person){
-        while ((state.checks[i].products[j].prodTitle != data.prodTitle) && (j < state.checks[i].products.length)){
-          j++;
+      if (state.checks[i].person == data.checkName){
+        if (state.checks[i].products[data.prodID].eatPersons.filter(p => p == data.addPersName).length == 0){
+          state.checks[i].products[data.prodID].eatPersons.push(data.addPersName)
         }
-        if (state.checks[i].products[data.index].eatPersons.filter(p => p.name != data.name).length == 0){
-          state.checks[i].products[data.index].eatPersons.push(data.name)
-        }
-        // if (state.checks[i].products[j].prodTitle == data.prodTitle){
-        //   if (state.checks[i].products[j].eatPersons.filter(p => p.name != data.name).length == 0){
-        //     state.checks[i].products[j].eatPersons.push(data.name)
-        //   }
-        // }
       }
     }
   },
