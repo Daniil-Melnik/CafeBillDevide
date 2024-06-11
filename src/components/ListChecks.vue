@@ -45,6 +45,27 @@
         </tr>
       </tbody>
     </v-table>
+ 
+    <v-form fast-fail @submit.prevent>
+      <v-text-field
+        v-model="newProdTitle"
+        label="Новый продукт"
+      ></v-text-field>
+
+      <v-number-input
+      :reverse="false"
+      controlVariant="split"
+      label="Цена"
+      :hideInput="false"
+      :inset="false"
+      min="0"
+      max="50000"
+    ></v-number-input>
+
+      <v-btn class="mt-2" type="submit" block>Добавить</v-btn>
+    </v-form>
+
+
   </v-container>
 </template>
   <script>
@@ -58,7 +79,8 @@
       currCheck : {person: ""},
       checkPers: null,
       addPersons : [],
-      selectedPersons: []
+      selectedPersons: [],
+      newProdTitle: ""
     }),
 
     methods: {
