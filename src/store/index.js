@@ -75,7 +75,19 @@ export default createStore({
           state.checks[i].products[data.prodID].eatPersons = state.checks[i].products[data.prodID].eatPersons.filter(p => p != data.remPersName)
         }
       }
+    },
+
+    addProdToCheck(state, data){
+      var i = 0;
+      while ((state.checks[i].person != data.checkName) && (i < state.checks.length)){
+        i++;
+      }
+
+      if (state.checks[i].person == data.checkName){
+        state.checks[i].products.push({id: data.newID, prodTitle: data.prodTitle, price: data.price, eatPersons: []})
+      }
     }
+
   },
 
   

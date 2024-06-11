@@ -3,7 +3,7 @@
     <h2 class="text-center text-h3 py-3">Чек посетителя</h2>
     <v-select
       :items="persons()"
-      v-model="checkPers"
+      v-model="checkPersName"
       @update:modelValue="onItemChange"
       label="Select an item"
     ></v-select>
@@ -28,7 +28,7 @@
               :key="ppIndex"
             >
               <v-list-item-content>
-                <v-list-item-title>{{ pN }}<v-btn @click="remEatenPerson(checkPers, p.id, pN)">Удалить</v-btn></v-list-item-title>
+                <v-list-item-title>{{ pN }}<v-btn @click="remEatenPerson(checkPersName, p.id, pN)">Удалить</v-btn></v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </td>
@@ -40,8 +40,7 @@
               label="Select an item"
             ></v-select>
           </td>
-          <td><v-btn @click="addEatenPerson(checkPers, p.id, selectedPersons[p.id])">Добавить</v-btn></td>
-          <!-- @click="" -->
+          <td><v-btn @click="addEatenPerson(checkPersName, p.id, selectedPersons[p.id])">Добавить</v-btn></td>
         </tr>
       </tbody>
     </v-table>
@@ -60,12 +59,10 @@
       :inset="false"
       min="0"
       max="50000"
+      v-model="newProdPrice"
     ></v-number-input>
-
-      <v-btn class="mt-2" type="submit" block>Добавить</v-btn>
+      <v-btn class="mt-2" @click="addNewProd()" block>Добавить</v-btn>
     </v-form>
-
-
   </v-container>
 </template>
   <script>
@@ -77,10 +74,11 @@
     data: () => ({
       currPerson : {name: ""},
       currCheck : {person: ""},
-      checkPers: null,
+      checkPersName: null,
       addPersons : [],
       selectedPersons: [],
-      newProdTitle: ""
+      newProdTitle: "",
+      newProdPrice: 0
     }),
 
     methods: {
@@ -106,6 +104,13 @@
       remEatenPerson(checkName, prodID, remPersName){
         this.$store.commit('remEatenPerson', {checkName : checkName, prodID : prodID, remPersName : remPersName})
         // console.log(checkName + " " + prodID + " " + remPersName)
+      },
+
+      addNewProd(){
+        var prodLen = this.$store.getters.getCheckByName(this.checkPersName).products.length
+        var newID = this.$store.getters.getCheckByName(this.checkPersName).products[prodLen - 1].id + 1
+        this.$store.commit('addProdToCheck', {newID: newID, checkName: this.checkPersName, prodTitle : this.newProdTitle, price: this.newProdPrice})
+        // console.log(this.newProdTitle + " " + this.newProdPrice)
       },
 
       onChange(event) {
