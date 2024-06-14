@@ -39,8 +39,9 @@
               @update:modelValue="console.log(this.selectedPersons)"
               label="Select an item"
             ></v-select>
+            <v-btn @click="addEatenPerson(checkPersName, p.id, selectedPersons[p.id])">Добавить</v-btn>
           </td>
-          <td><v-btn @click="addEatenPerson(checkPersName, p.id, selectedPersons[p.id])">Добавить</v-btn></td>
+          <td><v-btn @click="remProd(p.id)">Удалить</v-btn></td>
         </tr>
       </tbody>
     </v-table>
@@ -108,9 +109,15 @@
 
       addNewProd(){
         var prodLen = this.$store.getters.getCheckByName(this.checkPersName).products.length
-        var newID = this.$store.getters.getCheckByName(this.checkPersName).products[prodLen - 1].id + 1
+        
+        var newID = prodLen != 0 ? this.$store.getters.getCheckByName(this.checkPersName).products[prodLen - 1].id + 1 : 0
         this.$store.commit('addProdToCheck', {newID: newID, checkName: this.checkPersName, prodTitle : this.newProdTitle, price: this.newProdPrice})
         // console.log(this.newProdTitle + " " + this.newProdPrice)
+      },
+
+      remProd(id){
+        this.$store.commit('remProdFromCheck', {checkName: this.checkPersName, remProdID : id})
+        // console.log(this.checkPersName + " " + id)
       },
 
       onChange(event) {
