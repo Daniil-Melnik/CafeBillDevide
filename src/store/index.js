@@ -24,7 +24,14 @@ export default createStore({
             prodTitle: "Вода",
             price: 53,
             eatPersons: ['Алексей Лечов', 'Илья Планков']
-          }
+          },
+
+          {
+            id: 2,
+            prodTitle: "Напиток ягодный",
+            price: 66,
+            eatPersons: ['Илья Планков']
+          },
         ]
       }
     ]
@@ -90,6 +97,7 @@ export default createStore({
 
     remProdFromCheck(state, data){
       var i = 0;
+      var j =0;
       while ((state.checks[i].person != data.checkName) && (i < state.checks.length)){
         i++;
       }
@@ -97,8 +105,11 @@ export default createStore({
       if (state.checks[i].person == data.checkName){
         state.checks[i].products = state.checks[i].products.filter(p => p.id != data.remProdID)
       }
-    }
 
+      for (j = 0; j < state.checks[i].products.length; j++){
+        state.checks[i].products[j].id = j;
+      }
+    }
   }, 
  
   

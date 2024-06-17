@@ -22,6 +22,7 @@
         <tr v-for="(p) in currCheck.products" :key="p.id">
           <td>{{ p.prodTitle }}</td>
           <td>{{ p.price }}</td>
+          <td><v-text-field label="" v-model="testTxt[p.id]" v-on:input="console.log(this.testTxt)"></v-text-field></td>
           <td>
             <v-list-item
               v-for="(pN, ppIndex) in p.eatPersons"
@@ -79,7 +80,9 @@
       addPersons : [],
       selectedPersons: [],
       newProdTitle: "",
-      newProdPrice: 0
+      newProdPrice: 0,
+
+      testTxt: []
     }),
 
     methods: {
@@ -117,7 +120,9 @@
 
       remProd(id){
         this.$store.commit('remProdFromCheck', {checkName: this.checkPersName, remProdID : id})
-        // console.log(this.checkPersName + " " + id)
+        this.currCheck = this.$store.getters.getCheckByName(this.checkPersName)
+        var newLen = this.currCheck.products.length;
+        this.testTxt = this.testTxt.slice(0, newLen);
       },
 
       onChange(event) {
