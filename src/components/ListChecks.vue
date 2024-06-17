@@ -21,7 +21,16 @@
       <tbody v-if="this.currCheck != null">
         <tr v-for="(p) in currCheck.products" :key="p.id">
           <td>{{ p.prodTitle }}</td>
-          <td><v-text-field label="" v-model="testTxt[p.id]" v-on:input="setNewPrice(p.id)" :rules="[rules.required]"></v-text-field></td>
+          <td><v-text-field
+            v-if="isPriceEditable[p.id]"
+            label="" v-model="testTxt[p.id]"
+            v-on:input="setNewPrice(p.id)"
+            :rules="[rules.required]"
+            type="number">
+          </v-text-field>
+          <p v-else>{{p.price}}</p>
+          <v-btn @click="isPriceEditable[p.id] = !isPriceEditable[p.id]">Редактировать</v-btn>
+        </td>
           <td>
             <v-list-item
               v-for="(pN, ppIndex) in p.eatPersons"
@@ -87,14 +96,13 @@
       checkPersName: null,
       addPersons : [],
       selectedPersons: [],
+      isPriceEditable: [],
       newProdTitle: "",
       newProdPrice: 0,
 
       rules: {
-        required: value => !!value || 'Field is required',
+        required: value => !!value || 'Должно быть число',
       },
-
-      // testTxt: []
     }),
 
     methods: {
