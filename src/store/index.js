@@ -109,6 +109,16 @@ export default createStore({
       for (j = 0; j < state.checks[i].products.length; j++){
         state.checks[i].products[j].id = j;
       }
+    },
+
+    setNewPrice(state, data){
+      var i = 0;
+      while ((state.checks[i].person != data.checkName) && (i < state.checks.length)){
+        i++;
+      }
+      if (state.checks[i].person == data.checkName){
+        state.checks[i].products[data.setProdID].price = data.newPrice
+      }
     }
   }, 
  

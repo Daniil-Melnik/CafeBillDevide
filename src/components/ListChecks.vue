@@ -21,8 +21,7 @@
       <tbody v-if="this.currCheck != null">
         <tr v-for="(p) in currCheck.products" :key="p.id">
           <td>{{ p.prodTitle }}</td>
-          <td>{{ p.price }}</td>
-          <td><v-text-field label="" v-model="testTxt[p.id]" v-on:input="console.log(this.testTxt)"></v-text-field></td>
+          <td><v-text-field label="" v-model="testTxt[p.id]" v-on:input="setNewPrice(p.id)" :rules="[rules.required]"></v-text-field></td>
           <td>
             <v-list-item
               v-for="(pN, ppIndex) in p.eatPersons"
@@ -70,9 +69,18 @@
   <script>
   export default {
     name: 'ListChecks',
-    computed: () => ({
-      
-    }),
+    computed: {
+      testTxt() {
+        var arr = []
+        if (this.currCheck != null){
+          for (var i = 0; i < this.currCheck.products.length; i++){
+            arr[i] = this.currCheck.products[i].price
+          }
+        }
+        
+        return arr
+      }
+    },
     data: () => ({
       currPerson : {name: ""},
       currCheck : {person: ""},
@@ -82,7 +90,11 @@
       newProdTitle: "",
       newProdPrice: 0,
 
-      testTxt: []
+      rules: {
+        required: value => !!value || 'Field is required',
+      },
+
+      // testTxt: []
     }),
 
     methods: {
@@ -123,6 +135,11 @@
         this.currCheck = this.$store.getters.getCheckByName(this.checkPersName)
         var newLen = this.currCheck.products.length;
         this.testTxt = this.testTxt.slice(0, newLen);
+      },
+
+      setNewPrice(id){
+        this.$store.commit('setNewPrice', {checkName: this.checkPersName, setProdID : id, newPrice : this.testTxt[id]})
+        // console.log(this.checkPersName + " " + id + " " + this.testTxt[id])
       },
 
       onChange(event) {
