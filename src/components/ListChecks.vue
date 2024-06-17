@@ -20,7 +20,7 @@
       </thead>
       <tbody v-if="this.currCheck != null">
         <tr v-for="(p) in currCheck.products" :key="p.id">
-          <td>{{ p.prodTitle }}</td>
+          <td>{{ prodTitles[p.id] }}</td> <!-- Продолжить добавление редактирования-->
           <td><v-text-field
             v-if="isPriceEditable[p.id]"
             label="" v-model="testTxt[p.id]"
@@ -86,7 +86,16 @@
             arr[i] = this.currCheck.products[i].price
           }
         }
-        
+        return arr
+      },
+
+      prodTitles(){
+        var arr = []
+        if (this.currCheck != null){
+          for (var i = 0; i < this.currCheck.products.length; i++){
+            arr[i] = this.currCheck.products[i].prodTitle
+          }
+        }
         return arr
       }
     },
@@ -143,11 +152,16 @@
         this.currCheck = this.$store.getters.getCheckByName(this.checkPersName)
         var newLen = this.currCheck.products.length;
         this.testTxt = this.testTxt.slice(0, newLen);
+        this.prodTitles = this.prodTitles.slice(0, newLen)
       },
 
       setNewPrice(id){
         this.$store.commit('setNewPrice', {checkName: this.checkPersName, setProdID : id, newPrice : this.testTxt[id]})
         // console.log(this.checkPersName + " " + id + " " + this.testTxt[id])
+      },
+
+      setNewTitle(id){
+        this.$store.commit('setNewProdTitle', {checkName: this.checkPersName, setProdID : id, newProdTitle : ""})
       },
 
       onChange(event) {

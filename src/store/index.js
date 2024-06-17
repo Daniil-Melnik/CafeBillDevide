@@ -119,6 +119,16 @@ export default createStore({
       if (state.checks[i].person == data.checkName){
         state.checks[i].products[data.setProdID].price = data.newPrice
       }
+    },
+
+    setNewProdTitle(state, data){
+      var i = 0;
+      while ((state.checks[i].person != data.checkName) && (i < state.checks.length)){
+        i++;
+      }
+      if (state.checks[i].person == data.checkName){
+        state.checks[i].products[data.setProdID].prodTitle = data.newProdTitle
+      }
     }
   }, 
  
