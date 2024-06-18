@@ -20,7 +20,16 @@
       </thead>
       <tbody v-if="this.currCheck != null">
         <tr v-for="(p) in currCheck.products" :key="p.id">
-          <td>{{ prodTitles[p.id] }}</td> <!-- Продолжить добавление редактирования-->
+          <td>
+            <v-text-field
+              v-if="isTitleEditable[p.id]"
+              label="" v-model="prodTitles[p.id]"
+              v-on:input="setNewTitle(p.id)"
+              :rules="[rules.required_title]">
+            </v-text-field>
+            <p v-else>{{ prodTitles[p.id] }}</p>
+            <v-btn @click="isTitleEditable[p.id] = !isTitleEditable[p.id]">Редактировать</v-btn>
+          </td> <!-- Продолжить добавление редактирования-->
           <td><v-text-field
             v-if="isPriceEditable[p.id]"
             label="" v-model="testTxt[p.id]"
@@ -106,11 +115,13 @@
       addPersons : [],
       selectedPersons: [],
       isPriceEditable: [],
+      isTitleEditable: [],
       newProdTitle: "",
       newProdPrice: 0,
 
       rules: {
         required: value => !!value || 'Должно быть число',
+        required_title: value => !!value || 'Не может быть пустым',
       },
     }),
 
@@ -161,7 +172,7 @@
       },
 
       setNewTitle(id){
-        this.$store.commit('setNewProdTitle', {checkName: this.checkPersName, setProdID : id, newProdTitle : ""})
+        this.$store.commit('setNewProdTitle', {checkName: this.checkPersName, setProdID : id, newProdTitle : this.prodTitles[id]})
       },
 
       onChange(event) {
