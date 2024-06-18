@@ -138,7 +138,7 @@
       onItemChange(value) {
         this.currPerson = this.$store.getters.getPersonByName(value)
         this.currCheck = this.$store.getters.getCheckByName(value)
-        console.log('Selected item:', value);
+        // console.log('Selected item:', value);
       },
 
       addEatenPerson(checkName, prodID, addPersName){
@@ -151,9 +151,10 @@
       },
 
       addNewProd(){
-        var prodLen = this.$store.getters.getCheckByName(this.checkPersName).products.length
+        var check = this.$store.getters.getCheckByName(this.checkPersName)
+        var prodLen = check != null ? check.products.length : 0
         
-        var newID = prodLen != 0 ? this.$store.getters.getCheckByName(this.checkPersName).products[prodLen - 1].id + 1 : 0
+        var newID = prodLen != 0 ? check.products[prodLen - 1].id + 1 : 0
         this.$store.commit('addProdToCheck', {newID: newID, checkName: this.checkPersName, prodTitle : this.newProdTitle, price: this.newProdPrice})
         // console.log(this.newProdTitle + " " + this.newProdPrice)
       },

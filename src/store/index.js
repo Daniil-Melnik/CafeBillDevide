@@ -46,7 +46,15 @@ export default createStore({
     },
 
     getCheckByName: (state) => (person) => {
-      return state.checks.find(check => check.person === person);
+      var res = state.checks.find(check => check.person === person)
+      if (res == null){
+        state.checks.push({
+          person: person,
+          products: []
+        })
+      }
+      res = state.checks.find(check => check.person === person)
+      return res;
     },
   },
 
@@ -86,13 +94,23 @@ export default createStore({
 
     addProdToCheck(state, data){
       var i = 0;
-      while ((state.checks[i].person != data.checkName) && (i < state.checks.length)){
+      // var condCheck;
+      // for (var j = 0; j < state.checks.length; j++){
+      //   if (state.checks[j].person == data.checkName){
+
+      //   }
+      // }
+      while ((i < state.checks.length) && (state.checks[i].person != data.checkName)){
         i++;
       }
 
       if (state.checks[i].person == data.checkName){
         state.checks[i].products.push({id: data.newID, prodTitle: data.prodTitle, price: data.price, eatPersons: []})
       }
+      // else{
+      //   state.checks.push({person: data.checkName, products: [{id: data.newID, prodTitle: data.prodTitle, price: data.price, eatPersons: []}]})
+      //   console.log(state.checks)
+      // }
     },
 
     remProdFromCheck(state, data){
