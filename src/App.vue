@@ -23,7 +23,7 @@
     
     <v-app-bar
       app
-      color="red"
+      color="green"
     >
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-app-bar-title>

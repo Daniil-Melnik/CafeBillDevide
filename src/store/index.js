@@ -46,15 +46,13 @@ export default createStore({
     },
 
     getCheckByName: (state) => (person) => {
-      var res = state.checks.find(check => check.person === person)
-      // if (res == null){
-      //   state.checks.push({
-      //     person: person,
-      //     products: []
-      //   })
-      // }
-      // res = state.checks.find(check => check.person === person)
-      return res;
+      return state.checks.find(check => check.person === person);
+    },
+
+    getCheckProductById: (state) => (person, prodID) => {
+      var check = state.checks.find(check => check.person === person)
+      var product = check.products[prodID]
+      return product.eatPersons;
     },
   },
 

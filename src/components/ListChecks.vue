@@ -52,7 +52,7 @@
           </td>
           <td>
             <v-select
-              :items="persons()"
+              :items="notEatPersons(p.id)"
               v-model="selectedPersons[p.id]"
               @update:modelValue="console.log(this.selectedPersons)"
               label="Select an item"
@@ -137,6 +137,14 @@
           eArr.push(arr[i].name)
         }
         return eArr
+      },
+
+      notEatPersons(prodID){
+        var eatPersons = this.$store.getters.getCheckProductById(this.checkPersName, prodID);
+        var allPersons = this.persons();
+
+        var notEatPers = allPersons.filter((el) => !eatPersons.includes(el))
+        return notEatPers
       },
 
       onItemChange(value) {
