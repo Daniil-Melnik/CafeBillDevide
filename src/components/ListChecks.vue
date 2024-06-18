@@ -7,9 +7,9 @@
       @update:modelValue="onItemChange"
       label="Select an item"
     ></v-select>
-    <p>{{this.currPerson.name}}</p>
+    <p v-if="this.currPerson != null">{{this.currPerson.name}}</p>
 
-    <v-table>
+    <v-table v-if="currCheck != null">
       <thead>
         <tr>
           <th>Продукт</th>
@@ -63,8 +63,12 @@
         </tr>
       </tbody>
     </v-table>
+    <div v-if="this.currCheck == null && this.currPerson != null">
+      <h3>Добавить?</h3>
+      <v-btn @click="addNewCheck()">Добавить</v-btn>
+    </div>
  
-    <v-form fast-fail @submit.prevent>
+    <v-form fast-fail @submit.prevent v-if="currCheck != null">
       <v-text-field
         v-model="newProdTitle"
         label="Новый продукт"
@@ -76,8 +80,8 @@
       label="Цена"
       :hideInput="false"
       :inset="false"
-      min="0"
-      max="50000"
+      min = 0
+      max = 50000
       v-model="newProdPrice"
     ></v-number-input>
       <v-btn class="mt-2" @click="addNewProd()" block>Добавить</v-btn>
@@ -109,8 +113,8 @@
       }
     },
     data: () => ({
-      currPerson : {name: ""},
-      currCheck : {person: ""},
+      currPerson : null,
+      currCheck : null,
       checkPersName: null,
       addPersons : [],
       selectedPersons: [],
@@ -179,6 +183,11 @@
       onChange(event) {
           console.log(event.target.value)
       },
+
+      addNewCheck(){
+        this.$store.commit('addNewCheck', {checkName: this.checkPersName})
+        this.currCheck = this.$store.getters.getCheckByName(this.checkPersName)
+      }
     },
   }
   </script>
