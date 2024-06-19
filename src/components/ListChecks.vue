@@ -7,8 +7,8 @@
       @update:modelValue="onItemChange"
       label="Select an item"
     ></v-select>
-    <p v-if="this.currPerson != null">{{this.currPerson.name}}</p>
-
+    <p v-if="this.currPerson != null">{{this.currPerson.name}} Итог: {{ getCheckSum() }}</p>
+    
     <v-table v-if="currCheck != null">
       <thead>
         <tr>
@@ -195,6 +195,17 @@
       addNewCheck(){
         this.$store.commit('addNewCheck', {checkName: this.checkPersName})
         this.currCheck = this.$store.getters.getCheckByName(this.checkPersName)
+      },
+
+      getCheckSum(){
+        var sum = 0
+        if (this.currCheck != null){
+          var prodList = this.currCheck.products
+          for (var p in this.currCheck.products){
+            sum += prodList[p].price;
+          }
+        }
+        return sum;
       }
     },
   }
