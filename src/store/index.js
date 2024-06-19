@@ -3,9 +3,14 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     persons: [
-      {id: 1, name : "Илья Планков", totalMoney: 2550},
-      {id: 2, name : "Алексей Лечов", totalMoney: 50},
-      {id: 3, name : "Никита Варданов", totalMoney: 850}
+      {id: 1, name : "Илья Планков", totalMoney: 0},
+      {id: 2, name : "Алексей Лечов", totalMoney: 0},
+      {id: 3, name : "Никита Варданов", totalMoney: 0},
+      {id: 4, name : "Александр Протоиреев", totalMoney: 0},
+      {id: 5, name : "Евгений Белов", totalMoney: 0},
+      {id: 6, name : "Томиил Данилов", totalMoney: 0},
+      {id: 7, name : "Иван Семонов", totalMoney: 0},
+      {id: 8, name : "Даниил Мукомол", totalMoney: 0},      
     ],
 
     checks: [
@@ -16,7 +21,7 @@ export default createStore({
             id: 0,
             prodTitle: "Молоко",
             price: 355,
-            eatPersons: ['Алексей Лечов', 'Никита Варданов']
+            eatPersons: ['Евгений Белов', 'Никита Варданов']
           },
 
           {
@@ -31,6 +36,58 @@ export default createStore({
             prodTitle: "Напиток ягодный",
             price: 66,
             eatPersons: ['Илья Планков']
+          },
+        ]
+      },
+
+      {
+        person: "Евгений Белов",
+        products: [
+          {
+            id: 0,
+            prodTitle: "Картошка",
+            price: 355,
+            eatPersons: ['Томиил Данилов', '']
+          },
+
+          {
+            id: 1,
+            prodTitle: "Морковка",
+            price: 53,
+            eatPersons: ['Александр Протоиреев', 'Даниил Мукомол']
+          },
+
+          {
+            id: 2,
+            prodTitle: "Селёдка",
+            price: 66,
+            eatPersons: ['Иван Семонов', 'Александр Протоиреев']
+          },
+
+          {
+            id: 3,
+            prodTitle: "Бифштекс",
+            price: 66,
+            eatPersons: ['Даниил Мукомол']
+          },
+        ]
+      },
+
+      {
+        person: "Александр Протоиреев",
+        products: [
+          {
+            id: 0,
+            prodTitle: "Двойной циплёнок",
+            price: 355,
+            eatPersons: ['Илья Планков', 'Никита Варданов']
+          },
+
+          {
+            id: 1,
+            prodTitle: "Морс двойной",
+            price: 53,
+            eatPersons: ['Иван Семонов', 'Евгений Белов', 'Даниил Мукомол']
           },
         ]
       }
