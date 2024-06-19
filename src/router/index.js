@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import ListChecks from '../components/ListChecks.vue'
 import CafeView from '../components/CafeView.vue'
 import ListPersons from '../components/ListPersons.vue'
+import ListRelat from '../components/ListRelat.vue'
 
 const routes = [
   {
@@ -13,6 +14,11 @@ const routes = [
     path: '/lsPers',
     name: 'ListPersons',
     component: ListPersons
+  },
+  {
+    path: '/lsRelat',
+    name: 'ListRelat',
+    component: ListRelat
   },
   {
     path: '/cafe/view',

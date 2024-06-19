@@ -56,8 +56,8 @@ export default {
       },
       {
         id: 2,
-        name: 'Контакты',
-        url: '#'
+        name: 'Распределение',
+        url: '/lsRelat'
       },
       {
         id: 3,

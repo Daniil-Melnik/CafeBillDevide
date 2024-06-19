@@ -98,6 +98,14 @@ export default createStore({
       return state.persons;
     },
 
+    getPersWithRec: (state) => {
+      var res = []
+      for (var i in state.checks){
+        res.push(state.checks[i].person)
+      }
+      return res;
+    },
+
     getPersonByName: (state) => (name) => {
       return state.persons.find(person => person.name === name);
     },
