@@ -20,7 +20,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(pMR, index) in getMoneyRelat()" :key="index">
+              <tr v-for="(pMR, index) in getCurrMoneyRelat()" :key="index">
                 <td v-if="radios == 1">{{ pMR.nameTo }}</td>
                 <td v-if="radios == 2">{{ pMR.nameFrom }}</td>
                 <td>{{ pMR.money }}</td>
@@ -69,7 +69,9 @@
         return eArr
       },
 
-     getMoneyRelat(){
+    
+
+     getAllMoneyRelat(){
       var persAdr = this.getPersWithReceipts();
       var allPers = this.$store.getters.PERSONS;
       var persLen = 0;
@@ -86,14 +88,51 @@
             }
           }
           if (sum != 0 && allPers[a].name != persAdr[i]){
-            if (allPers[a].name == this.persFromName && this.radios == 1) res.push({nameFrom : allPers[a].name, nameTo: persAdr[i], money: Math.ceil(sum)})
-            if (persAdr[i] == this.persFromName && this.radios == 2) res.push({nameFrom : allPers[a].name, nameTo: persAdr[i], money: Math.ceil(sum)})
+            res.push({nameFrom : allPers[a].name, nameTo: persAdr[i], money: Math.ceil(sum)})
           }
         }
       }
-      console.log(res);
       return res
-     }
+     },
+
+     getCurrMoneyRelat(){
+      var objRelat = this.getAllMoneyRelat();
+      var rO = null;
+      var res = []
+      for (var i in objRelat){
+        rO = objRelat[i]
+        if (rO.nameFrom == this.persFromName && this.radios == 1) res.push(rO)
+        if (rO.nameTo == this.persFromName && this.radios == 2) res.push(rO)
+      }
+      return res
+     },
+
+
+// Починить
+     checkRepets(objRelat){
+      var resObjRelat = objRelat
+      var o1 = null
+      var o2 = null
+      // console.log(ob)
+      for (var oR in objRelat){
+        o1 = objRelat[oR];
+        // o2 = objRelat.filter(o => o.nameFrom == o1.nameTo && o.nameTo == o1.nameFrom)
+        o2 = objRelat.filter((o) => o.nameFrom == o1.nameTo && o.nameTo == o1.nameFrom)
+        // o2 = objRelat.filter((el) => el.nameFrom == 'Илья Планков')
+        if (o2[0] != null){
+          console.log(o1.nameFrom + ' ' + o1.nameTo)
+          console.log(o2[0].nameFrom + ' ' + o2[0].nameTo)
+          // console.log (o1)
+          // console.log('o2')
+          // console.log (o2L[0])
+          // if (o2.money > o1.money) resObjRelat.push({nameFrom : o2.nameFrom, nameTo: o2.nameTo, money: o2.money - o1.money})
+          // if (o1.money > o2.money) resObjRelat.push({nameFrom : o1.nameFrom, nameTo: o1.nameTo, money: o1.money - o2.money})
+          // resObjRelat = resObjRelat.filter( rO => rO.nameFrom != o1.nameFrom && rO.nameTo != o1.nameTo)
+          // resObjRelat = resObjRelat.filter( rO => rO.nameFrom != o2.nameFrom && rO.nameTo != o2.nameTo)
+        }
+      }
+      return resObjRelat
+    },
     }
     
   };

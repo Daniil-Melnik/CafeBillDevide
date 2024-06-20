@@ -35,7 +35,7 @@ export default createStore({
             id: 2,
             prodTitle: "Напиток ягодный",
             price: 66,
-            eatPersons: ['Илья Планков']
+            eatPersons: ['Илья Планков', 'Александр Протоиреев']
           },
         ]
       },
