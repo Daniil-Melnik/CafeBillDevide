@@ -20,7 +20,7 @@ export default createStore({
           {
             id: 0,
             prodTitle: "Молоко",
-            price: 355,
+            price: 300,
             eatPersons: ['Евгений Белов', 'Никита Варданов']
           },
 
@@ -47,7 +47,7 @@ export default createStore({
             id: 0,
             prodTitle: "Картошка",
             price: 355,
-            eatPersons: ['Томиил Данилов', '']
+            eatPersons: ['Томиил Данилов', 'Илья Планков']
           },
 
           {

@@ -92,6 +92,9 @@
           }
         }
       }
+      console.log(res)
+      res = this.checkRepets(res) // Очистка от зеркальных пар
+      console.log(res)
       return res
      },
 
@@ -105,35 +108,41 @@
         if (rO.nameTo == this.persFromName && this.radios == 2) res.push(rO)
       }
       return res
-     },
-
-
-// Починить
-     checkRepets(objRelat){
-      var resObjRelat = objRelat
-      var o1 = null
-      var o2 = null
-      // console.log(ob)
-      for (var oR in objRelat){
-        o1 = objRelat[oR];
-        // o2 = objRelat.filter(o => o.nameFrom == o1.nameTo && o.nameTo == o1.nameFrom)
-        o2 = objRelat.filter((o) => o.nameFrom == o1.nameTo && o.nameTo == o1.nameFrom)
-        // o2 = objRelat.filter((el) => el.nameFrom == 'Илья Планков')
-        if (o2[0] != null){
-          console.log(o1.nameFrom + ' ' + o1.nameTo)
-          console.log(o2[0].nameFrom + ' ' + o2[0].nameTo)
-          // console.log (o1)
-          // console.log('o2')
-          // console.log (o2L[0])
-          // if (o2.money > o1.money) resObjRelat.push({nameFrom : o2.nameFrom, nameTo: o2.nameTo, money: o2.money - o1.money})
-          // if (o1.money > o2.money) resObjRelat.push({nameFrom : o1.nameFrom, nameTo: o1.nameTo, money: o1.money - o2.money})
-          // resObjRelat = resObjRelat.filter( rO => rO.nameFrom != o1.nameFrom && rO.nameTo != o1.nameTo)
-          // resObjRelat = resObjRelat.filter( rO => rO.nameFrom != o2.nameFrom && rO.nameTo != o2.nameTo)
-        }
-      }
-      return resObjRelat
     },
+
+    removeFromArr(arr, o){
+      return arr.filter(el => !(el.nameFrom === o.nameFrom && el.nameTo === o.nameTo && el.money === o.money));
+    },
+
+    checkRepets(objRelat) {
+      let resObjRelat = objRelat.slice();  // Создаем копию массива, чтобы не изменять оригинал
+      let addList = [];
+      let o1 = null;
+      let o2 = null;
+      let o2L = null;
+
+      for (let oR of objRelat) {
+          o1 = oR;
+          o2L = objRelat.filter((o) => o.nameFrom === o1.nameTo && o.nameTo === o1.nameFrom);
+          o2 = o2L[0];
+
+          if (o2 != null) {
+              let cond1 = resObjRelat.filter((rO) => rO.nameFrom === o1.nameFrom && rO.nameTo === o1.nameTo);
+              let cond2 = resObjRelat.filter((rO) => rO.nameFrom === o1.nameTo && rO.nameTo === o1.nameFrom);
+
+              if (cond1.length !== 0 || cond2.length !== 0) {
+                  if (o2.money > o1.money) addList.push({ nameFrom: o2.nameFrom, nameTo: o2.nameTo, money: o2.money - o1.money });
+                  if (o1.money > o2.money) addList.push({ nameFrom: o1.nameFrom, nameTo: o1.nameTo, money: o1.money - o2.money });
+
+                  console.log("****");
+                  resObjRelat = this.removeFromArr(resObjRelat, o1);
+                  resObjRelat = this.removeFromArr(resObjRelat, o2);
+              }
+          }
+      }
+      resObjRelat = resObjRelat.concat(addList);
+      return resObjRelat;
     }
-    
+    }
   };
   </script>
