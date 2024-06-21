@@ -209,6 +209,16 @@ export default createStore({
             person: data.checkName,
             products: []
           })
+    },
+
+    updSetNewName(state, data){
+      var i = 0;
+      while (state.persons[i].name != data.oldName && i < state.persons.length){
+        i++;
+      }
+      if (state.persons[i].name == data.oldName){
+        state.persons[i].name = data.newName
+      }
     }
   }, 
  

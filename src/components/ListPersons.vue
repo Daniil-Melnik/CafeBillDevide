@@ -6,11 +6,21 @@
             <th>Потратил</th>
             <th></th>
           </tr>
-          <tr v-for="p in persons" v-bind:key="p.id">
-            <td>{{ p.name }}</td>
-            <td>{{ this.getPersonTotal(p.name) }}</td>
+          <tr v-for="(p, index) in persons" v-bind:key="index">
             <td>
-              <v-btn @click="updRemove(p.name)">Удалить</v-btn>
+              <v-text-field
+                v-if="isNameEditable[index]"
+                label="" v-model="personsName[index]"
+                v-on:input="setNewName(p.name, index)"
+                :rules="[rules.required_title]">
+              </v-text-field>
+              <p v-else>{{ personsName[index] }}</p>
+              <v-btn @click="isNameEditable[index] = !isNameEditable[index]">Редактировать</v-btn>
+            </td>
+
+            <td>{{ this.getPersonTotal(personsName[index]) }}</td>
+            <td>
+              <v-btn @click="updRemove(personsName[index])">Удалить</v-btn>
             </td>
           </tr>
         </v-table>
@@ -24,11 +34,26 @@
     computed: {
       persons() {
         return this.$store.getters.PERSONS;
+      },
+
+      personsName(){
+        var persons = this.$store.getters.PERSONS;
+        var res = []
+        for (var p in persons){
+          res.push(persons[p].name)
+        }
+        return res
       }
     },
     data() {
       return {
         personInput: "",
+        isNameEditable : [],
+
+        rules: {
+          required: value => !!value || 'Должно быть число',
+          required_title: value => !!value || 'Не может быть пустым',
+        },
       }
     },
     methods: {
@@ -44,6 +69,10 @@
       },
       controlText(str){
         this.personInput = str;
+      },
+
+      setNewName(oldName, index){
+        this.$store.commit('updSetNewName', {newName: this.personsName[index], oldName: oldName})
       },
 
       getPersonTotal(name){
