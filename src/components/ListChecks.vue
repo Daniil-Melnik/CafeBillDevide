@@ -149,7 +149,7 @@
       },
 
       notEatPersons(prodID){
-        var eatPersons = this.$store.getters.getCheckProductById(this.checkPersName, prodID);
+        var eatPersons = this.$store.getters.getCheckProductById(this.currPerson.id, prodID);
         var allPersons = this.personsId();
 
         var notEatPersId = allPersons.filter((el) => !eatPersons.includes(el))
@@ -162,7 +162,7 @@
 
       onItemChange(value) {
         this.currPerson = this.$store.getters.getPersonByName(value)
-        this.currCheck = this.$store.getters.getCheckByName(value)
+        this.currCheck = this.$store.getters.getCheckByName(this.currPerson.id)
         // console.log('Selected item:', value);
       },
 

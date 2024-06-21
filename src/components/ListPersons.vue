@@ -64,7 +64,7 @@
         this.$store.commit('updRemove', {name: name})
       },
       updAdd(){
-        console.log(this.personInput)
+        // console.log(this.personInput)
         this.$store.commit('updAdd', {name: this.personInput})
       },
       controlText(str){
@@ -76,20 +76,24 @@
       },
 
       getPersonTotal(name){
+        // console.log(this.getPersWithReceipts())
+        var person = this.$store.getters.getPersonByName(name)
+        var persId = person.id
         var persWithReceipt = this.getPersWithReceipts();
         var reSum = 0
         for (var i in persWithReceipt){
-          var pWR = persWithReceipt[i]
+          var pWR = persWithReceipt[i].id
           var currReceipt = this.$store.getters.getCheckByName(pWR);
+          // console.log(currReceipt)
           for (var p in currReceipt.products){
             var currProd = currReceipt.products[p]
-            if (currProd.eatPersons.filter((cP) => cP == name).length != 0){
+            if (currProd.eatPersons.filter((cP) => cP == persId).length != 0){
               var persLen = currProd.eatPersons.length
               reSum += Math.ceil(currProd.price / persLen)
             }
           }
         }
-        console.log(name + " " + reSum)
+        // console.log(name + " " + reSum)
         return reSum;
       },
     }

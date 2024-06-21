@@ -133,7 +133,11 @@ export default createStore({
       state.persons.push({name : data.name, totalMoney: 0})
     },
     updRemove(state, data){
+      var remPersId = state.persons.find(person => person.name === data.name).id;
       state.persons = state.persons.filter(p => p.name != data.name)
+      for (var rC in state.checks){
+        state.checks[rC].products = state.checks[rC].products.filter((c) => c != remPersId)
+      }
     },
     
     addEatenPerson(state, data){
