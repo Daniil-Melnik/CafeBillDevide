@@ -80,7 +80,7 @@
         for (var a in allPers){
           var sum = 0;
           for (var cP in currProducts){
-            if (currProducts[cP].eatPersons.indexOf(allPers[a].name, 0) != -1){
+            if (currProducts[cP].eatPersons.indexOf(allPers[a].id, 0) != -1){
               persLen = currProducts[cP].eatPersons.length
               sum += currProducts[cP].price / persLen;
             }

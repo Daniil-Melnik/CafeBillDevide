@@ -21,21 +21,21 @@ export default createStore({
             id: 0,
             prodTitle: "Молоко",
             price: 300,
-            eatPersons: ['Евгений Белов', 'Никита Варданов']
+            eatPersons: [5, 3]
           },
 
           {
             id: 1,
             prodTitle: "Вода",
             price: 53,
-            eatPersons: ['Алексей Лечов', 'Илья Планков']
+            eatPersons: [2, 1]
           },
 
           {
             id: 2,
             prodTitle: "Напиток ягодный",
             price: 66,
-            eatPersons: ['Илья Планков', 'Александр Протоиреев']
+            eatPersons: [1, 4]
           },
         ]
       },
@@ -47,28 +47,28 @@ export default createStore({
             id: 0,
             prodTitle: "Картошка",
             price: 355,
-            eatPersons: ['Томиил Данилов', 'Илья Планков']
+            eatPersons: [6, 1]
           },
 
           {
             id: 1,
             prodTitle: "Морковка",
             price: 53,
-            eatPersons: ['Александр Протоиреев', 'Даниил Мукомол']
+            eatPersons: [4, 8]
           },
 
           {
             id: 2,
             prodTitle: "Селёдка",
             price: 66,
-            eatPersons: ['Иван Семонов', 'Александр Протоиреев']
+            eatPersons: [7, 4]
           },
 
           {
             id: 3,
             prodTitle: "Бифштекс",
             price: 66,
-            eatPersons: ['Даниил Мукомол']
+            eatPersons: [8]
           },
         ]
       },
@@ -80,14 +80,14 @@ export default createStore({
             id: 0,
             prodTitle: "Двойной циплёнок",
             price: 355,
-            eatPersons: ['Илья Планков', 'Никита Варданов']
+            eatPersons: [1, 3]
           },
 
           {
             id: 1,
             prodTitle: "Морс двойной",
             price: 53,
-            eatPersons: ['Евгений Белов', 'Даниил Мукомол']
+            eatPersons: [5, 8]
           },
         ]
       }
@@ -155,8 +155,8 @@ export default createStore({
       }
 
       if (state.checks[i].person == data.checkName){
-        if (state.checks[i].products[data.prodID].eatPersons.filter(p => p == data.remPersName).length != 0){
-          state.checks[i].products[data.prodID].eatPersons = state.checks[i].products[data.prodID].eatPersons.filter(p => p != data.remPersName)
+        if (state.checks[i].products[data.prodID].eatPersons.filter(p => p == data.remPersId).length != 0){
+          state.checks[i].products[data.prodID].eatPersons = state.checks[i].products[data.prodID].eatPersons.filter(p => p != data.remPersId)
         }
       }
     },
