@@ -9,7 +9,7 @@
           <v-select
             :items="persons()"
             v-model="persFromName"
-            @update:modelValue="null"
+            @update:modelValue="persFromObj = this.$store.getters.getPersonByName(persFromName)"
             label= "Выберите человека"
           ></v-select>
           <v-table>
@@ -19,10 +19,10 @@
                 <th>Сколько</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody v-if="persFromObj != null">
               <tr v-for="(pMR, index) in getCurrMoneyRelat()" :key="index">
-                <td v-if="radios == 1">{{ pMR.nameTo }}</td>
-                <td v-if="radios == 2">{{ pMR.nameFrom }}</td>
+                <td v-if="radios == 1">{{  getPersNameById(pMR.nameTo) }}</td>
+                <td v-if="radios == 2">{{ getPersNameById(pMR.nameFrom) }}</td>
                 <td>{{ pMR.money }}</td>
               </tr>
             </tbody>
@@ -39,6 +39,7 @@
     data() {
       return {
         persFromName: "",
+        persFromObj : null,
         radios: 0,
         checkboxLbl: "",
         tableLbl: ""
@@ -69,13 +70,18 @@
         return eArr
       },
 
+      getPersNameById(id){
+        var person = this.$store.getters.getPersonById(id);
+        return person.name
+      },
+
      getNRepMoneyRelat(){
       var persAdr = this.getPersWithReceipts();
       var allPers = this.$store.getters.PERSONS;
       var persLen = 0;
       var res = [];
       for (var i in persAdr){
-        var currReceipt = this.$store.getters.getCheckByName(persAdr[i]);
+        var currReceipt = this.$store.getters.getCheckByName(persAdr[i].id);
         var currProducts = currReceipt.products
         for (var a in allPers){
           var sum = 0;
@@ -85,8 +91,8 @@
               sum += currProducts[cP].price / persLen;
             }
           }
-          if (sum != 0 && allPers[a].name != persAdr[i]){
-            res.push({nameFrom : allPers[a].name, nameTo: persAdr[i], money: Math.ceil(sum)})
+          if (sum != 0 && allPers[a].name != persAdr[i].name){
+            res.push({nameFrom : allPers[a].id, nameTo: persAdr[i].id, money: Math.ceil(sum)})
           }
         }
       }
@@ -103,8 +109,8 @@
       var res = []
       for (var i in objRelat){
         rO = objRelat[i]
-        if (rO.nameFrom == this.persFromName && this.radios == 1) res.push(rO)
-        if (rO.nameTo == this.persFromName && this.radios == 2) res.push(rO)
+        if (rO.nameFrom == this.persFromObj.id && this.radios == 1) res.push(rO)
+        if (rO.nameTo == this.persFromObj.id && this.radios == 2) res.push(rO)
       }
       return res
     },

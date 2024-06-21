@@ -15,7 +15,7 @@ export default createStore({
 
     checks: [
       {
-        person: "Илья Планков",
+        person: 1,
         products: [
           {
             id: 0,
@@ -41,7 +41,7 @@ export default createStore({
       },
 
       {
-        person: "Евгений Белов",
+        person: 5,
         products: [
           {
             id: 0,
@@ -74,7 +74,7 @@ export default createStore({
       },
 
       {
-        person: "Александр Протоиреев",
+        person: 4,
         products: [
           {
             id: 0,
@@ -101,7 +101,8 @@ export default createStore({
     getPersWithRec: (state) => {
       var res = []
       for (var i in state.checks){
-        res.push(state.checks[i].person)
+        var person = state.persons.find(person => person.id === state.checks[i].person)
+        res.push(person)
       }
       return res;
     },
