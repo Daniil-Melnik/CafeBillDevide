@@ -110,6 +110,10 @@ export default createStore({
       return state.persons.find(person => person.name === name);
     },
 
+    getPersonById: (state) => (id) => {
+      return state.persons.find(person => person.id === id);
+    },
+
     getCheckByName: (state) => (person) => {
       return state.checks.find(check => check.person === person);
     },
