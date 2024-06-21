@@ -69,9 +69,7 @@
         return eArr
       },
 
-    
-
-     getAllMoneyRelat(){
+     getNRepMoneyRelat(){
       var persAdr = this.getPersWithReceipts();
       var allPers = this.$store.getters.PERSONS;
       var persLen = 0;
@@ -98,8 +96,9 @@
       return res
      },
 
+
      getCurrMoneyRelat(){
-      var objRelat = this.getAllMoneyRelat();
+      var objRelat = this.getNRepMoneyRelat();
       var rO = null;
       var res = []
       for (var i in objRelat){

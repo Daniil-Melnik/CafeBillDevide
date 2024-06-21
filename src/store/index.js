@@ -87,7 +87,7 @@ export default createStore({
             id: 1,
             prodTitle: "Морс двойной",
             price: 53,
-            eatPersons: ['Иван Семонов', 'Евгений Белов', 'Даниил Мукомол']
+            eatPersons: ['Евгений Белов', 'Даниил Мукомол']
           },
         ]
       }
@@ -119,6 +119,8 @@ export default createStore({
       var product = check.products[prodID]
       return product.eatPersons;
     },
+
+
   },
 
   mutations: {

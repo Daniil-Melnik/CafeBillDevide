@@ -8,7 +8,7 @@
           </tr>
           <tr v-for="p in persons" v-bind:key="p.id">
             <td>{{ p.name }}</td>
-            <td>{{ p.totalMoney }}</td>
+            <td>{{ this.getPersonTotal(p.name) }}</td>
             <td>
               <v-btn @click="updRemove(p.name)">Удалить</v-btn>
             </td>
@@ -32,6 +32,9 @@
       }
     },
     methods: {
+      getPersWithReceipts(){
+        return this.$store.getters.getPersWithRec
+      },
       updRemove(name){
         this.$store.commit('updRemove', {name: name})
       },
@@ -41,7 +44,25 @@
       },
       controlText(str){
         this.personInput = str;
-      }
+      },
+
+      getPersonTotal(name){
+        var persWithReceipt = this.getPersWithReceipts();
+        var reSum = 0
+        for (var i in persWithReceipt){
+          var pWR = persWithReceipt[i]
+          var currReceipt = this.$store.getters.getCheckByName(pWR);
+          for (var p in currReceipt.products){
+            var currProd = currReceipt.products[p]
+            if (currProd.eatPersons.filter((cP) => cP == name).length != 0){
+              var persLen = currProd.eatPersons.length
+              reSum += Math.ceil(currProd.price / persLen)
+            }
+          }
+        }
+        console.log(name + " " + reSum)
+        return reSum;
+      },
     }
     
   };
