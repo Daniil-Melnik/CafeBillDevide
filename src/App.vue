@@ -58,11 +58,6 @@ export default {
         id: 2,
         name: 'Распределение',
         url: '/lsRelat'
-      },
-      {
-        id: 3,
-        name: 'Помощь',
-        url: '#'
       }
     ]
   })
