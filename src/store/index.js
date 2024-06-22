@@ -190,7 +190,7 @@ export default createStore({
     remProdFromCheck(state, data){
       var i = 0;
       var j =0;
-      while ((state.checks[i].person != data.checkName) && (i < state.checks.length)){
+      while ((state.checks[i].person != data.checkName) && (i < state.checks.length - 1)){
         i++;
       }
 

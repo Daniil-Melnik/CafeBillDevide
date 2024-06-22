@@ -57,7 +57,7 @@
               @update:modelValue="console.log(this.selectedPersons)"
               label="Select an item"
             ></v-select>
-            <v-btn @click="addEatenPerson(checkPersName, p.id, selectedPersons[p.id])">Добавить</v-btn>
+            <v-btn @click="addEatenPerson(currPerson.id, p.id, selectedPersons[p.id])">Добавить</v-btn>
           </td>
           <td><v-btn @click="remProd(p.id)">Удалить</v-btn></td>
         </tr>
@@ -150,26 +150,19 @@
 
       notEatPersons(prodID){
         var eatPersons = this.$store.getters.getCheckProductById(this.currPerson.id, prodID);
-        console.log('=====')
-        // console.log(eatPersons)
         var allPersons = this.personsId();
-        // console.log(allPersons)
-
         var notEatPersId = allPersons.filter((el) => !eatPersons.includes(el))
-        console.log(notEatPersId)
         var notEatPers = []
         for (var i in notEatPersId){
           var newPers = this.$store.getters.getPersonById(notEatPersId[i])
           notEatPers.push(newPers.name)
         }
-        // console.log(notEatPers)
         return notEatPers
       },
 
       onItemChange(value) {
         this.currPerson = this.$store.getters.getPersonByName(value)
         this.currCheck = this.$store.getters.getCheckByName(this.currPerson.id)
-        // console.log('Selected item:', value);
       },
 
       addEatenPerson(checkPersId, prodID, addPersName){
@@ -187,12 +180,11 @@
         
         var newID = prodLen != 0 ? check.products[prodLen - 1].id + 1 : 0
         this.$store.commit('addProdToCheck', {newID: newID, checkName: this.checkPersName, prodTitle : this.newProdTitle, price: this.newProdPrice})
-        // console.log(this.newProdTitle + " " + this.newProdPrice)
       },
 
       remProd(id){
-        this.$store.commit('remProdFromCheck', {checkName: this.checkPersName, remProdID : id})
-        this.currCheck = this.$store.getters.getCheckByName(this.checkPersName)
+        this.$store.commit('remProdFromCheck', {checkName: this.currPerson.id, remProdID : id})
+        this.currCheck = this.$store.getters.getCheckByName(this.currPerson.id)
         var newLen = this.currCheck.products.length;
         this.testTxt = this.testTxt.slice(0, newLen);
         this.prodTitles = this.prodTitles.slice(0, newLen)
@@ -200,7 +192,6 @@
 
       setNewPrice(id){
         this.$store.commit('setNewPrice', {checkName: this.checkPersName, setProdID : id, newPrice : this.testTxt[id]})
-        // console.log(this.checkPersName + " " + id + " " + this.testTxt[id])
       },
 
       setNewTitle(id){
