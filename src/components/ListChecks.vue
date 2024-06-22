@@ -203,8 +203,8 @@
       },
 
       addNewCheck(){
-        this.$store.commit('addNewCheck', {checkName: this.checkPersName})
-        this.currCheck = this.$store.getters.getCheckByName(this.checkPersName)
+        this.$store.commit('addNewCheck', {checkPersId: this.currPerson.id})
+        this.currCheck = this.$store.getters.getCheckByName(this.currPerson.id)
       },
 
       getCheckSum(){

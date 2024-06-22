@@ -227,7 +227,7 @@ export default createStore({
 
     addNewCheck(state, data){
       state.checks.push({
-            person: data.checkName,
+            person: data.checkPersId,
             products: []
           })
     },
