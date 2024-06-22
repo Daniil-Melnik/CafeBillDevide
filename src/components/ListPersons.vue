@@ -1,5 +1,8 @@
 <template>
     <v-container>
+      <InpLbl :maintext = personsName[0]
+              :index = 0
+              @senddata = "receiveData"></InpLbl>
         <v-table>
           <tr>
             <th>Имя</th>
@@ -29,6 +32,7 @@
     </v-container>
   </template>
   <script>
+  import InpLbl from './InpLbl.vue';
   export default {
     name: 'ListPersons',
     computed: {
@@ -92,6 +96,14 @@
         }
         return reSum;
       },
+
+      receiveData(ist, s){ // ~ this.indtxt , this.isContact, this.text from $emit from sendPack
+					console.log("received: " + ist + " " + s)
+			},
+    },
+
+    components: {
+      InpLbl
     }
     
   };
