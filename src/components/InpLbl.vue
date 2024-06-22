@@ -15,7 +15,7 @@
 
         name: 'InpLbl',
 
-        props: ['maintext', 'index'],
+        props: ['maintext', 'id'],
 
         data(){
 			return {
@@ -31,7 +31,7 @@
         methods: {
 				sendPack(){
           if (this.isEditable){
-            this.$emit('senddata', this.personName, this.index);
+            this.$emit('senddata', this.personName, this.id);
           }
           this.isEditable = !this.isEditable
         }

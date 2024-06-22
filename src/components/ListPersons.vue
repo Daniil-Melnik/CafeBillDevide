@@ -1,26 +1,18 @@
 <template>
     <v-container>
-      <InpLbl :maintext = personsName[0]
-              :index = 0
-              @senddata = "receiveData"></InpLbl>
         <v-table>
           <tr>
             <th>Имя</th>
             <th>Потратил</th>
             <th></th>
           </tr>
-          <tr v-for="(p, index) in persons" v-bind:key="index">
+          <tr v-for="(p) in persons" v-bind:key="p.id">
             <td>
-              <v-text-field
-                v-if="isNameEditable[index]"
-                label="" v-model="personsName[index]"
-                v-on:input="setNewName(p.name, index)"
-                :rules="[rules.required_title]">
-              </v-text-field>
-              <p v-else>{{ personsName[index] }}</p>
-              <v-btn @click="isNameEditable[index] = !isNameEditable[index]">Редактировать</v-btn>
+              <InpLbl :maintext = p.name
+                :id = p.id
+                @senddata = "setNewName">
+              </InpLbl>
             </td>
-
             <td>{{ this.getPersonTotal(p.id) }}</td>
             <td>
               <v-btn @click="updRemove(p.id)">Удалить</v-btn>
@@ -52,12 +44,6 @@
     data() {
       return {
         personInput: "",
-        isNameEditable : [],
-
-        rules: {
-          required: value => !!value || 'Должно быть число',
-          required_title: value => !!value || 'Не может быть пустым',
-        },
       }
     },
     methods: {
@@ -75,8 +61,8 @@
         this.personInput = str;
       },
 
-      setNewName(oldName, index){
-        this.$store.commit('updSetNewName', {newName: this.personsName[index], oldName: oldName})
+      setNewName(newName, id){
+        this.$store.commit('updSetNewName', {newName: newName, id: id})
       },
 
       getPersonTotal(persId){
@@ -96,10 +82,6 @@
         }
         return reSum;
       },
-
-      receiveData(ist, s){ // ~ this.indtxt , this.isContact, this.text from $emit from sendPack
-					console.log("received: " + ist + " " + s)
-			},
     },
 
     components: {

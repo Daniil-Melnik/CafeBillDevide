@@ -234,10 +234,10 @@ export default createStore({
 
     updSetNewName(state, data){
       var i = 0;
-      while (state.persons[i].name != data.oldName && i < state.persons.length){
+      while (state.persons[i].id != data.id && i < state.persons.length){
         i++;
       }
-      if (state.persons[i].name == data.oldName){
+      if (state.persons[i].id == data.id){
         state.persons[i].name = data.newName
       }
     }
