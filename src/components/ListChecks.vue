@@ -46,7 +46,7 @@
               :key="ppIndex"
             >
               <v-list-item-content>
-                <v-list-item-title>{{ getPersonById(pN).name }}<v-btn @click="remEatenPerson(checkPersName, p.id, pN)">Удалить</v-btn></v-list-item-title>
+                <v-list-item-title>{{ getPersonById(pN).name }}<v-btn @click="remEatenPerson(this.currPerson.id, p.id, pN)">Удалить</v-btn></v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </td>
@@ -150,13 +150,19 @@
 
       notEatPersons(prodID){
         var eatPersons = this.$store.getters.getCheckProductById(this.currPerson.id, prodID);
+        console.log('=====')
+        // console.log(eatPersons)
         var allPersons = this.personsId();
+        // console.log(allPersons)
 
         var notEatPersId = allPersons.filter((el) => !eatPersons.includes(el))
+        console.log(notEatPersId)
         var notEatPers = []
         for (var i in notEatPersId){
-          notEatPers.push(this.$store.getters.getPersonById(notEatPers[i]))
+          var newPers = this.$store.getters.getPersonById(notEatPersId[i])
+          notEatPers.push(newPers.name)
         }
+        // console.log(notEatPers)
         return notEatPers
       },
 
@@ -170,8 +176,8 @@
         this.$store.commit('addEatenPerson', {checkName : checkName, prodID : prodID, addPersName : addPersName})
       },
 
-      remEatenPerson(checkName, prodID, remPersId){
-        this.$store.commit('remEatenPerson', {checkName : checkName, prodID : prodID, remPersId : remPersId})
+      remEatenPerson(checkPersId, prodID, remPersId){
+        this.$store.commit('remEatenPerson', {checkName : checkPersId, prodID : prodID, remPersId : remPersId})
         // console.log(checkName + " " + prodID + " " + remPersName)
       },
 
