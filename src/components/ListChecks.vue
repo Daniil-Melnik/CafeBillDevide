@@ -175,11 +175,11 @@
       },
 
       addNewProd(){
-        var check = this.$store.getters.getCheckByName(this.checkPersName)
+        var check = this.$store.getters.getCheckByName(this.currPerson.id)
         var prodLen = check != null ? check.products.length : 0
         
         var newID = prodLen != 0 ? check.products[prodLen - 1].id + 1 : 0
-        this.$store.commit('addProdToCheck', {newID: newID, checkName: this.checkPersName, prodTitle : this.newProdTitle, price: this.newProdPrice})
+        this.$store.commit('addProdToCheck', {newID: newID, checkName: this.currPerson.id, prodTitle : this.newProdTitle, price: this.newProdPrice})
       },
 
       remProd(id){
