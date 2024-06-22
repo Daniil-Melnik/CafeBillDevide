@@ -172,8 +172,8 @@
         // console.log('Selected item:', value);
       },
 
-      addEatenPerson(checkName, prodID, addPersName){
-        this.$store.commit('addEatenPerson', {checkName : checkName, prodID : prodID, addPersName : addPersName})
+      addEatenPerson(checkPersId, prodID, addPersName){
+        this.$store.commit('addEatenPerson', {checkPersId : checkPersId, prodID : prodID, addPersName : addPersName})
       },
 
       remEatenPerson(checkPersId, prodID, remPersId){

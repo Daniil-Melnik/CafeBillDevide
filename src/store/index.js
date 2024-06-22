@@ -150,13 +150,15 @@ export default createStore({
     
     addEatenPerson(state, data){
       var i = 0;
-      while ((state.checks[i].person != data.checkName) && (i < state.checks.length)){
+      console.log(state.checks[0])
+      while ((state.checks[i].person != data.checkPersId) && (i < state.checks.length - 1)){
         i++
       }
 
-      if (state.checks[i].person == data.checkName){
-        if (state.checks[i].products[data.prodID].eatPersons.filter(p => p == data.addPersName).length == 0){
-          state.checks[i].products[data.prodID].eatPersons.push(data.addPersName)
+      if (state.checks[i].person == data.checkPersId){
+        var addPers = state.persons.find(pers => pers.name == data.addPersName)
+        if (state.checks[i].products[data.prodID].eatPersons.filter(p => p == addPers.id).length == 0){
+          state.checks[i].products[data.prodID].eatPersons.push(addPers.id)
         }
       }
     },
