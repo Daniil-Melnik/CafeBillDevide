@@ -132,12 +132,20 @@ export default createStore({
     updAdd(state, data){
       state.persons.push({name : data.name, totalMoney: 0})
     },
+
     updRemove(state, data){
-      var remPersId = state.persons.find(person => person.name === data.name).id;
-      state.persons = state.persons.filter(p => p.name != data.name)
+      var remPersId = data.id;
       for (var rC in state.checks){
-        state.checks[rC].products = state.checks[rC].products.filter((c) => c != remPersId)
+        for (var p in state.checks[rC].products){
+          let newProducts = state.checks[rC].products[p].eatPersons.filter((c) => c != remPersId);
+          state.checks[rC].products[p].eatPersons = newProducts
+        }
       }
+      var newRec = state.checks.filter((ch) => ch.person != remPersId)
+      state.checks = newRec
+
+      var newPersons = state.persons.filter(p => p.id != remPersId)
+      state.persons = newPersons
     },
     
     addEatenPerson(state, data){

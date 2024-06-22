@@ -18,9 +18,9 @@
               <v-btn @click="isNameEditable[index] = !isNameEditable[index]">Редактировать</v-btn>
             </td>
 
-            <td>{{ this.getPersonTotal(personsName[index]) }}</td>
+            <td>{{ this.getPersonTotal(p.id) }}</td>
             <td>
-              <v-btn @click="updRemove(personsName[index])">Удалить</v-btn>
+              <v-btn @click="updRemove(p.id)">Удалить</v-btn>
             </td>
           </tr>
         </v-table>
@@ -60,8 +60,8 @@
       getPersWithReceipts(){
         return this.$store.getters.getPersWithRec
       },
-      updRemove(name){
-        this.$store.commit('updRemove', {name: name})
+      updRemove(id){
+        this.$store.commit('updRemove', {id: id})
       },
       updAdd(){
         // console.log(this.personInput)
@@ -75,10 +75,8 @@
         this.$store.commit('updSetNewName', {newName: this.personsName[index], oldName: oldName})
       },
 
-      getPersonTotal(name){
+      getPersonTotal(persId){
         // console.log(this.getPersWithReceipts())
-        var person = this.$store.getters.getPersonByName(name)
-        var persId = person.id
         var persWithReceipt = this.getPersWithReceipts();
         var reSum = 0
         for (var i in persWithReceipt){
@@ -93,7 +91,7 @@
             }
           }
         }
-        // console.log(name + " " + reSum)
+        // // console.log(name + " " + reSum)
         return reSum;
       },
     }
