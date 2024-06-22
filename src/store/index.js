@@ -130,7 +130,9 @@ export default createStore({
 
   mutations: {
     updAdd(state, data){
-      state.persons.push({name : data.name, totalMoney: 0})
+      var perlLen = state.persons.length
+      var newId = perlLen != 0 ? state.persons[perlLen - 1].id + 1 : 0
+      state.persons.push({id: newId, name : data.name, totalMoney: 0})
     },
 
     updRemove(state, data){
