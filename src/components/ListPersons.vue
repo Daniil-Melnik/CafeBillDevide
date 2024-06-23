@@ -3,12 +3,17 @@
       <PersonTable 
         :persons="persons">
       </PersonTable>
-        <v-text-field label="Имя товарища"  v-on:input="this.personInput = $event.target.value"></v-text-field>
-        <v-btn @click="updAdd(this.personInput)">Добавить</v-btn>
+        <!-- <v-text-field label="Имя товарища"  v-on:input="this.personInput = $event.target.value"></v-text-field>
+        <v-btn @click="updAdd(this.personInput)">Добавить</v-btn> -->
+      <SingleForm
+        :title = title
+        @senddata = "updAdd"
+      ></SingleForm>
     </v-container>
   </template>
   <script>
   import PersonTable from './PersonTable.vue';
+  import SingleForm from './SingleForm.vue'
   export default {
     name: 'ListPersons',
     computed: {
@@ -18,18 +23,18 @@
     },
     data() {
       return {
-        personInput: "",
+        title: "Имя товарища"
       }
     },
     methods: {
-      updAdd(){
-        this.$store.commit('updAdd', {name: this.personInput})
-        console.log(this.$store.getters.PERSONS)
+      updAdd(newPers){
+        this.$store.commit('updAdd', {name: newPers})
       },
     },
 
     components: {
-      PersonTable
+      PersonTable,
+      SingleForm
     }
     
   };
