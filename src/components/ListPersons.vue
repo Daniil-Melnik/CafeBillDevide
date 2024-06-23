@@ -3,10 +3,8 @@
       <PersonTable 
         :persons="persons">
       </PersonTable>
-        <!-- <v-text-field label="Имя товарища"  v-on:input="this.personInput = $event.target.value"></v-text-field>
-        <v-btn @click="updAdd(this.personInput)">Добавить</v-btn> -->
       <SingleForm
-        :title = title
+        title = "Имя товарища"
         @senddata = "updAdd"
       ></SingleForm>
     </v-container>
@@ -23,7 +21,6 @@
     },
     data() {
       return {
-        title: "Имя товарища"
       }
     },
     methods: {
