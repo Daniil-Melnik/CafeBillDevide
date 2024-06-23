@@ -8,61 +8,13 @@
       label="Select an item"
     ></v-select>
     <p v-if="this.currPerson != null">{{this.currPerson.name}} Итог: {{ getCheckSum() }}</p>
-    
-    <v-table v-if="currCheck != null">
-      <thead>
-        <tr>
-          <th>Продукт</th>
-          <th>Цена</th>
-          <th>Ели</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody v-if="this.currCheck != null">
-        <tr v-for="(p) in currCheck.products" :key="p.id">
-          <td>
-            <v-text-field
-              v-if="isTitleEditable[p.id]"
-              label="" v-model="prodTitles[p.id]"
-              v-on:input="setNewTitle(p.id)"
-              :rules="[rules.required_title]">
-            </v-text-field>
-            <p v-else>{{ prodTitles[p.id] }}</p>
-            <v-btn @click="isTitleEditable[p.id] = !isTitleEditable[p.id]">Редактировать</v-btn>
-          </td> <!-- Продолжить добавление редактирования-->
-          <td><v-text-field
-            v-if="isPriceEditable[p.id]"
-            label="" v-model="testTxt[p.id]"
-            v-on:input="setNewPrice(p.id)"
-            :rules="[rules.required]"
-            type="number">
-          </v-text-field>
-          <p v-else>{{p.price}}</p>
-          <v-btn @click="isPriceEditable[p.id] = !isPriceEditable[p.id]">Редактировать</v-btn>
-        </td>
-          <td>
-            <v-list-item
-              v-for="(pN, ppIndex) in p.eatPersons"
-              :key="ppIndex"
-            >
-              <v-list-item-content>
-                <v-list-item-title>{{ getPersonById(pN).name }}<v-btn @click="remEatenPerson(this.currPerson.id, p.id, pN)">Удалить</v-btn></v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </td>
-          <td>
-            <v-select
-              :items="notEatPersons(p.id)"
-              v-model="selectedPersons[p.id]"
-              @update:modelValue="console.log(this.selectedPersons)"
-              label="Select an item"
-            ></v-select>
-            <v-btn @click="addEatenPerson(currPerson.id, p.id, selectedPersons[p.id])">Добавить</v-btn>
-          </td>
-          <td><v-btn @click="remProd(p.id)">Удалить</v-btn></td>
-        </tr>
-      </tbody>
-    </v-table>
+    <ReceiptTable
+      v-if = "currCheck != null"
+      :currCheck = "currCheck"
+      :currPerson = "currPerson"
+      @remProdSend = "remProdRecv"
+    >
+    </ReceiptTable>
     <div v-if="this.currCheck == null && this.currPerson != null">
       <h3>Добавить?</h3>
       <v-btn @click="addNewCheck()">Добавить</v-btn>
@@ -89,6 +41,7 @@
   </v-container>
 </template>
   <script>
+  import ReceiptTable from './ReceiptTable.vue'
   export default {
     name: 'ListChecks',
     computed: {
@@ -182,12 +135,12 @@
         this.$store.commit('addProdToCheck', {newID: newID, checkName: this.currPerson.id, prodTitle : this.newProdTitle, price: this.newProdPrice})
       },
 
-      remProd(id){
+      remProdRecv(id){
         this.$store.commit('remProdFromCheck', {checkName: this.currPerson.id, remProdID : id})
         this.currCheck = this.$store.getters.getCheckByName(this.currPerson.id)
-        var newLen = this.currCheck.products.length;
-        this.testTxt = this.testTxt.slice(0, newLen);
-        this.prodTitles = this.prodTitles.slice(0, newLen)
+        // var newLen = this.currCheck.products.length;
+        // this.testTxt = this.testTxt.slice(0, newLen);
+        // this.prodTitles = this.prodTitles.slice(0, newLen)
       },
 
       setNewPrice(id){
@@ -222,5 +175,9 @@
         return this.$store.getters.getPersonById(id)
       }
     },
+
+    components: {
+      ReceiptTable
+    }
   }
   </script>
