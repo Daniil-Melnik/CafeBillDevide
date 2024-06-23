@@ -1,45 +1,20 @@
 <template>
     <v-container>
-        <v-table>
-          <tr>
-            <th>Имя</th>
-            <th>Потратил</th>
-            <th></th>
-          </tr>
-          <tr v-for="(p) in persons" v-bind:key="p.id">
-            <td>
-              <InpLbl :maintext = p.name
-                :id = p.id
-                @senddata = "setNewName">
-              </InpLbl>
-            </td>
-            <td>{{ this.getPersonTotal(p.id) }}</td>
-            <td>
-              <v-btn @click="updRemove(p.id)">Удалить</v-btn>
-            </td>
-          </tr>
-        </v-table>
+      <PersonTable 
+        :persons="persons">
+      </PersonTable>
         <v-text-field label="Имя товарища"  v-on:input="this.personInput = $event.target.value"></v-text-field>
         <v-btn @click="updAdd(this.personInput)">Добавить</v-btn>
     </v-container>
   </template>
   <script>
-  import InpLbl from './InpLbl.vue';
+  import PersonTable from './PersonTable.vue';
   export default {
     name: 'ListPersons',
     computed: {
       persons() {
         return this.$store.getters.PERSONS;
       },
-
-      personsName(){
-        var persons = this.$store.getters.PERSONS;
-        var res = []
-        for (var p in persons){
-          res.push(persons[p].name)
-        }
-        return res
-      }
     },
     data() {
       return {
@@ -47,45 +22,14 @@
       }
     },
     methods: {
-      getPersWithReceipts(){
-        return this.$store.getters.getPersWithRec
-      },
-      updRemove(id){
-        this.$store.commit('updRemove', {id: id})
-      },
       updAdd(){
         this.$store.commit('updAdd', {name: this.personInput})
         console.log(this.$store.getters.PERSONS)
       },
-      controlText(str){
-        this.personInput = str;
-      },
-
-      setNewName(newName, id){
-        this.$store.commit('updSetNewName', {newName: newName, id: id})
-      },
-
-      getPersonTotal(persId){
-        var persWithReceipt = this.getPersWithReceipts();
-        var reSum = 0
-        for (var i in persWithReceipt){
-          var pWR = persWithReceipt[i].id
-          var currReceipt = this.$store.getters.getCheckByName(pWR);
-
-          for (var p in currReceipt.products){
-            var currProd = currReceipt.products[p]
-            if (currProd.eatPersons.filter((cP) => cP == persId).length != 0){
-              var persLen = currProd.eatPersons.length
-              reSum += Math.ceil(currProd.price / persLen)
-            }
-          }
-        }
-        return reSum;
-      },
     },
 
     components: {
-      InpLbl
+      PersonTable
     }
     
   };
