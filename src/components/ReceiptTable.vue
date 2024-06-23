@@ -40,13 +40,12 @@
           </RecTableList>
           </td>
           <td>
-            <v-select
-              :items="notEatPersons(p.id)"
-              v-model="selectedPersons[p.id]"
-              @update:modelValue="console.log(this.selectedPersons)"
-              label="Select an item"
-            ></v-select>
-            <v-btn @click="addEatenPerson(currPerson.id, p.id, selectedPersons[p.id])">Добавить</v-btn>
+            <AddCombo
+              :comboItems= "notEatPersons(p.id)"
+              comboLabel= "Выберите человека"
+              :addId= "p.id"
+              @senddata= "addEatenPersonRecv"
+            ></AddCombo>
           </td>
           <td>
             <v-btn @click="remProdSend(p.id)">Удалить</v-btn>
@@ -60,6 +59,7 @@
 <script>
   import InpLbl from './InpLbl.vue'
   import RecTableList from './RecTableList.vue'
+  import AddCombo from './AddCombo.vue'
     export default {
       name: 'ReceiptTable',
 
@@ -128,11 +128,16 @@
         setNewPriceRecv(newPrice, id){
           this.$store.commit('setNewPrice', {checkName: this.currPerson.id, setProdID : id, newPrice : Number(newPrice)})
         },
+
+        addEatenPersonRecv(prodID, addPersName){
+          this.$store.commit('addEatenPerson', {checkPersId : this.currPerson.id, prodID : prodID, addPersName : addPersName})
+        },
       },
 
       components: {
         InpLbl,
-        RecTableList
+        RecTableList,
+        AddCombo
       }
     }
 </script>
