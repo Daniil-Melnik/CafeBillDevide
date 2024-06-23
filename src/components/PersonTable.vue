@@ -11,6 +11,7 @@
             <InpLbl :maintext = p.name
               :id = p.id
               :rule = required_title
+              type = "text"
               @senddata = "setNewName">
             </InpLbl>
           </td>

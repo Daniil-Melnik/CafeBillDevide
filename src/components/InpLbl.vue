@@ -3,7 +3,8 @@
       <v-text-field
         v-if="isEditable"
         label="" v-model="personName"
-        :rules="[rules.required_title]">
+        :rules = "[rules.required_title]"
+        :type = "type">
       </v-text-field>
       <p v-else>{{ personName }}</p>
       <v-btn @click="sendPack">Редактировать</v-btn>
@@ -15,7 +16,7 @@
 
         name: 'InpLbl',
 
-        props: ['maintext', 'id', 'rule'],
+        props: ['maintext', 'id', 'rule', 'type'],
 
         data(){
 			return {

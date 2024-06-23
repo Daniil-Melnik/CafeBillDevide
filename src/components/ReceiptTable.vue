@@ -12,17 +12,17 @@
       <tbody>
         <tr v-for="(p) in currCheck.products" :key="p.id">
           <td>
-            <v-text-field
-              v-if="isTitleEditable[p.id]"
-              label="" v-model="prodTitles[p.id]"
-              v-on:input="setNewTitle(p.id)"
-              :rules="[rules.required_title]">
-            </v-text-field>
-            <p v-else>{{ prodTitles[p.id] }}</p>
-            <v-btn @click="isTitleEditable[p.id] = !isTitleEditable[p.id]">Редактировать</v-btn>
+            <InpLbl
+              :maintext = p.prodTitle
+              :id = p.id
+              :rule = required_title
+              type = "text"
+              @senddata = "setNewTitleRecv"
+            >
+            </InpLbl>
           </td>
           <td>
-            <v-text-field
+            <!-- <v-text-field
               v-if="isPriceEditable[p.id]"
               label="" v-model="testTxt[p.id]"
               v-on:input="setNewPrice(p.id)"
@@ -30,7 +30,15 @@
               type="number">
             </v-text-field>
             <p v-else>{{p.price}}</p>
-            <v-btn @click="isPriceEditable[p.id] = !isPriceEditable[p.id]">Редактировать</v-btn>
+            <v-btn @click="isPriceEditable[p.id] = !isPriceEditable[p.id]">Редактировать</v-btn> -->
+            <InpLbl
+              :maintext = p.price
+              :id = p.id
+              :rule = required
+              type = "number"
+              @senddata = "setNewPriceRecv"
+            >
+            </InpLbl>
           </td>
           <td>
             <v-list-item
@@ -61,6 +69,7 @@
 </template>
 
 <script>
+  import InpLbl from './InpLbl.vue'
     export default {
       name: 'ReceiptTable',
 
@@ -132,6 +141,18 @@
           this.testTxt = this.testTxt.slice(0, newLen);
           this.prodTitles = this.prodTitles.slice(0, newLen)
         },
+
+        setNewTitleRecv(newTitle, id){
+          this.$store.commit('setNewProdTitle', {checkName: this.currPerson.id, setProdID : id, newProdTitle : newTitle})
+        },
+
+        setNewPriceRecv(newPrice, id){
+          this.$store.commit('setNewPrice', {checkName: this.currPerson.id, setProdID : id, newPrice : Number(newPrice)})
+        },
       },
+
+      components: {
+        InpLbl,
+      }
     }
 </script>
