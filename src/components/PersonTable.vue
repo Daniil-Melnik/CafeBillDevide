@@ -10,6 +10,7 @@
           <td>
             <InpLbl :maintext = p.name
               :id = p.id
+              :rule = required_title
               @senddata = "setNewName">
             </InpLbl>
           </td>
@@ -31,7 +32,7 @@
 
       data(){
         return {
-
+          required_title: value => !!value || 'Не может быть пустым',
         }
       },
       methods: {

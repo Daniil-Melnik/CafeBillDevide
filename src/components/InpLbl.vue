@@ -15,7 +15,7 @@
 
         name: 'InpLbl',
 
-        props: ['maintext', 'id'],
+        props: ['maintext', 'id', 'rule'],
 
         data(){
 			return {
@@ -23,8 +23,7 @@
         personName: this.maintext,
 
         rules: {
-          required: value => !!value || 'Должно быть число',
-          required_title: value => !!value || 'Не может быть пустым',
+          required_title: this.rule,
         },
 			}
 		},
