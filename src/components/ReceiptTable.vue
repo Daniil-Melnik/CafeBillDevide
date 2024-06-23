@@ -22,15 +22,6 @@
             </InpLbl>
           </td>
           <td>
-            <!-- <v-text-field
-              v-if="isPriceEditable[p.id]"
-              label="" v-model="testTxt[p.id]"
-              v-on:input="setNewPrice(p.id)"
-              :rules="[rules.required]"
-              type="number">
-            </v-text-field>
-            <p v-else>{{p.price}}</p>
-            <v-btn @click="isPriceEditable[p.id] = !isPriceEditable[p.id]">Редактировать</v-btn> -->
             <InpLbl
               :maintext = p.price
               :id = p.id
@@ -41,14 +32,12 @@
             </InpLbl>
           </td>
           <td>
-            <v-list-item
-              v-for="(pN, ppIndex) in p.eatPersons"
-              :key="ppIndex"
+            <RecTableList
+              :eatPersons = "p.eatPersons"
+              :currPerson = "this.currPerson"
+              :prodId = "p.id"
             >
-              <v-list-item-content>
-                <v-list-item-title>{{ getPersonById(pN).name }}<v-btn @click="remEatenPerson(this.currPerson.id, p.id, pN)">Удалить</v-btn></v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
+          </RecTableList>
           </td>
           <td>
             <v-select
@@ -70,22 +59,13 @@
 
 <script>
   import InpLbl from './InpLbl.vue'
+  import RecTableList from './RecTableList.vue'
     export default {
       name: 'ReceiptTable',
 
       props: ['currCheck', 'currPerson'],
 
       computed: {
-        prodTitles(){
-          var arr = []
-          if (this.currCheck != null){
-            for (var i = 0; i < this.currCheck.products.length; i++){
-              arr[i] = this.currCheck.products[i].prodTitle
-            }
-          }
-          return arr
-        },
-
         testTxt() {
           var arr = []
           if (this.currCheck != null){
@@ -139,7 +119,6 @@
 
           var newLen = this.currCheck.products.length;
           this.testTxt = this.testTxt.slice(0, newLen);
-          this.prodTitles = this.prodTitles.slice(0, newLen)
         },
 
         setNewTitleRecv(newTitle, id){
@@ -153,6 +132,7 @@
 
       components: {
         InpLbl,
+        RecTableList
       }
     }
 </script>
