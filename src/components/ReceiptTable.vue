@@ -65,18 +65,6 @@
 
       props: ['currCheck', 'currPerson'],
 
-      computed: {
-        testTxt() {
-          var arr = []
-          if (this.currCheck != null){
-            for (var i = 0; i < this.currCheck.products.length; i++){
-              arr[i] = this.currCheck.products[i].price
-            }
-          }
-          return arr
-        },
-      },
-
       data(){
         return {
           isTitleEditable: [],
@@ -116,9 +104,6 @@
 
         remProdSend(id){
           this.$emit('remProdSend', id);
-
-          var newLen = this.currCheck.products.length;
-          this.testTxt = this.testTxt.slice(0, newLen);
         },
 
         setNewTitleRecv(newTitle, id){
