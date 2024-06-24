@@ -1,11 +1,10 @@
 <template>
     <v-container>
         <h2>Распределение {{checkboxLbl }}</h2>
-        <!-- выделить в коммпонент -->
-        <v-radio-group v-model="radios" @update:modelValue="updLabels"> 
-          <v-radio label="Кто - кому" value = 1></v-radio>
-          <v-radio label="Кому - кто" value= 2 ></v-radio>
-        </v-radio-group>
+        <RadioSelect
+          @senddata= "updLabelsRecv"
+        >
+        </RadioSelect>
         <div v-if="radios != 0">
           <v-select
             :items="persons()"
@@ -24,6 +23,7 @@
   </template>
   <script>
   import RelatTable from './RelatTable.vue'
+  import RadioSelect from './RadioSelect.vue'
   export default {
     name: 'ListRelat',
     computed: {
@@ -39,15 +39,10 @@
       }
     },
     methods: {
-     updLabels(){
-      if (this.radios == 1){
-        this.checkboxLbl = ": Кто должен"
-        this.tableLbl = "Кому"
-      }
-      if (this.radios == 2){
-        this.checkboxLbl = ": Кому должны"
-        this.tableLbl = "Кто"
-      }
+     updLabelsRecv(radios){
+      this.radios = radios
+      this.checkboxLbl = (radios == 1) ? ": Кто должен" : ": Кому должны"
+      this.tableLbl = (radios == 1) ? "Кому" : "Кто"
      },
 
      persons(){
@@ -61,7 +56,8 @@
 
     },
     components: {
-      RelatTable
+      RelatTable,
+      RadioSelect
     }
   };
   </script>
