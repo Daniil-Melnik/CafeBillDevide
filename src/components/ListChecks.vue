@@ -138,9 +138,6 @@
       remProdRecv(id){
         this.$store.commit('remProdFromCheck', {checkName: this.currPerson.id, remProdID : id})
         this.currCheck = this.$store.getters.getCheckByName(this.currPerson.id)
-        // var newLen = this.currCheck.products.length;
-        // this.testTxt = this.testTxt.slice(0, newLen);
-        // this.prodTitles = this.prodTitles.slice(0, newLen)
       },
 
       setNewPrice(id){
