@@ -38,19 +38,6 @@
         }
       },
       methods: {
-        personsId(){
-          var arr = this.$store.getters.PERSONS
-          var eArr = []
-          for (var i = 0; i < arr.length; i++){
-            eArr.push(arr[i].id)
-          }
-          return eArr
-        },
-
-        getPersonById(id){
-          return this.$store.getters.getPersonById(id)
-        },
-
         remProdTranciv(id){
           this.$emit('remProdSend', id);
         },

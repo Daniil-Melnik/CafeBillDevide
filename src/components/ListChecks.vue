@@ -83,15 +83,6 @@
     }),
 
     methods: {
-      personsId(){
-        var arr = this.$store.getters.PERSONS
-        var eArr = []
-        for (var i = 0; i < arr.length; i++){
-          eArr.push(arr[i].id)
-        }
-        return eArr
-      },
-
       personsName(){
         var arr = this.$store.getters.PERSONS
         var eArr = []
@@ -101,30 +92,9 @@
         return eArr
       },
 
-      notEatPersons(prodID){
-        var eatPersons = this.$store.getters.getCheckProductById(this.currPerson.id, prodID);
-        var allPersons = this.personsId();
-        var notEatPersId = allPersons.filter((el) => !eatPersons.includes(el))
-        var notEatPers = []
-        for (var i in notEatPersId){
-          var newPers = this.$store.getters.getPersonById(notEatPersId[i])
-          notEatPers.push(newPers.name)
-        }
-        return notEatPers
-      },
-
       onItemChange(value) {
         this.currPerson = this.$store.getters.getPersonByName(value)
         this.currCheck = this.$store.getters.getCheckByName(this.currPerson.id)
-      },
-
-      addEatenPerson(checkPersId, prodID, addPersName){
-        this.$store.commit('addEatenPerson', {checkPersId : checkPersId, prodID : prodID, addPersName : addPersName})
-      },
-
-      remEatenPerson(checkPersId, prodID, remPersId){
-        this.$store.commit('remEatenPerson', {checkName : checkPersId, prodID : prodID, remPersId : remPersId})
-        // console.log(checkName + " " + prodID + " " + remPersName)
       },
 
       addNewProd(){
@@ -138,18 +108,6 @@
       remProdRecv(id){
         this.$store.commit('remProdFromCheck', {checkName: this.currPerson.id, remProdID : id})
         this.currCheck = this.$store.getters.getCheckByName(this.currPerson.id)
-      },
-
-      setNewPrice(id){
-        this.$store.commit('setNewPrice', {checkName: this.checkPersName, setProdID : id, newPrice : this.testTxt[id]})
-      },
-
-      setNewTitle(id){
-        this.$store.commit('setNewProdTitle', {checkName: this.checkPersName, setProdID : id, newProdTitle : this.prodTitles[id]})
-      },
-
-      onChange(event) {
-          console.log(event.target.value)
       },
 
       addNewCheck(){
