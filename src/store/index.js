@@ -74,7 +74,7 @@ export default createStore({
       },
 
       {
-        person: 5,
+        person: 7,
         products: [
           {
             id: 0,
