@@ -7,7 +7,11 @@
       @update:modelValue="onItemChange"
       label="Select an item"
     ></v-select>
-    <p v-if="this.currPerson != null">{{this.currPerson.name}} Итог: {{ getCheckSum() }}</p>
+    <ReceiptHead
+      :currPerson= "currPerson"
+      :currCheck= "currCheck"
+      @senddata= "addNewCheckRecv"
+    ></ReceiptHead>
     <ReceiptTable
       v-if = "currCheck != null"
       :currCheck = "currCheck"
@@ -15,10 +19,6 @@
       @remProdSend = "remProdRecv"
     >
     </ReceiptTable>
-    <div v-if="this.currCheck == null && this.currPerson != null">
-      <h3>Добавить?</h3>
-      <v-btn @click="addNewCheck()">Добавить</v-btn>
-    </div>
     <AddProdForm
       v-if="currCheck != null"
       @senddata = "addNewProdRecv"
@@ -29,6 +29,7 @@
   <script>
   import ReceiptTable from './ReceiptTable.vue'
   import AddProdForm from './AddProdForm.vue'
+  import ReceiptHead from './ReceiptHead.vue'
   export default {
     name: 'ListChecks',
     computed: {
@@ -86,26 +87,17 @@
         this.currCheck = this.$store.getters.getCheckByName(this.currPerson.id)
       },
 
-      addNewCheck(){
+      addNewCheckRecv(){
         this.$store.commit('addNewCheck', {checkPersId: this.currPerson.id})
         this.currCheck = this.$store.getters.getCheckByName(this.currPerson.id)
       },
 
-      getCheckSum(){
-        var sum = 0
-        if (this.currCheck != null){
-          var prodList = this.currCheck.products
-          for (var p in this.currCheck.products){
-            sum += prodList[p].price;
-          }
-        }
-        return sum;
-      },
     },
 
     components: {
       ReceiptTable,
-      AddProdForm
+      AddProdForm,
+      ReceiptHead
     }
   }
   </script>
