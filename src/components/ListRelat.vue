@@ -1,7 +1,8 @@
 <template>
     <v-container>
         <h2>Распределение {{checkboxLbl }}</h2>
-        <v-radio-group v-model="radios" @update:modelValue="updLabels">
+        <!-- выделить в коммпонент -->
+        <v-radio-group v-model="radios" @update:modelValue="updLabels"> 
           <v-radio label="Кто - кому" value = 1></v-radio>
           <v-radio label="Кому - кто" value= 2 ></v-radio>
         </v-radio-group>
@@ -12,6 +13,7 @@
             @update:modelValue="persFromObj = this.$store.getters.getPersonByName(persFromName)"
             label= "Выберите человека"
           ></v-select>
+          <!-- выделить в компонент -->
           <v-table>
             <thead>
               <tr>
