@@ -21,21 +21,21 @@ export default createStore({
             id: 0,
             prodTitle: "Молоко",
             price: 300,
-            eatPersons: [4]
+            eatPersons: [5, 3]
           },
 
           {
             id: 1,
             prodTitle: "Вода",
             price: 53,
-            eatPersons: [4]
+            eatPersons: [2, 1]
           },
 
           {
             id: 2,
             prodTitle: "Напиток ягодный",
             price: 66,
-            eatPersons: [4]
+            eatPersons: [1, 4]
           },
         ]
       },
@@ -47,47 +47,47 @@ export default createStore({
             id: 0,
             prodTitle: "Картошка",
             price: 355,
-            eatPersons: [4]
+            eatPersons: [6, 1]
           },
 
           {
             id: 1,
             prodTitle: "Морковка",
             price: 53,
-            eatPersons: [4]
+            eatPersons: [4, 8]
           },
 
           {
             id: 2,
             prodTitle: "Селёдка",
             price: 66,
-            eatPersons: [4]
+            eatPersons: [7, 4]
           },
 
           {
             id: 3,
             prodTitle: "Бифштекс",
             price: 66,
-            eatPersons: [4]
+            eatPersons: [8]
           },
         ]
       },
 
       {
-        person: 7,
+        person: 4,
         products: [
           {
             id: 0,
             prodTitle: "Двойной циплёнок",
             price: 355,
-            eatPersons: [4]
+            eatPersons: [1, 3]
           },
 
           {
             id: 1,
             prodTitle: "Морс двойной",
             price: 53,
-            eatPersons: [4]
+            eatPersons: [5, 8]
           },
         ]
       }
