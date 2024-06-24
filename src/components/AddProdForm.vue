@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="add-prod-form">
     <v-form fast-fail @submit.prevent>
       <v-text-field
         v-model="newProdTitle"
@@ -12,8 +12,8 @@
         label="Цена"
         :hideInput="false"
         :inset="false"
-        min = 0
-        max = 50000
+        min="0"
+        max="50000"
         v-model="newProdPrice"
       ></v-number-input>
       <v-btn class="mt-2" @click="sendPack()" block>Добавить</v-btn>
@@ -22,22 +22,29 @@
 </template>
 
 <script>
-  export default {
-
-    name: 'AddProdForm',
-
-    props: [],
-
-    data(){
-      return {
-        newProdTitle: "",
-        newProdPrice: 0
-      }
-    },
-    methods: {
-			sendPack(){
-        this.$emit('senddata', this.newProdPrice, this.newProdTitle);
-      },
-		}      
+export default {
+  name: 'AddProdForm',
+  props: [],
+  data() {
+    return {
+      newProdTitle: "",
+      newProdPrice: 0
+    };
+  },
+  methods: {
+    sendPack() {
+      this.$emit('senddata', this.newProdPrice, this.newProdTitle);
+    }
   }
+};
 </script>
+
+<style lang="scss">
+@import './variables.scss';
+
+.add-prod-form {
+  display: flex;
+  flex-direction: column;
+  gap: $margin;
+}
+</style>

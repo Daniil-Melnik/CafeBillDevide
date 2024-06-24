@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="receipt-head">
     <p v-if="this.currPerson != null">{{this.currPerson.name}} Итог: {{ getCheckSum() }}</p>
     <div v-if="this.currCheck == null && this.currPerson != null">
       <h3>Добавить?</h3>
@@ -9,41 +9,35 @@
 </template>
 
 <script>
-  export default {
-
-    name: 'ReceiptHead',
-
-    props: ['currPerson', 'currCheck'],
-
-    data(){
-      return {
-        
-      }
+export default {
+  name: 'ReceiptHead',
+  props: ['currPerson', 'currCheck'],
+  methods: {
+    sendPack() {
+      this.$emit('senddata');
     },
-    methods: {
-			personsName(){
-        var arr = this.$store.getters.PERSONS
-        var eArr = []
-        for (var i = 0; i < arr.length; i++){
-          eArr.push(arr[i].name)
+    getCheckSum() {
+      var sum = 0;
+      if (this.currCheck != null) {
+        var prodList = this.currCheck.products;
+        for (var p in this.currCheck.products) {
+          sum += prodList[p].price;
         }
-        return eArr
-      },
-
-      sendPack(){
-        this.$emit('senddata');
-      },
-      
-      getCheckSum(){
-        var sum = 0
-        if (this.currCheck != null){
-          var prodList = this.currCheck.products
-          for (var p in this.currCheck.products){
-            sum += prodList[p].price;
-          }
-        }
-        return sum;
-      },
-		}      
+      }
+      return sum;
+    }
   }
+};
 </script>
+
+<style lang="scss">
+@import './variables.scss';
+
+.receipt-head {
+  padding: $padding;
+  background-color: $secondary-color;
+  color: $text-color;
+  border-radius: $border-radius;
+  margin-bottom: $margin;
+}
+</style>

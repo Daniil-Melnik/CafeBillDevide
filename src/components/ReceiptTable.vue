@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="receipt-table">
     <v-table v-if="currCheck != null">
       <thead>
         <tr>
@@ -11,40 +11,73 @@
         </tr>
       </thead>
       <tbody>
-          <TableRow
-            v-for="(p) in currCheck.products"
-            :key="p.id"
-            :p = p
-            :currPerson = currPerson
-            @remProdSend = remProdTranciv
-          ></TableRow>
+        <TableRow
+          v-for="(p) in currCheck.products"
+          :key="p.id"
+          :p="p"
+          :currPerson="currPerson"
+          @remProdSend="remProdTranciv"
+        ></TableRow>
       </tbody>
     </v-table>
   </div>
 </template>
 
 <script>
-  import TableRow from './TableRow.vue'
-    export default {
-      name: 'ReceiptTable',
+import TableRow from './TableRow.vue'
 
-      props: ['currCheck', 'currPerson'],
+export default {
+  name: 'ReceiptTable',
 
-      data(){
-        return {
-          isTitleEditable: [],
-          isPriceEditable: [],
-          selectedPersons: [],
-        }
-      },
-      methods: {
-        remProdTranciv(id){
-          this.$emit('remProdSend', id);
-        },
-      },
+  props: ['currCheck', 'currPerson'],
 
-      components: {
-        TableRow,
+  data() {
+    return {
+      isTitleEditable: [],
+      isPriceEditable: [],
+      selectedPersons: [],
+    }
+  },
+  methods: {
+    remProdTranciv(id) {
+      this.$emit('remProdSend', id);
+    },
+  },
+
+  components: {
+    TableRow,
+  }
+}
+</script>
+
+<style lang="scss">
+@import './variables.scss';
+
+.receipt-table {
+  v-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    thead {
+      background-color: $table-header-bg;
+      th {
+        padding: $padding;
+        font-size: $font-size;
       }
     }
-</script>
+
+    tbody {
+      tr {
+        background-color: $table-row-bg;
+        &:hover {
+          background-color: $table-row-hover-bg;
+        }
+        td {
+          padding: $padding;
+          font-size: $font-size;
+        }
+      }
+    }
+  }
+}
+</style>
