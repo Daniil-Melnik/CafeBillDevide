@@ -19,29 +19,16 @@
       <h3>Добавить?</h3>
       <v-btn @click="addNewCheck()">Добавить</v-btn>
     </div>
- 
-    <v-form fast-fail @submit.prevent v-if="currCheck != null">
-      <v-text-field
-        v-model="newProdTitle"
-        label="Новый продукт"
-      ></v-text-field>
-
-      <v-number-input
-      :reverse="false"
-      controlVariant="split"
-      label="Цена"
-      :hideInput="false"
-      :inset="false"
-      min = 0
-      max = 50000
-      v-model="newProdPrice"
-    ></v-number-input>
-      <v-btn class="mt-2" @click="addNewProd()" block>Добавить</v-btn>
-    </v-form>
+    <AddProdForm
+      v-if="currCheck != null"
+      @senddata = "addNewProdRecv"
+    >
+    </AddProdForm>
   </v-container>
 </template>
   <script>
   import ReceiptTable from './ReceiptTable.vue'
+  import AddProdForm from './AddProdForm.vue'
   export default {
     name: 'ListChecks',
     computed: {
@@ -69,17 +56,6 @@
       currPerson : null,
       currCheck : null,
       checkPersName: null,
-      addPersons : [],
-      selectedPersons: [],
-      isPriceEditable: [],
-      isTitleEditable: [],
-      newProdTitle: "",
-      newProdPrice: 0,
-
-      rules: {
-        required: value => !!value || 'Должно быть число',
-        required_title: value => !!value || 'Не может быть пустым',
-      },
     }),
 
     methods: {
@@ -97,12 +73,12 @@
         this.currCheck = this.$store.getters.getCheckByName(this.currPerson.id)
       },
 
-      addNewProd(){
+      addNewProdRecv(newProdPrice, newProdTitle){
         var check = this.$store.getters.getCheckByName(this.currPerson.id)
         var prodLen = check != null ? check.products.length : 0
         
         var newID = prodLen != 0 ? check.products[prodLen - 1].id + 1 : 0
-        this.$store.commit('addProdToCheck', {newID: newID, checkName: this.currPerson.id, prodTitle : this.newProdTitle, price: this.newProdPrice})
+        this.$store.commit('addProdToCheck', {newID: newID, checkName: this.currPerson.id, prodTitle : newProdTitle, price: newProdPrice})
       },
 
       remProdRecv(id){
@@ -125,14 +101,11 @@
         }
         return sum;
       },
-
-      getPersonById(id){
-        return this.$store.getters.getPersonById(id)
-      }
     },
 
     components: {
-      ReceiptTable
+      ReceiptTable,
+      AddProdForm
     }
   }
   </script>
