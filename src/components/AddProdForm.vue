@@ -41,10 +41,4 @@ export default {
 
 <style lang="scss">
 @import './variables.scss';
-
-.add-prod-form {
-  display: flex;
-  flex-direction: column;
-  gap: $margin;
-}
 </style>

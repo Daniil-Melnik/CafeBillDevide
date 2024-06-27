@@ -32,12 +32,4 @@ export default {
 
 <style lang="scss">
 @import './variables.scss';
-
-.receipt-head {
-  padding: $padding;
-  background-color: $secondary-color;
-  color: $text-color;
-  border-radius: $border-radius;
-  margin-bottom: $margin;
-}
 </style>

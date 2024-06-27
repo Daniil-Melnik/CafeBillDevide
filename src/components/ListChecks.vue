@@ -112,10 +112,4 @@
   
   <style lang="scss">
   @import './variables.scss';
-  
-  .header {
-    text-align: center;
-    font-size: 2em;
-    padding: $padding;
-  }
   </style>

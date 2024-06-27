@@ -38,27 +38,4 @@ export default {
 </script>
 
 <style lang="scss">
-.inp-lbl {
-  display: flex;
-  align-items: center;
-
-  .input-field {
-    flex-grow: 1;
-    margin-right: 10px;
-  }
-
-  p {
-    flex-grow: 1;
-    margin-right: 10px;
-  }
-
-  .btn {
-    background-color: #3498db;
-    color: #fff;
-
-    &:hover {
-      background-color: darken(#3498db, 10%);
-    }
-  }
-}
 </style>

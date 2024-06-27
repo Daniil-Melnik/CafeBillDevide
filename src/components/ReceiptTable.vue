@@ -52,32 +52,4 @@ export default {
 
 <style lang="scss">
 @import './variables.scss';
-
-.receipt-table {
-  v-table {
-    width: 100%;
-    border-collapse: collapse;
-
-    thead {
-      background-color: $table-header-bg;
-      th {
-        padding: $padding;
-        font-size: $font-size;
-      }
-    }
-
-    tbody {
-      tr {
-        background-color: $table-row-bg;
-        &:hover {
-          background-color: $table-row-hover-bg;
-        }
-        td {
-          padding: $padding;
-          font-size: $font-size;
-        }
-      }
-    }
-  }
-}
 </style>

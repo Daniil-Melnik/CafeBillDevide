@@ -23,25 +23,4 @@ export default {
 </script>
 
 <style lang="scss">
-.single-form {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-top: 20px;
-
-  .input-field {
-    margin-bottom: 10px;
-    width: 100%;
-  }
-
-  .btn {
-    background-color: #2ecc71;
-    color: #fff;
-    align-self: flex-end;
-
-    &:hover {
-      background-color: darken(#2ecc71, 10%);
-    }
-  }
-}
 </style>

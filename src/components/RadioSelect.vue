@@ -24,16 +24,4 @@ export default {
 </script>
 
 <style lang="scss">
-.radio-select {
-  margin-bottom: 20px;
-  
-  .radio-group {
-    display: flex;
-    flex-direction: row;
-
-    .v-radio {
-      margin-right: 20px;
-    }
-  }
-}
 </style>

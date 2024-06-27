@@ -100,23 +100,4 @@ export default {
 
 <style lang="scss">
 @import './variables.scss';
-
-.table-row {
-  background-color: $table-row-bg;
-  &:hover {
-    background-color: $table-row-hover-bg;
-  }
-  td {
-    padding: $padding;
-    font-size: $font-size;
-    .v-btn {
-      background-color: $primary-color;
-      color: $text-color;
-      border-radius: $border-radius;
-      &:hover {
-        background-color: darken($primary-color, 10%);
-      }
-    }
-  }
-}
 </style>

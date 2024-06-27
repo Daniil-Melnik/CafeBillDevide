@@ -29,10 +29,4 @@ export default {
 
 <style lang="scss">
 @import './variables.scss';
-
-.add-combo {
-  display: flex;
-  flex-direction: column;
-  gap: $margin;
-}
 </style>

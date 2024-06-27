@@ -53,14 +53,4 @@
   </script>
   
   <style lang="scss">
-  .list-relat-container {
-    padding: 20px;
-    background-color: #f5f5f5;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .select-field {
-    margin: 20px 0;
-  }
   </style>

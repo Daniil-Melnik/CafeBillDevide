@@ -36,18 +36,4 @@ export default {
 
 <style lang="scss">
 @import './variables.scss';
-
-.rec-table-list {
-  .v-list-item {
-    padding: $padding;
-    .v-btn {
-      background-color: $primary-color;
-      color: $text-color;
-      border-radius: $border-radius;
-      &:hover {
-        background-color: darken($primary-color, 10%);
-      }
-    }
-  }
-}
 </style>

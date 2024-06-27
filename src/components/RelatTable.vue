@@ -91,34 +91,4 @@ export default {
 </script>
 
 <style lang="scss">
-.relat-table {
-  margin-top: 20px;
-  width: 100%;
-
-  .right-td{
-    width: 20%;
-    background-color: #3498db;
-  }
-
-  .left-td{
-    width: 80%;
-    background-color: aliceblue;
-  }
-
-  .v-table {
-    width: 100%;
-    th, td {
-      padding: 15px;
-      text-align: left;
-      font-size: 16px;
-    }
-    th {
-      background-color: #3498db;
-      color: #fff;
-    }
-    td {
-      background-color: #f9f9f9;
-    }
-  }
-}
 </style>

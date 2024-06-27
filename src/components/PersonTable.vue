@@ -1,5 +1,5 @@
 <template>
-  <div class="persons-table">
+  <div class="persons-table1">
     <v-simple-table>
       <thead>
         <tr>
@@ -15,7 +15,7 @@
           </td>
           <td>{{ getPersonTotal(p.id) }}</td>
           <td>
-            <v-btn color="error" @click="updRemove(p.id)">Удалить</v-btn>
+            <v-btn @click="updRemove(p.id)" icon = "C:\Users\danii\OneDrive\Документы\GitHub\CafeBillDevide\src\assets\delete-48.png" ></v-btn>
           </td>
         </tr>
       </tbody>
@@ -68,33 +68,4 @@ export default {
 </script>
 
 <style lang="scss">
-.persons-table {
-  margin-top: 20px;
-
-  .v-simple-table {
-    th, td {
-      padding: 10px;
-      text-align: left;
-    }
-    th {
-      background-color: #3498db;
-      color: #fff;
-    }
-    td {
-      background-color: #f9f9f9;
-    }
-
-    .v-btn {
-      color: #fff;
-
-      &.error {
-        background-color: #e74c3c;
-
-        &:hover {
-          background-color: darken(#e74c3c, 10%);
-        }
-      }
-    }
-  }
-}
 </style>
