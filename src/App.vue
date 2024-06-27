@@ -27,7 +27,7 @@
     >
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-app-bar-title>
-        <h2 class="red--text text--lighten-2">
+        <h2 class="red--text text-center text--lighten-2">
           ДробилкаЧеков
         </h2>
       </v-app-bar-title>

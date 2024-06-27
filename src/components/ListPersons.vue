@@ -1,5 +1,5 @@
 <template>
-  <v-container class="d-print-block">
+  <v-container class="d-flex flex-column justify-center align-center">
     <PersonTable :persons="persons"></PersonTable>
     <SingleForm title="Имя посетителя" @senddata="updAdd"></SingleForm>
   </v-container>
