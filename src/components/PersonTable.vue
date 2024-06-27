@@ -93,9 +93,4 @@ export default {
     width: 31px;
     height: 31px;
   }
-
-  //.del-btn{
-  //  width: 31px;
-  //  height: 31px;
-  //}
 </style>
