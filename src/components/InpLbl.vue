@@ -10,15 +10,17 @@
         />
       </v-icon>
     </v-btn>
-    <v-text-field
-      v-if="isEditable"
-      label=""
-      v-model="personName"
-      :rules="[rules.required_title]"
-      :type="type"
-      class="input-field"
-    ></v-text-field>
-    <p v-else>{{ personName }}</p>
+    <div class="editable-container">
+      <v-text-field
+        v-if="isEditable"
+        label=""
+        v-model="personName"
+        :rules="[rules.required_title]"
+        :type="type"
+        class="input-field"
+      ></v-text-field>
+      <p v-else class="display-text">{{ personName }}</p>
+    </div>
   </div>
 </template>
 
@@ -50,7 +52,23 @@ export default {
 
 <style lang="scss">
   @import './variables.scss';
-  .edit-btn{
+
+  .edit-btn {
     margin-right: $margin-right-1-0;
+  }
+
+  .editable-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .input-field {
+    width: 180px;
+    margin: 0;
+  }
+
+  .display-text {
+    margin: 0;
+    line-height: 1.5em; /* Adjust this line-height to match the height of your input field */
   }
 </style>
