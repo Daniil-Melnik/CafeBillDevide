@@ -1,6 +1,6 @@
 <template>
   <div class="persons-table1">
-    <v-simple-table>
+    <v-table>
       <thead>
         <tr>
           <th>Имя</th>
@@ -15,22 +15,43 @@
           </td>
           <td>{{ getPersonTotal(p.id) }}</td>
           <td>
-            <v-btn @click="updRemove(p.id)" icon = "C:\Users\danii\OneDrive\Документы\GitHub\CafeBillDevide\src\assets\delete-48.png" ></v-btn>
+            <v-btn @click="updRemove(p.id)" rounded="xs" class="del-btn">
+              <v-icon>
+                <img
+                  :src="editImage"
+                  alt="Delete"
+                  style="width: 30px; height: 30px;"
+                  rounded="0"
+                />
+              </v-icon>
+            </v-btn>
           </td>
         </tr>
       </tbody>
-    </v-simple-table>
+    </v-table>
   </div>
 </template>
 
 <script>
 import InpLbl from './InpLbl.vue';
+import editImage from '../assets/delete2.svg'
+import {
+    mdiAccount,
+    mdiDelete,
+    mdiPencil,
+    mdiShareVariant,
+  } from '@mdi/js'
 export default {
   name: 'PersonTable',
   props: ['persons'],
   data() {
     return {
       required_title: (value) => !!value || 'Не может быть пустым',
+      mdiAccount,
+      mdiPencil,
+      mdiShareVariant,
+      mdiDelete,
+      editImage
     };
   },
   methods: {
@@ -68,4 +89,13 @@ export default {
 </script>
 
 <style lang="scss">
+  .del-btn{
+    width: 31px;
+    height: 31px;
+  }
+
+  //.del-btn{
+  //  width: 31px;
+  //  height: 31px;
+  //}
 </style>
