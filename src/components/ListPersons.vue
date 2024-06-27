@@ -1,7 +1,7 @@
 <template>
-  <v-container class="list-persons-container1">
+  <v-container class="d-print-block">
     <PersonTable :persons="persons"></PersonTable>
-    <SingleForm title="Имя товарища" @senddata="updAdd"></SingleForm>
+    <SingleForm title="Имя посетителя" @senddata="updAdd"></SingleForm>
   </v-container>
 </template>
   

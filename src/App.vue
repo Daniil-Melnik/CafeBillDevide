@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app theme="dark">
     
     <v-navigation-drawer
       app
@@ -23,11 +23,13 @@
     
     <v-app-bar
       app
-      color="green"
+      color="gray"
     >
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-app-bar-title>
-        <h3 class="text-h4 white--text">iFood</h3>
+        <h2 class="red--text text--lighten-2">
+          ДробилкаЧеков
+        </h2>
       </v-app-bar-title>
     </v-app-bar>
     
