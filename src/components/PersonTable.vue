@@ -10,21 +10,21 @@
       </thead>
       <tbody>
         <tr v-for="(p) in persons" :key="p.id">
-          <td>
-            <InpLbl :maintext="p.name" :id="p.id" :rule="required_title" type="text" @senddata="setNewName"></InpLbl>
-          </td>
-          <td>{{ getPersonTotal(p.id) }}</td>
-          <td>
-            <v-btn @click="updRemove(p.id)" rounded="xs" class="del-btn">
+          <td class="d-flex align-center">
+            <v-btn @click="updRemove(p.id)" icon rounded="lg" class="del-btn" size="x-small" color="#D22730">
               <v-icon>
                 <img
                   :src="editImage"
-                  alt="Delete"
+                  alt="Удалить"
                   style="width: 30px; height: 30px;"
                   rounded="0"
                 />
               </v-icon>
             </v-btn>
+            <InpLbl :maintext="p.name" :id="p.id" :rule="required_title" type="text" @senddata="setNewName"></InpLbl>
+          </td>
+          <td>{{ getPersonTotal(p.id) }}</td>
+          <td>
           </td>
         </tr>
       </tbody>
@@ -34,7 +34,7 @@
 
 <script>
 import InpLbl from './InpLbl.vue';
-import editImage from '../assets/delete2.svg'
+import editImage from '../assets/delete2-red-3.svg'
 import {
     mdiAccount,
     mdiDelete,
@@ -89,8 +89,8 @@ export default {
 </script>
 
 <style lang="scss">
+  @import './variables.scss';
   .del-btn{
-    width: 31px;
-    height: 31px;
+    margin-right: $margin-right-1-0;
   }
 </style>
