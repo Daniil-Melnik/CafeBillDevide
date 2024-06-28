@@ -1,6 +1,6 @@
 <template>
   <div class="rec-table-list">
-    <v-list lines="one">
+    <v-list lines="one" max-height="150px" class="width-300">
       <v-list-item
         v-for="(pN, ppIndex) in eatPersons"
         :key="ppIndex"

@@ -10,10 +10,10 @@
         />
       </v-icon>
     </v-btn>
-    <div class="editable-container">
+    <div class="d-flex align-center">
+      <p class="margin-right-5">{{ subtext != null ? subtext: "" }}</p>
       <v-text-field
         v-if="isEditable"
-        label=""
         v-model="personName"
         :rules="[rules.required_title]"
         :type="type"
@@ -28,7 +28,7 @@
 import editImage from '../assets/edit-2.svg'
 export default {
   name: 'InpLbl',
-  props: ['maintext', 'id', 'rule', 'type'],
+  props: ['maintext', 'id', 'rule', 'type', 'subtext'],
   data() {
     return {
       isEditable: false,
@@ -55,11 +55,6 @@ export default {
 
   .edit-btn {
     margin-right: $margin-right-1-0;
-  }
-
-  .editable-container {
-    display: flex;
-    align-items: center;
   }
 
   .input-field {

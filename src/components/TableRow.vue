@@ -2,9 +2,11 @@
   <v-card
     title="Карточка продукта"
     variant="tonal"
+    class="margin-top-10"
   >
     <InpLbl
       :maintext="p.prodTitle"
+      subtext="Название продукта:"
       :id="p.id"
       :rule="required_title"
       type="text"
@@ -12,6 +14,7 @@
     ></InpLbl>
     <InpLbl
       :maintext="p.price"
+      subtext="Цена:"
       :id="p.id"
       :rule="required"
       type="number"
