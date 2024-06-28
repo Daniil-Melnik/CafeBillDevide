@@ -1,38 +1,50 @@
 <template>
   <v-card
-    title="Карточка продукта"
     variant="tonal"
-    class="margin-top-10"
+    class="margin-top-10 width-card-rec height-rec-card"
   >
-    <InpLbl
-      :maintext="p.prodTitle"
-      subtext="Название продукта:"
-      :id="p.id"
-      :rule="required_title"
-      type="text"
-      @senddata="setNewTitleRecv"
-    ></InpLbl>
-    <InpLbl
-      :maintext="p.price"
-      subtext="Цена:"
-      :id="p.id"
-      :rule="required"
-      type="number"
-      @senddata="setNewPriceRecv"
-    ></InpLbl>
-    <RecTableList
-      :eatPersons="p.eatPersons"
-      :currPerson="currPerson"
-      :prodId="p.id"
-    ></RecTableList>
-    <AddCombo
-      :comboItems="notEatPersons(p.id)"
-      comboLabel="Выберите человека"
-      :addId="p.id"
-      @senddata="addEatenPersonRecv"
-    ></AddCombo>
-    <v-btn @click="remProdSend(p.id)">Удалить</v-btn>
-  </v-card>
+    <div class="d-flex justify-space-between">
+      <div class="width-70-pers d-flex-column align-content-space-around flex-wrap">
+        <InpLbl
+          :maintext="p.prodTitle"
+          subtext="Продукт:"
+          :id="p.id"
+          :rule="required_title"
+          type="text"
+          @senddata="setNewTitleRecv"
+          class="text-medium margin-left-5"
+        ></InpLbl>
+        <InpLbl
+          :maintext="p.price"
+          subtext="Цена (руб):"
+          :id="p.id"
+          :rule="required"
+          type="number"
+          @senddata="setNewPriceRecv"
+          class="margin-top-35 margin-left-5 text-medium"
+        ></InpLbl>
+    </div>
+    <div class="d-flex justify-end width-30-pers margin-left-35 margin-top-25">
+      <div>
+        <RecTableList
+          :eatPersons="p.eatPersons"
+          :currPerson="currPerson"
+          :prodId="p.id"
+        ></RecTableList>
+        <AddCombo
+          :comboItems="notEatPersons(p.id)"
+          comboLabel="Выберите человека"
+          :addId="p.id"
+          @senddata="addEatenPersonRecv"
+        ></AddCombo>
+      </div>
+    </div>
+  </div>
+  <div class="">
+    <v-btn @click="remProdSend(p.id)" class="back-color-neon-red color-pale-red margin-left-5">Удалить</v-btn>
+  </div>
+  
+</v-card>
 </template>
 
 <script>

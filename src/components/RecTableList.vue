@@ -1,12 +1,12 @@
 <template>
-  <div class="rec-table-list">
-    <v-list lines="one" max-height="150px" class="width-300">
+  <div>
+    <p class="text-medium">Ели:</p>
+    <v-list lines="one" height="120px" class="width-400">
       <v-list-item
         v-for="(pN, ppIndex) in eatPersons"
         :key="ppIndex"
       >
         <v-list-item-content>
-          
           <v-list-item-title>
             <v-btn @click="remEatenPerson(currPerson.id, prodId, pN)"
             icon

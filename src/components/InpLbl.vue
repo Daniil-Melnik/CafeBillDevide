@@ -10,7 +10,7 @@
         />
       </v-icon>
     </v-btn>
-    <div class="d-flex align-center">
+    <div class="d-flex align-center margin-left-5">
       <p class="margin-right-5">{{ subtext != null ? subtext: "" }}</p>
       <v-text-field
         v-if="isEditable"
@@ -19,7 +19,7 @@
         :type="type"
         class="input-field"
       ></v-text-field>
-      <p v-else class="display-text">{{ personName }}</p>
+      <p v-else class="margin-left-5">{{ personName }}</p>
     </div>
   </div>
 </template>

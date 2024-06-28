@@ -1,5 +1,5 @@
 <template>
-    <v-container>
+    <v-container class="d-flex-column">
       <h2 class="header">Чек посетителя</h2>
       <v-select
         :items="personsName()"

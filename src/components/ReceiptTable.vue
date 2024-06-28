@@ -1,5 +1,5 @@
 <template>
-  <div class="receipt-table">
+  <div class="d-flex justify-center">
     <div v-if="currCheck != null">
       <TableRow
         v-for="(p) in currCheck.products"
