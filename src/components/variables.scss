@@ -6,6 +6,8 @@ $table-header-bg: #f5f5f5;
 $table-row-bg: #ffffff;
 $table-row-hover-bg: #e0e0e0;
 $neon-red-0: #D22730;
+$neon-orange-0: #FFAD00;
+$neon-yellow-0: #E0E722;
 $neon-red-1: #de8a8e;
 $font-size: 16px;
 $padding: 8px;
@@ -13,3 +15,11 @@ $margin-right-1-0: 5px;
 $margin-bottom-1-0: 5px;
 $margin-top-1-0: 5px;
 $single-form-input: 600px;
+
+.text-neon-orange{
+    color: $neon-orange-0;
+}
+
+.text-neon-yellow{
+    color: $neon-yellow-0;
+}

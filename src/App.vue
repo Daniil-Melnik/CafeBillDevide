@@ -27,9 +27,10 @@
     >
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-app-bar-title>
-        <h2 class="red--text text-center text--lighten-2">
-          ДробилкаЧеков
-        </h2>
+        <div class="d-flex justify-center">
+          <h2 class="text-neon-orange">Дробилка</h2>
+          <h2 class="text-neon-yellow">Чеков</h2>
+        </div>
       </v-app-bar-title>
     </v-app-bar>
     
@@ -65,3 +66,6 @@ export default {
   })
 }
 </script>
+<style lang="scss">
+  @import './components/variables.scss';
+</style>

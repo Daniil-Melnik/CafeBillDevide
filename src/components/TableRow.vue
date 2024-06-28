@@ -1,42 +1,35 @@
 <template>
-  <tr class="table-row">
-    <td>
-      <InpLbl
-        :maintext="p.prodTitle"
-        :id="p.id"
-        :rule="required_title"
-        type="text"
-        @senddata="setNewTitleRecv"
-      ></InpLbl>
-    </td>
-    <td>
-      <InpLbl
-        :maintext="p.price"
-        :id="p.id"
-        :rule="required"
-        type="number"
-        @senddata="setNewPriceRecv"
-      ></InpLbl>
-    </td>
-    <td>
-      <RecTableList
-        :eatPersons="p.eatPersons"
-        :currPerson="currPerson"
-        :prodId="p.id"
-      ></RecTableList>
-    </td>
-    <td>
-      <AddCombo
-        :comboItems="notEatPersons(p.id)"
-        comboLabel="Выберите человека"
-        :addId="p.id"
-        @senddata="addEatenPersonRecv"
-      ></AddCombo>
-    </td>
-    <td>
-      <v-btn @click="remProdSend(p.id)">Удалить</v-btn>
-    </td>
-  </tr>
+  <v-card
+    title="Карточка продукта"
+    variant="tonal"
+  >
+    <InpLbl
+      :maintext="p.prodTitle"
+      :id="p.id"
+      :rule="required_title"
+      type="text"
+      @senddata="setNewTitleRecv"
+    ></InpLbl>
+    <InpLbl
+      :maintext="p.price"
+      :id="p.id"
+      :rule="required"
+      type="number"
+      @senddata="setNewPriceRecv"
+    ></InpLbl>
+    <RecTableList
+      :eatPersons="p.eatPersons"
+      :currPerson="currPerson"
+      :prodId="p.id"
+    ></RecTableList>
+    <AddCombo
+      :comboItems="notEatPersons(p.id)"
+      comboLabel="Выберите человека"
+      :addId="p.id"
+      @senddata="addEatenPersonRecv"
+    ></AddCombo>
+    <v-btn @click="remProdSend(p.id)">Удалить</v-btn>
+  </v-card>
 </template>
 
 <script>
@@ -62,12 +55,6 @@ export default {
     addEatenPersonRecv(prodID, addPersName) {
       this.$store.commit('addEatenPerson', { checkPersId: this.currPerson.id, prodID: prodID, addPersName: addPersName });
     },
-
-    // notEatPersons(prodID) {
-    //   var eatPersons = this.$store.getters.getCheckProductById(this.currPerson.id, prodID);
-    //   var allPersons = this.personsId();
-    //   return allPersons.filter(el => !eatPersons.includes(el));
-    // },
 
     remProdSend(id) {
       this.$emit('remProdSend', id);

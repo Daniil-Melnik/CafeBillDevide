@@ -1,6 +1,7 @@
 <template>
   <div class="receipt-table">
-    <v-table v-if="currCheck != null">
+    <div v-if="currCheck != null">
+    <!-- <v-table v-if="currCheck != null">
       <thead>
         <tr>
           <th>Продукт</th>
@@ -10,7 +11,7 @@
           <th></th>
         </tr>
       </thead>
-      <tbody>
+      <tbody> -->
         <TableRow
           v-for="(p) in currCheck.products"
           :key="p.id"
@@ -18,8 +19,9 @@
           :currPerson="currPerson"
           @remProdSend="remProdTranciv"
         ></TableRow>
-      </tbody>
-    </v-table>
+        </div>
+      <!-- </tbody>
+    </v-table> -->
   </div>
 </template>
 
