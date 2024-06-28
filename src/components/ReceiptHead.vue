@@ -1,8 +1,11 @@
 <template>
   <div class="receipt-head">
-    <p v-if="this.currPerson != null">{{this.currPerson.name}} Итог: {{ getCheckSum() }}</p>
+    <div v-if="this.currPerson != null" class="d-flex-column">
+      <h3 class="text-medium">Посетитель: {{this.currPerson.name}}</h3>
+      <h3 v-if="this.currCheck != null">Итог: {{ getCheckSum() }} руб.</h3>
+    </div>
     <div v-if="this.currCheck == null && this.currPerson != null">
-      <h3>Добавить?</h3>
+      <p class="text-medium">Посетитель не оформлял чека. Добавить?</p>
       <v-btn @click="sendPack()">Добавить</v-btn>
     </div>
   </div>

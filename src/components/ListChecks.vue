@@ -5,7 +5,7 @@
         :items="personsName()"
         v-model="checkPersName"
         @update:modelValue="onItemChange"
-        label="Select an item"
+        label="Выберите посетителя"
       ></v-select>
       <ReceiptHead
         :currPerson="currPerson"
@@ -55,7 +55,7 @@
     data: () => ({
       currPerson: null,
       currCheck: null,
-      checkPersName: null
+      checkPersName: ""
     }),
   
     methods: {
