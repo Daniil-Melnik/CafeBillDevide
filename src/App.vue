@@ -8,19 +8,14 @@
       temporary
       v-model="drawer"
     >
-      
       <v-list-item-group>
-        
         <v-list-item v-for="item in menu_items" :key="item.id">
           <v-list-item-title>
             <router-link :to="item.url">{{ item.name }}</router-link>
           </v-list-item-title>
         </v-list-item>
-        
       </v-list-item-group>
-      
     </v-navigation-drawer>
-    
     <v-app-bar
       app
       color="gray"
@@ -28,8 +23,8 @@
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-app-bar-title>
         <div class="d-flex justify-center">
-          <h2 class="text-neon-orange">Дробилка</h2>
-          <h2 class="text-neon-yellow">Чеков</h2>
+          <h2 class="color-neon-orange">Дробилка</h2>
+          <h2 class="color-neon-yellow">Чеков</h2>
         </div>
       </v-app-bar-title>
     </v-app-bar>
