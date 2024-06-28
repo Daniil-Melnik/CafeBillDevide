@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex align-center">
-    <v-btn @click="sendPack" icon rounded="lg" size="x-small" class="edit-btn" color="#4D4DFF">
+    <v-btn @click="sendPack" icon rounded="lg" size="x-small" class="back-color-neon-blue edit-btn" color="#4D4DFF">
       <v-icon>
         <img
           :src="editImage"

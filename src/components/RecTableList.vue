@@ -6,9 +6,23 @@
         :key="ppIndex"
       >
         <v-list-item-content>
+          
           <v-list-item-title>
+            <v-btn @click="remEatenPerson(currPerson.id, prodId, pN)"
+            icon
+            rounded="lg"
+            class="back-color-neon-red"
+            size="x-small">
+              <v-icon>
+                <img
+                  :src="delImage"
+                  alt="Удалить"
+                  style="width: 30px; height: 30px;"
+                  rounded="0"
+                />
+              </v-icon>
+            </v-btn>
             {{ getPersonById(pN).name }}
-            <v-btn @click="remEatenPerson(currPerson.id, prodId, pN)">Удалить</v-btn>
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
@@ -17,10 +31,17 @@
 </template>
 
 <script>
+import delImage from '../assets/delete2-red-3.svg'
 export default {
   name: 'RecTableList',
 
   props: ['eatPersons', 'currPerson', 'prodId'],
+
+  data(){
+    return {
+      delImage
+    }
+  },
 
   methods: {
     getPersonById(id) {
