@@ -1,5 +1,5 @@
 <template>
-  <div class="add-prod-form">
+  <div class="width-card-rec">
     <v-form fast-fail @submit.prevent>
       <v-text-field
         v-model="newProdTitle"
