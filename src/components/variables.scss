@@ -44,6 +44,9 @@ $text-size-0: 15px;
 $text-size-1: 25px;
 $text-size-2: 35px;
 
+$w-screen-mobile: 360px;
+$w-screen-standart: 1920px;
+
 .margin-right-5{
     margin-right: $margin-right-1-0;
 }
@@ -93,7 +96,17 @@ $text-size-2: 35px;
 }
 
 .width-card-rec {
-    width: 800px;
+    @media screen and (max-width: $w-screen-mobile) {
+        width: 150px;
+    }
+    @media screen and (max-width: $w-screen-standart) {
+        width: 800px;
+    }
+}
+
+.width-inpLbl{
+    width: 180px;
+    margin: 0;
 }
 
 .width-prod-form{

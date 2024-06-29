@@ -9,7 +9,9 @@
           :maintext="p.prodTitle"
           subtext="Продукт:"
           :id="p.id"
-          :rule="required_title"
+          :rule="is_valid_title"
+          :validMethod="isValidTitle"
+          hint="Последовательность из букв и цифр"
           type="text"
           @senddata="setNewTitleRecv"
           class="text-medium margin-left-5"
@@ -18,7 +20,9 @@
           :maintext="p.price"
           subtext="Цена (руб):"
           :id="p.id"
-          :rule="required"
+          :rule="is_valid_price"
+          :validMethod="isValidPrice"
+          hint="Не более 50000 рублей"
           type="number"
           @senddata="setNewPriceRecv"
           class="margin-top-35 margin-left-5 text-medium"
@@ -57,7 +61,39 @@ export default {
 
   props: ['p', 'currPerson'],
 
+  data(){
+    return{
+      is_valid_price: [
+        value => {
+          var re = /^[0-9]+$/
+          if (!re.test(value) || value > 50000){
+            return 'Недопустимое значение'
+          }
+        },
+      ],
+
+      is_valid_title: [
+        value => {
+          var re = /^[\u0400-\u04FF0-9A-Za-z]+$/
+          if (!re.test(value)){
+            return 'Недопустимое название'
+          }
+        },
+      ],
+    }
+  },
+
   methods: {
+
+    isValidTitle(value){
+      var re = /^[\u0400-\u04FF0-9A-Za-z]+$/
+      return re.test(value)
+    },
+
+    isValidPrice(value){
+      var re = /^[0-9]+$/
+      return re.test(value)
+    },
 
     setNewTitleRecv(newTitle, id) {
       this.$store.commit('setNewProdTitle', { checkName: this.currPerson.id, setProdID: id, newProdTitle: newTitle });
