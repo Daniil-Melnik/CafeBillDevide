@@ -20,6 +20,7 @@ $margin-left-1-0: 5px;
 $margin-left-4-0: 35px;
 
 $margin-bottom-1-0: 5px;
+$margin-bottom-2-0: 15px;
 $margin-bottom-4-0: 35px;
 $margin-bottom-7-0: 70px;
 
@@ -52,18 +53,52 @@ $w-screen-standart: 1920px;
     font-size: 25px;
 }
 
+.width-rec-list {
+    width: $width-rec-list;
+}
+
 .color-neon-yellow{
-    color: green;
+    color: $neon-yellow-0;
+}
+
+.color-neon-liquid{
+    color: $neon-liquid-neon-0;
+}
+
+.color-neon-laim{
+    color: $neon-laser-laim-0;
+}
+
+.table-row-main{
+    display: flex;
+    justify-content: space-between;
+}
+
+.width-rec-card{
+    width: 750px;
+}
+
+.height-rec-card{
+    height: 300px;
 }
 
 @media (max-width: 400px){
     .text-medium{
-        font-size: 5px;
+        font-size: 15px;
     }
 
-    .color-neon-yellow{
-        color: blue;
+    .width-rec-card{
+        width: 320px;
     }
+    
+    .height-rec-card{
+        height: 100px;
+    }
+
+    .table-row{
+        background-color: #BC13FE;
+    }
+
 }
 
 .margin-right-5{
@@ -98,6 +133,10 @@ $w-screen-standart: 1920px;
     margin-top: $margin-top-4-0;
 }
 
+.margin-bottom-5{
+    margin-top: $margin-bottom-1-0;
+}
+
 .margin-bottom-35{
     margin-top: $margin-bottom-4-0;
 }
@@ -108,19 +147,6 @@ $w-screen-standart: 1920px;
 
 .width-300 {
     width: $width-300;
-}
-
-.width-rec-list {
-    width: $width-rec-list;
-}
-
-.width-card-rec {
-    @media screen and (max-width: $w-screen-mobile) {
-        width: 150px;
-    }
-    @media screen and (max-width: $w-screen-standart) {
-        width: 800px;
-    }
 }
 
 .width-inpLbl{

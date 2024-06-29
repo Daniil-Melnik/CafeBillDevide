@@ -1,9 +1,10 @@
 <template>
   <v-card
     variant="tonal"
-    class="margin-top-10 width-card-rec height-rec-card"
+    class="margin-top-10"
   >
-    <div class="d-flex justify-space-between">
+  <div class="width-rec-card height-rec-card table-row">
+    <div class="table-row-main">
       <div class="width-70-pers d-flex-column align-content-space-around flex-wrap">
         <InpLbl
           :maintext="p.prodTitle"
@@ -15,7 +16,8 @@
           type="text"
           @senddata="setNewTitleRecv"
           class="text-medium margin-left-5"
-        ></InpLbl>
+        >
+        </InpLbl>
         <InpLbl
           :maintext="p.price"
           subtext="Цена (руб):"
@@ -26,29 +28,32 @@
           type="number"
           @senddata="setNewPriceRecv"
           class="margin-top-35 margin-left-5 text-medium"
-        ></InpLbl>
-    </div>
-    <div class="d-flex justify-end width-30-pers margin-left-35 margin-top-25">
-      <div>
-        <RecTableList
-          :eatPersons="p.eatPersons"
-          :currPerson="currPerson"
-          :prodId="p.id"
-        ></RecTableList>
-        <AddCombo
-          :comboItems="notEatPersons(p.id)"
-          comboLabel="Выберите человека"
-          :addId="p.id"
-          @senddata="addEatenPersonRecv"
-        ></AddCombo>
+        >
+        </InpLbl>
+      </div>
+      <div class="d-flex justify-end width-30-pers margin-left-35 margin-top-25">
+        <div>
+          <RecTableList
+            :eatPersons="p.eatPersons"
+            :currPerson="currPerson"
+            :prodId="p.id"
+          >
+          </RecTableList>
+          <AddCombo
+            :comboItems="notEatPersons(p.id)"
+            comboLabel="Выберите человека"
+            :addId="p.id"
+            @senddata="addEatenPersonRecv"
+          >
+          </AddCombo>
+        </div>
       </div>
     </div>
+    <div>
+      <v-btn @click="remProdSend(p.id)" class="back-color-neon-red color-pale-red">Удалить</v-btn>
+    </div>
   </div>
-  <div class="">
-    <v-btn @click="remProdSend(p.id)" class="back-color-neon-red color-pale-red margin-left-5">Удалить</v-btn>
-  </div>
-  
-</v-card>
+  </v-card>
 </template>
 
 <script>
