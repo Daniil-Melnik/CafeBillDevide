@@ -47,6 +47,25 @@ $text-size-2: 35px;
 $w-screen-mobile: 360px;
 $w-screen-standart: 1920px;
 
+
+.text-medium{
+    font-size: 25px;
+}
+
+.color-neon-yellow{
+    color: green;
+}
+
+@media (max-width: 400px){
+    .text-medium{
+        font-size: 5px;
+    }
+
+    .color-neon-yellow{
+        color: blue;
+    }
+}
+
 .margin-right-5{
     margin-right: $margin-right-1-0;
 }
@@ -133,10 +152,6 @@ $w-screen-standart: 1920px;
     color: $neon-luminous-orange-0;
 }
 
-.color-neon-yellow{
-    color: $neon-yellow-0;
-}
-
 .color-pale-red{
     color: $pale-red;
 }
@@ -166,9 +181,7 @@ $w-screen-standart: 1920px;
     font-size: $text-size-0;
 }
 
-.text-medium{
-    font-size: $text-size-1;
-}
+
 
 .text-large{
     font-size: $text-size-2;
