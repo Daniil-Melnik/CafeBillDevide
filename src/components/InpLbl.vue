@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex align-center">
-    <v-btn @click="sendPack" icon rounded="lg" size="x-small" class="back-color-neon-blue edit-btn" color="#4D4DFF">
+    <v-btn @click="sendPack" icon rounded="lg" size="x-small" class="back-color-neon-blue margin-right-15 btn-hover" color="#4D4DFF">
       <v-icon>
         <img
           :src="editImage"
@@ -52,10 +52,6 @@ export default {
 
 <style lang="scss">
   @import './variables.scss';
-
-  .edit-btn {
-    margin-right: $margin-right-1-0;
-  }
 
   .input-field {
     width: 180px;

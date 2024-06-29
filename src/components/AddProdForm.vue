@@ -1,6 +1,7 @@
 <template>
-  <div class="width-card-rec">
-    <v-form fast-fail @submit.prevent>
+  <div class="width-prod-form">
+    <p class="text-medium">Добавить продукт</p>
+    <v-form fast-fail @submit.prevent title="Добавить продукт" class="margin-top-15">
       <v-text-field
         v-model="newProdTitle"
         label="Новый продукт"
@@ -23,7 +24,16 @@
         v-model="newProdPrice"
         @update:modelValue="alert = false"
       ></v-number-input>
-      <v-btn class="mt-2" @click="sendPack()" block>Добавить</v-btn>
+      <v-btn @click="sendPack()" rounded="lg" class="back-color-neon-green width-prod-form hover-btn">
+        <v-icon>
+          <img
+            :src="addImage"
+            alt="Удалить"
+            style="width: 25px; height: 25px;"
+            rounded="0"
+          />
+        </v-icon>
+      </v-btn>
     </v-form>
     <v-alert
       v-model="alert"
@@ -41,6 +51,7 @@
 </template>
 
 <script>
+import addImage from '../assets/add-basket-green.png'
 export default {
   name: 'AddProdForm',
   props: [],
@@ -49,6 +60,7 @@ export default {
       newProdTitle: "",
       newProdPrice: 0,
       alert: false,
+      addImage,
 
       is_valid_price: [
         value => {

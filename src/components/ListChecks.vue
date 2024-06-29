@@ -12,7 +12,8 @@
         :currCheck="currCheck"
         @senddata="addNewCheckRecv"
       ></ReceiptHead>
-      <ReceiptTable
+      <div class="d-flex justify-space-between">
+        <ReceiptTable
         v-if="currCheck != null"
         :currCheck="currCheck"
         :currPerson="currPerson"
@@ -22,6 +23,8 @@
         v-if="currCheck != null"
         @senddata="addNewProdRecv"
       ></AddProdForm>
+      </div>
+      
     </v-container>
   </template>
   

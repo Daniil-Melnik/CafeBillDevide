@@ -160,3 +160,11 @@ $text-size-2: 35px;
 .text-large{
     font-size: $text-size-2;
 }
+
+.hover-btn:hover{
+    color: #fff;
+    text-align: center;
+    border: 1px solid #fff;
+    box-shadow:0 0 20px #555;
+
+}
