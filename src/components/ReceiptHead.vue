@@ -4,7 +4,7 @@
       <h3 class="text-medium">Посетитель: {{this.currPerson.name}}</h3>
       <h3 v-if="this.currCheck != null">Итог: {{ getCheckSum() }} руб.</h3>
     </div>
-    <div v-if="this.currCheck == null && this.currPerson != null">
+    <!-- <div v-if="this.currCheck == null && this.currPerson != null"> -->
       <v-alert
         v-model="alert"
         border="start"
@@ -17,7 +17,7 @@
         <p class="text-medium margin-top-10">Посетитель не оформлял чека. Добавить?</p>
         <v-btn @click="sendPack()" class="margin-top-10">Добавить</v-btn>
       </v-alert>
-    </div>
+    <!-- </div> -->
   </div>
 </template>
 
@@ -26,9 +26,14 @@ export default {
   name: 'ReceiptHead',
   props: ['currPerson', 'currCheck'],
 
+  computed: {
+      alert() {
+        return (this.currCheck == null && this.currPerson != null);
+      },
+    },
+
   data(){
     return{
-      alert: this.currCheck == null && this.currPerson != null ? true : false,
     }
   },
 
