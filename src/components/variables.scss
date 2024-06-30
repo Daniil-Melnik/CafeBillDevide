@@ -50,7 +50,7 @@ $w-screen-standart: 1920px;
 
 
 .text-medium{
-    font-size: 25px;
+    font-size: 24px;
 }
 
 .width-rec-list {
@@ -111,6 +111,14 @@ $w-screen-standart: 1920px;
     margin: 0;
   }
 
+.width-subtitle-inpLbl {
+    width: 130px;
+}
+
+.width-title-inpLbl {
+    width: 250px;
+}
+
 @media (max-width: 400px){
     .text-medium{
         font-size: 18px;
@@ -155,8 +163,12 @@ $w-screen-standart: 1920px;
         margin-top: 30px;
     }
 
-    .width-title-inpLbl {
+    .width-subtitle-inpLbl {
         width: 100px;
+    }
+
+    .width-title-inpLbl {
+        width: 150px;
     }
 }
 
