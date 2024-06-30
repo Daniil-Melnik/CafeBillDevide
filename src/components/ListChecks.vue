@@ -12,7 +12,7 @@
         :currCheck="currCheck"
         @senddata="addNewCheckRecv"
       ></ReceiptHead>
-      <div class="d-flex justify-space-between">
+      <div class="d-flex justify-space-between table-list-row">
         <ReceiptTable
         v-if="currCheck != null"
         :currCheck="currCheck"

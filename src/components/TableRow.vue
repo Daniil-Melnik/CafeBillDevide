@@ -3,9 +3,9 @@
     variant="tonal"
     class="margin-top-10"
   >
-  <div class="width-rec-card height-rec-card table-row">
+  <div class="width-rec-card height-rec-card">
     <div class="table-row-main">
-      <div class="width-70-pers d-flex-column align-content-space-around flex-wrap">
+      <div class="width-70-pers d-flex-column align-content-space-around flex-wrap margin-inpLbl-div">
         <InpLbl
           :maintext="p.prodTitle"
           subtext="Продукт:"
@@ -31,7 +31,7 @@
         >
         </InpLbl>
       </div>
-      <div class="d-flex justify-end width-30-pers margin-left-35 margin-top-25">
+      <div class="d-flex width-30-pers margin-left-35 margin-top-25 table-rec-list">
         <div>
           <RecTableList
             :eatPersons="p.eatPersons"
@@ -49,9 +49,9 @@
         </div>
       </div>
     </div>
-    <div>
-      <v-btn @click="remProdSend(p.id)" class="back-color-neon-red color-pale-red">Удалить</v-btn>
-    </div>
+  </div>
+  <div class="del-prod-btn">
+    <v-btn @click="remProdSend(p.id)" class="back-color-neon-red color-pale-red">Удалить</v-btn>
   </div>
   </v-card>
 </template>

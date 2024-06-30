@@ -11,7 +11,7 @@
       </v-icon>
     </v-btn>
     <div class="d-flex align-center margin-left-5">
-      <p class="margin-right-5">{{ subtext != null ? subtext: "" }}</p>
+      <p class="margin-right-5 width-title-inpLbl">{{ subtext != null ? subtext: "" }}</p>
       <v-text-field
         v-if="isEditable"
         v-model="personName"
@@ -56,11 +56,6 @@ export default {
 
   .edit-btn {
     margin-right: $margin-right-1-0;
-  }
-
-  .input-field {
-    width: 180px;
-    margin: 0;
   }
 
   .display-text {

@@ -29,11 +29,11 @@ $margin-top-2-0: 15px;
 $margin-top-3-0: 25px;
 $margin-top-4-0: 35px;
 
-$width-300: 300px;
+$width-300: 305px;
 $width-rec-list: 350px;
 $width-700: 700px;
 
-$height-rec-card: 318px;
+$height-rec-card: 328px;
 
 $width-50-pers: 50%;
 $width-70-pers: 70%;
@@ -79,12 +79,41 @@ $w-screen-standart: 1920px;
 }
 
 .height-rec-card{
-    height: 300px;
+    min-height: 320px;
 }
+
+.table-list-row{
+    display: flex;
+    justify-content: space-between;
+}
+
+.width-70-pers{
+    width: $width-70-pers;
+}
+
+.width-30-pers{
+    width: $width-70-pers;
+}
+
+.table-rec-list{
+    justify-content: end;
+}
+
+.del-prod-btn{
+    display: flex;
+    justify-content: start;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.input-field {
+    width: 180px;
+    margin: 0;
+  }
 
 @media (max-width: 400px){
     .text-medium{
-        font-size: 15px;
+        font-size: 18px;
     }
 
     .width-rec-card{
@@ -92,13 +121,43 @@ $w-screen-standart: 1920px;
     }
     
     .height-rec-card{
-        height: 100px;
+        min-height: 450px;
     }
  
     .table-row{
-        background-color: #BC13FE;
+        display: flex;
+        flex-direction: column;
     }
 
+    .table-row-main{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .table-list-row{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .width-70-pers{
+        width: 50%;
+    }
+    
+    .width-30-pers{
+        width: 100%;
+    }
+
+    .table-rec-list{
+        justify-content: center;
+    }
+
+    .margin-inpLbl-div{
+        margin-top: 30px;
+    }
+
+    .width-title-inpLbl {
+        width: 100px;
+    }
 }
 
 .margin-right-5{
@@ -160,14 +219,6 @@ $w-screen-standart: 1920px;
 
 .width-50-pers{
     width: 50%;
-}
-
-.width-70-pers{
-    width: $width-70-pers;
-}
-
-.width-30-pers{
-    width: $width-70-pers;
 }
 
 .height-rec-card{
