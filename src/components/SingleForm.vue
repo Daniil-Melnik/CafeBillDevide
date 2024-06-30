@@ -9,7 +9,7 @@
       class="name-input"
       >
     </v-text-field>
-      <v-btn @click="sendPack()" class="add-btn" color="#44D62C">
+      <v-btn @click="sendPack()" class="add-btn hover-btn-green" color="#44D62C">
         <v-icon>
           <img
             :src="addImage"

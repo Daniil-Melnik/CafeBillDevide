@@ -10,7 +10,7 @@
       <tbody>
         <tr v-for="(p) in persons" :key="p.id">
           <td class="d-flex align-center width-td-left">
-            <v-btn @click="updRemove(p.id)" icon rounded="lg" class="del-btn" size="x-small" color="#D22730">
+            <v-btn @click="updRemove(p.id)" icon rounded="lg" class="del-btn hover-btn-red" size="x-small" color="#D22730">
               <v-icon>
                 <img
                   :src="editImage"
