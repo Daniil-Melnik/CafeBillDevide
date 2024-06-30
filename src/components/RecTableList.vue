@@ -7,12 +7,13 @@
         :key="ppIndex"
       >
         <v-list-item-content>
-          <v-list-item-title>
+          <v-list-item-title class="height-rec-list-item">
             <v-btn @click="remEatenPerson(currPerson.id, prodId, pN)"
-            icon
-            rounded="lg"
-            class="back-color-neon-red"
-            size="x-small">
+              icon
+              rounded="lg"
+              size="x-small"
+              class="back-color-neon-red"
+            >
               <v-icon>
                 <img
                   :src="delImage"
