@@ -4,20 +4,18 @@
       <h3 class="text-medium">Посетитель: {{this.currPerson.name}}</h3>
       <h3 v-if="this.currCheck != null">Итог: {{ getCheckSum() }} руб.</h3>
     </div>
-    <!-- <div v-if="this.currCheck == null && this.currPerson != null"> -->
-      <v-alert
-        v-model="alert"
-        border="start"
-        close-label="Закрыть"
-        color="#04D9FF"
-        title="Чек не создан"
-        variant="tonal"
-        class="margin-top-15"
-      >
-        <p class="text-medium margin-top-10">Посетитель не оформлял чека. Добавить?</p>
-        <v-btn @click="sendPack()" class="margin-top-10">Добавить</v-btn>
-      </v-alert>
-    <!-- </div> -->
+    <v-alert
+      v-model="alert"
+      border="start"
+      close-label="Закрыть"
+      color="#04D9FF"
+      title="Чек не создан"
+      variant="tonal"
+      class="margin-top-15"
+    >
+      <p class="text-medium margin-top-10">Посетитель не оформлял чека. Добавить?</p>
+      <v-btn @click="sendPack()" class="margin-top-10">Добавить</v-btn>
+    </v-alert>
   </div>
 </template>
 

@@ -10,7 +10,7 @@
           label="Выберите человека"
           class="select-field"
         ></v-select>
-        <RelatTable :persFromObj="persFromObj" :radios="radios" :tableLbl="tableLbl"></RelatTable>
+        <RelatTable :persFromObj="persFromObj" :radios="radios" :tableLbl="tableLbl" :alert="persFromName != ''"></RelatTable>
       </div>
     </v-container>
   </template>

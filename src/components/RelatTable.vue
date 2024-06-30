@@ -1,27 +1,46 @@
 <template>
   <div class="relat-table">
-    <v-table>
-      <thead>
-        <tr>
-          <th>{{ tableLbl }}</th>
-          <th>Сколько</th>
-        </tr>
-      </thead>
-      <tbody v-if="persFromObj != null">
-        <tr v-for="(pMR, index) in getCurrMoneyRelat()" :key="index">
-          <td class="left-td" v-if="radios == 1">{{ getPersNameById(pMR.nameTo) }}</td>
-          <td class="left-td" v-if="radios == 2">{{ getPersNameById(pMR.nameFrom) }}</td>
-          <td class="right-td">{{ pMR.money }}</td>
-        </tr>
-      </tbody>
-    </v-table>
+    <div v-if="persFromObj != null">
+      <v-table v-if="getCurrMoneyRelat().length != 0">
+        <thead>
+          <tr>
+            <th>{{ tableLbl }}</th>
+            <th>Сколько</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(pMR, index) in getCurrMoneyRelat()" :key="index">
+            <td class="left-td" v-if="radios == 1">{{ getPersNameById(pMR.nameTo) }}</td>
+            <td class="left-td" v-if="radios == 2">{{ getPersNameById(pMR.nameFrom) }}</td>
+            <td class="right-td">{{ pMR.money }}</td>
+          </tr>
+        </tbody>
+      </v-table>
+      <v-alert
+        v-else
+        border="start"
+        close-label="Закрыть"
+        color="#04D9FF"
+        title="Опа!"
+        variant="tonal"
+        class="margin-top-15"
+      >
+        <p class="text-medium margin-top-10">{{ tableLbl == 'Кому' ? 'Никому он не должен!' : 'Никто ему не должен' }}</p>
+      </v-alert>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'RelatTable',
-  props: ['persFromObj', 'radios', 'tableLbl'],
+  props: ['persFromObj', 'radios', 'tableLbl', 'alert'],
+
+  data(){
+    return{
+    }
+  },
+
   methods: {
     getPersWithReceipts(){
       return this.$store.getters.getPersWithRec
