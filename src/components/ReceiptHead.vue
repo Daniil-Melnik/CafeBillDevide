@@ -5,8 +5,18 @@
       <h3 v-if="this.currCheck != null">Итог: {{ getCheckSum() }} руб.</h3>
     </div>
     <div v-if="this.currCheck == null && this.currPerson != null">
-      <p class="text-medium">Посетитель не оформлял чека. Добавить?</p>
-      <v-btn @click="sendPack()">Добавить</v-btn>
+      <v-alert
+        v-model="alert"
+        border="start"
+        close-label="Закрыть"
+        color="#04D9FF"
+        title="Чек не создан"
+        variant="tonal"
+        class="margin-top-15"
+      >
+        <p class="text-medium margin-top-10">Посетитель не оформлял чека. Добавить?</p>
+        <v-btn @click="sendPack()" class="margin-top-10">Добавить</v-btn>
+      </v-alert>
     </div>
   </div>
 </template>
@@ -15,9 +25,17 @@
 export default {
   name: 'ReceiptHead',
   props: ['currPerson', 'currCheck'],
+
+  data(){
+    return{
+      alert: this.currCheck == null && this.currPerson != null ? true : false,
+    }
+  },
+
   methods: {
     sendPack() {
       this.$emit('senddata');
+      this.alert = false
     },
     getCheckSum() {
       var sum = 0;

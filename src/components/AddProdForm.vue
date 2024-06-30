@@ -24,7 +24,7 @@
         v-model="newProdPrice"
         @update:modelValue="alert = false"
       ></v-number-input>
-      <v-btn @click="sendPack()" rounded="lg" class="back-color-neon-green width-prod-form hover-btn">
+      <v-btn @click="sendPack()" rounded="lg" class="back-color-neon-green width-prod-form hover-btn-green">
         <v-icon>
           <img
             :src="addImage"

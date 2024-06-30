@@ -281,5 +281,25 @@ $w-screen-standart: 1920px;
     text-align: center;
     border: 1px solid #fff;
     box-shadow:0 0 20px #555;
+}
 
+.hover-btn-blue:hover{
+    color: #fff;
+    text-align: center;
+    border: 1px solid #fff;
+    box-shadow:0 0 20px $neon-blue-0-1;
+}
+
+.hover-btn-green:hover{
+    color: #fff;
+    text-align: center;
+    border: 1px solid #fff;
+    box-shadow:0 0 20px $neon-green-0;
+}
+
+.hover-btn-red:hover{
+    color: #fff;
+    text-align: center;
+    border: 1px solid #fff;
+    box-shadow:0 0 20px $neon-red-0;
 }

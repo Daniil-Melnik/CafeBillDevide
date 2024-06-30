@@ -8,7 +8,7 @@
       density="compact"
       class="width-300 margin-top-10"
     ></v-select>
-    <v-btn @click="sendPack()" class="width-300 back-color-neon-green margin-top-5">
+    <v-btn @click="sendPack()" class="width-300 back-color-neon-green margin-top-5 hover-btn-green">
       <v-icon>
         <img
           :src="addImage"

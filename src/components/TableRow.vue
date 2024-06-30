@@ -51,7 +51,7 @@
     </div>
   </div>
   <div class="del-prod-btn">
-    <v-btn @click="remProdSend(p.id)" class="back-color-neon-red color-pale-red">Удалить</v-btn>
+    <v-btn @click="remProdSend(p.id)" class="back-color-neon-red color-pale-red hover-btn-red">Удалить</v-btn>
   </div>
   </v-card>
 </template>
