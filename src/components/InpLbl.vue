@@ -11,7 +11,7 @@
       </v-icon>
     </v-btn>
     <div class="d-flex align-center margin-left-5">
-      <p class="margin-right-5 width-subtitle-inpLbl">{{ subtext != null ? subtext: "" }}</p>
+      <p v-if="subtext != null" class="margin-right-5 width-subtitle-inpLbl">{{ subtext != null ? subtext: "" }}</p>
       <v-text-field
         v-if="isEditable"
         v-model="personName"

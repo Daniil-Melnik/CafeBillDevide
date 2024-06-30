@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-form style="width: 600px; height: 80px" class="form-main">
+    <v-form class="form-main">
       <v-text-field
       clearable
       :label="title"
@@ -44,17 +44,4 @@ export default {
 
 <style lang="scss">
   @import './variables.scss';
-  .name-input {
-    width: $single-form-input;
-  }
-
-  .add-btn {
-    width: 600px;
-    height: 60px;
-    margin-top: $margin-top-1-0;
-  }
-
-  .form-main{
-    margin-top: $margin-top-1-0;
-  }
 </style>

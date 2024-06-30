@@ -49,7 +49,6 @@ $text-size-2: 35px;
 $w-screen-mobile: 360px;
 $w-screen-standart: 1920px;
 
-
 .text-medium{
     font-size: 24px;
 }
@@ -100,6 +99,18 @@ $w-screen-standart: 1920px;
     width: $width-70-pers;
 }
 
+.width-table-persons{
+    width: 600px;
+}
+
+.width-td-left{
+    width: 400px;
+}
+
+.width-td-right{
+    width: 200px;
+}
+
 .table-rec-list{
     justify-content: end;
 }
@@ -123,6 +134,22 @@ $w-screen-standart: 1920px;
 .width-title-inpLbl {
     width: 250px;
 }
+
+.form-main{
+    margin-top: $margin-top-1-0;
+    width: 600px;
+    height: 80px;
+}
+
+.name-input {
+    width: $single-form-input;
+}
+
+.add-btn {
+    width: $single-form-input;
+    height: 60px;
+    margin-top: $margin-top-1-0;
+  }
 
 @media (max-width: 400px){
     .text-medium{
@@ -174,6 +201,38 @@ $w-screen-standart: 1920px;
 
     .width-title-inpLbl {
         width: 150px;
+    }
+
+    .width-table-persons{
+        width: 300px;
+    }
+
+    .width-td-left{
+        width: 200px;
+    }
+    
+    .width-td-right{
+        width: 100px;
+    }
+
+    .form-main{
+        margin-top: $margin-top-1-0;
+        width: 300px;
+        height: 80px;
+    }
+
+    .name-input {
+        width: 300px;
+    }
+
+    .add-btn{
+        width: 300px;
+    }
+
+    .add-btn {
+        width: 300px;
+        height: 60px;
+        margin-top: $margin-top-1-0;
     }
 }
 

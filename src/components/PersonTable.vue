@@ -1,15 +1,15 @@
 <template>
   <div>
-    <v-table height="500px" theme="dark"  fixed-header style="width: 600px;">
+    <v-table height="500px" theme="dark"  fixed-header class="width-table-persons">
       <thead>
         <tr>
-          <th style="width: 400px; text-align: center;">Имя посетителя</th>
-          <th style="width: 200px; text-align: center;">Потратил (рублей)</th>
+          <th>Имя посетителя</th>
+          <th>Потратил (рублей)</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="(p) in persons" :key="p.id">
-          <td class="d-flex align-center" style="width: 400px;">
+          <td class="d-flex align-center width-td-left">
             <v-btn @click="updRemove(p.id)" icon rounded="lg" class="del-btn" size="x-small" color="#D22730">
               <v-icon>
                 <img
@@ -22,7 +22,7 @@
             </v-btn>
             <InpLbl :maintext="p.name" :id="p.id" :rule="required_title" type="text" @senddata="setNewName"></InpLbl>
           </td>
-          <td style="width: 200px; text-align: center;">{{ getPersonTotal(p.id) }}</td>
+          <td style="text-align: center;" class="width-td-right">{{ getPersonTotal(p.id) }}</td>
         </tr>
       </tbody>
     </v-table>
