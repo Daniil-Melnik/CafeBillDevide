@@ -1,0 +1,26 @@
+.table-row-main{
+    display: flex;
+    justify-content: space-between;
+}
+
+.table-list-row{
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 415px){
+    .table-row-main{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .table-list-row{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .table-row{
+        display: flex;
+        flex-direction: column;
+    }
+}

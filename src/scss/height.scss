@@ -1,0 +1,15 @@
+$height-rec-card: 328px;
+
+.height-rec-card{
+    min-height: 320px;
+}
+
+.height-rec-list-item{
+    min-height: 60px;
+}
+
+@media (max-width: 415px){
+    .height-rec-card{
+        min-height: 450px;
+    }
+}

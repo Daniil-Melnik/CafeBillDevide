@@ -1,0 +1,21 @@
+$text-size-0: 15px;
+$text-size-1: 25px;
+$text-size-2: 35px;
+
+.text-small{
+    font-size: $text-size-0;
+}
+
+.text-medium{
+    font-size: 24px;
+}
+
+.text-large{
+    font-size: $text-size-2;
+}
+
+@media (max-width: 415px){
+    .text-medium{
+        font-size: 18px;
+    }
+}

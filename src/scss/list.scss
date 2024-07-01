@@ -1,0 +1,9 @@
+.table-rec-list{
+    justify-content: end;
+}
+
+@media (max-width: 415px){
+    .table-rec-list{
+        justify-content: center;
+    }
+}

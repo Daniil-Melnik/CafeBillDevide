@@ -1,174 +1,23 @@
 @import './colors.scss';
 @import './back_colors.scss';
-
 @import './margin_left.scss';
 @import './margin_bottom.scss';
 @import './margin_top.scss';
-
+@import './margin_right.scss';
 @import './hover_btn.scss';
-
 @import './width.scss';
+@import './height.scss';
+@import './input.scss';
+@import './btn.scss';
+@import './rows.scss';
+@import './text.scss';
+@import './form.scss';
+@import './list.scss';
 
-$margin-right-1-0: 5px;
-
-$height-rec-card: 328px;
-
-$single-form-input: 600px;
-
-$text-size-0: 15px;
-$text-size-1: 25px;
-$text-size-2: 35px;
-
-$w-screen-mobile: 360px;
-$w-screen-standart: 1920px;
-
-.text-medium{
-    font-size: 24px;
-}
-
-.table-row-main{
-    display: flex;
-    justify-content: space-between;
-}
-
-.height-rec-card{
-    min-height: 320px;
-}
-
-.height-rec-list-item{
-    min-height: 60px;
-}
-
-.table-list-row{
-    display: flex;
-    justify-content: space-between;
-}
-
-.table-rec-list{
-    justify-content: end;
-}
-
-.del-prod-btn{
-    display: flex;
-    justify-content: start;
-    margin-left: 10px;
-    margin-bottom: 10px;
-}
-
-.input-field {
-    width: 180px;
-    margin: 0;
-    margin-top: 0;
-    padding-top: 0;
-  }
-
-.form-main{
-    margin-top: $margin-top-1-0;
-    width: 600px;
-    height: 80px;
-}
-
-.name-input {
-    width: $single-form-input;
-}
-
-.add-btn {
-    width: $single-form-input;
-    height: 60px;
-    margin-top: $margin-top-1-0;
-  }
-
-.no-padding{
-    padding: 0;
-}
-
-.no-margin{
-    margin: 0;
-}
 
 @media (max-width: 415px){
-    .text-medium{
-        font-size: 18px;
-    }
-    
-    .height-rec-card{
-        min-height: 450px;
-    }
- 
-    .table-row{
-        display: flex;
-        flex-direction: column;
-    }
-
-    .table-row-main{
-        display: flex;
-        flex-direction: column;
-    }
-
-    .table-list-row{
-        display: flex;
-        flex-direction: column;
-    }
-
-    .table-rec-list{
-        justify-content: center;
-    }
-
     .margin-inpLbl-div{
         margin-top: 30px;
     }
-
-    .form-main{
-        margin-top: $margin-top-1-0;
-        width: 300px;
-        height: 80px;
-    }
-
-    .name-input {
-        width: 300px;
-    }
-
-    .add-btn{
-        width: 300px;
-    }
-
-    .add-btn {
-        width: 300px;
-        height: 60px;
-        margin-top: $margin-top-1-0;
-    }
-
-    .input-field {
-        width: 140px;
-        margin: 0;
-        margin-top: 0;
-        padding-top: 0;
-    }
 }
 
-.margin-right-5{
-    margin-right: $margin-right-1-0;
-}
-
-.margin-top-10{
-    margin-top: 10px;
-}
-
-.height-rec-card{
-    height: $height-rec-card;
-}
-
-.square-50-50{
-    height: 50px;
-    width: 50px;
-}
-
-.text-small{
-    font-size: $text-size-0;
-}
-
-
-
-.text-large{
-    font-size: $text-size-2;
-}
