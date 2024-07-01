@@ -55,5 +55,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../scss/variables.scss';
+  @import '../scss/_top.scss';
 </style>

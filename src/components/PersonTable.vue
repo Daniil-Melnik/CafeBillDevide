@@ -100,7 +100,7 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '../scss/variables.scss';
+  @import '../scss/_top.scss';
   .del-btn{
     margin-right: $margin-right-1-0;
   }
