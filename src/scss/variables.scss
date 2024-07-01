@@ -1,28 +1,17 @@
 @import './colors.scss';
 @import './back_colors.scss';
+
 @import './margin_left.scss';
+@import './margin_bottom.scss';
+@import './margin_top.scss';
+
+@import './hover_btn.scss';
+
+@import './width.scss';
 
 $margin-right-1-0: 5px;
 
-$margin-bottom-1-0: 5px;
-$margin-bottom-2-0: 15px;
-$margin-bottom-4-0: 35px;
-$margin-bottom-7-0: 70px;
-
-$margin-top-1-0: 5px;
-$margin-top-2-0: 15px;
-$margin-top-3-0: 25px;
-$margin-top-4-0: 35px;
-
-$width-300: 305px;
-$width-rec-list: 350px;
-$width-700: 700px;
-
 $height-rec-card: 328px;
-
-$width-50-pers: 50%;
-$width-70-pers: 70%;
-$width-30-pers: 30%;
 
 $single-form-input: 600px;
 
@@ -37,17 +26,9 @@ $w-screen-standart: 1920px;
     font-size: 24px;
 }
 
-.width-rec-list {
-    width: $width-rec-list;
-}
-
 .table-row-main{
     display: flex;
     justify-content: space-between;
-}
-
-.width-rec-card{
-    width: 750px;
 }
 
 .height-rec-card{
@@ -61,26 +42,6 @@ $w-screen-standart: 1920px;
 .table-list-row{
     display: flex;
     justify-content: space-between;
-}
-
-.width-70-pers{
-    width: $width-70-pers;
-}
-
-.width-30-pers{
-    width: $width-70-pers;
-}
-
-.width-table-persons{
-    width: 600px;
-}
-
-.width-td-left{
-    width: 400px;
-}
-
-.width-td-right{
-    width: 200px;
 }
 
 .table-rec-list{
@@ -101,14 +62,6 @@ $w-screen-standart: 1920px;
     padding-top: 0;
   }
 
-.width-subtitle-inpLbl {
-    width: 130px;
-}
-
-.width-title-inpLbl {
-    width: 250px;
-}
-
 .form-main{
     margin-top: $margin-top-1-0;
     width: 600px;
@@ -125,26 +78,6 @@ $w-screen-standart: 1920px;
     margin-top: $margin-top-1-0;
   }
 
-.width-prod-form{
-    width: $width-rec-list;
-}
-
-.margin-top-5{
-    margin-top: $margin-top-1-0;
-}
-
-.margin-top-15{
-    margin-top: $margin-top-2-0;
-}
-
-.margin-top-25{
-    margin-top: $margin-top-3-0;
-}
-
-.margin-top-35{
-    margin-top: $margin-top-4-0;
-}
-
 .no-padding{
     padding: 0;
 }
@@ -156,10 +89,6 @@ $w-screen-standart: 1920px;
 @media (max-width: 415px){
     .text-medium{
         font-size: 18px;
-    }
-
-    .width-rec-card{
-        width: 320px;
     }
     
     .height-rec-card{
@@ -181,40 +110,12 @@ $w-screen-standart: 1920px;
         flex-direction: column;
     }
 
-    .width-70-pers{
-        width: 50%;
-    }
-    
-    .width-30-pers{
-        width: 100%;
-    }
-
     .table-rec-list{
         justify-content: center;
     }
 
     .margin-inpLbl-div{
         margin-top: 30px;
-    }
-
-    .width-subtitle-inpLbl {
-        width: 100px;
-    }
-
-    .width-title-inpLbl {
-        width: 150px;
-    }
-
-    .width-table-persons{
-        width: 300px;
-    }
-
-    .width-td-left{
-        width: 200px;
-    }
-    
-    .width-td-right{
-        width: 100px;
     }
 
     .form-main{
@@ -243,26 +144,6 @@ $w-screen-standart: 1920px;
         margin-top: 0;
         padding-top: 0;
     }
-
-    .width-prod-form{
-        width: 320px;
-    }
-
-    .margin-top-5{
-        margin-top: $margin-top-1-0;
-    }
-    
-    .margin-top-15{
-        margin-top: 5px;
-    }
-    
-    .margin-top-25{
-        margin-top: $margin-top-3-0;
-    }
-    
-    .margin-top-35{
-        margin-top: $margin-top-4-0;
-    }
 }
 
 .margin-right-5{
@@ -271,31 +152,6 @@ $w-screen-standart: 1920px;
 
 .margin-top-10{
     margin-top: 10px;
-}
-
-.margin-bottom-5{
-    margin-top: $margin-bottom-1-0;
-}
-
-.margin-bottom-35{
-    margin-top: $margin-bottom-4-0;
-}
-
-.margin-bottom-70{
-    margin-top: $margin-bottom-7-0;
-}
-
-.width-300 {
-    width: $width-300;
-}
-
-.width-inpLbl{
-    width: 180px;
-    margin: 0;
-}
-
-.width-50-pers{
-    width: 50%;
 }
 
 .height-rec-card{
@@ -315,32 +171,4 @@ $w-screen-standart: 1920px;
 
 .text-large{
     font-size: $text-size-2;
-}
-
-.hover-btn:hover{
-    color: #fff;
-    text-align: center;
-    border: 1px solid #fff;
-    box-shadow:0 0 20px #555;
-}
-
-.hover-btn-blue:hover{
-    color: #fff;
-    text-align: center;
-    border: 1px solid #fff;
-    box-shadow:0 0 20px $neon-blue-0-1;
-}
-
-.hover-btn-green:hover{
-    color: #fff;
-    text-align: center;
-    border: 1px solid #fff;
-    box-shadow:0 0 20px $neon-green-0;
-}
-
-.hover-btn-red:hover{
-    color: #fff;
-    text-align: center;
-    border: 1px solid #fff;
-    box-shadow:0 0 20px $neon-red-0;
 }

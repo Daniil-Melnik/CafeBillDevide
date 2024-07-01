@@ -1,0 +1,98 @@
+$width-50-pers: 50%;
+$width-70-pers: 70%;
+$width-30-pers: 30%;
+
+$width-300: 305px;
+$width-rec-list: 350px;
+$width-700: 700px;
+
+.width-rec-list {
+    width: $width-rec-list;
+}
+
+.width-rec-card{
+    width: 750px;
+}
+
+.width-70-pers{
+    width: $width-70-pers;
+}
+
+.width-30-pers{
+    width: $width-70-pers;
+}
+
+.width-table-persons{
+    width: 600px;
+}
+
+.width-td-left{
+    width: 400px;
+}
+
+.width-td-right{
+    width: 200px;
+}
+
+.width-subtitle-inpLbl {
+    width: 130px;
+}
+
+.width-title-inpLbl {
+    width: 250px;
+}
+
+.width-prod-form{
+    width: $width-rec-list;
+}
+
+.width-300 {
+    width: $width-300;
+}
+
+.width-inpLbl{
+    width: 180px;
+    margin: 0;
+}
+
+.width-50-pers{
+    width: 50%;
+}
+
+@media (max-width: 415px){
+    .width-rec-card{
+        width: 320px;
+    }
+
+    .width-70-pers{
+        width: 50%;
+    }
+    
+    .width-30-pers{
+        width: 100%;
+    }
+
+    .width-subtitle-inpLbl {
+        width: 100px;
+    }
+
+    .width-title-inpLbl {
+        width: 150px;
+    }
+
+    .width-table-persons{
+        width: 300px;
+    }
+
+    .width-td-left{
+        width: 200px;
+    }
+    
+    .width-td-right{
+        width: 100px;
+    }
+
+    .width-prod-form{
+        width: 320px;
+    }
+}

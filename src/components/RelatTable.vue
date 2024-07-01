@@ -25,7 +25,7 @@
         variant="tonal"
         class="margin-top-15"
       >
-        <p class="text-medium margin-top-10">{{ tableLbl == 'Кому' ? 'Никому он не должен!' : 'Никто ему не должен' }}</p>
+        <p class="text-medium margin-top-10">{{ tableLbl == 'Кому' ? 'Никому посетитель не должен!' : 'Никто посетителю не должен' }}</p>
       </v-alert>
     </div>
   </div>
