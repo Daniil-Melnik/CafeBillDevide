@@ -19,9 +19,9 @@
         :type="type"
         :hint="this.hint"
         :density="this.dens"
-        class="input-field"
+        class="input-field margin-top-15"
       ></v-text-field>
-      <p v-else class="margin-left-5 width-title-inpLbl margin-top-5">{{ personName }}</p>
+      <p v-else class="margin-left-5 width-title-inpLbl">{{ personName }}</p>
     </div>
   </div>
 </template>
