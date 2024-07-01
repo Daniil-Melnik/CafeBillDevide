@@ -92,6 +92,8 @@ export default {
       if (this.isValidTitle() && this.isValidPrice()){
         this.$emit('senddata', this.newProdPrice, this.newProdTitle);
         this.alert = false
+        this.newProdTitle = ""
+        this.newProdPrice = 0
       }
       else this.alert = true
     }
