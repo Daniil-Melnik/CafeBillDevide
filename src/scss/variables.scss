@@ -1,24 +1,8 @@
-$neon-green-0: #39FF14;
-$neon-fufuchsia-0: #FE59C2;
-$neon-pink-0: #FE019A;
-$neon-blue-0-0: #04D9FF;
-$neon-blue-0-1: #5555FF;
-$neon-violet-0: #BC13FE;
-$neon-red-0: #FF073A;
-$neon-luminous-red-0: #F80000;
-$neon-luminous-orange-0: #FFA420;
-$neon-carrot-0: #FFA343;
-$neon-yellow-0: #E0E722;
-$neon-laser-laim-0: #FEFE22;
-$neon-liquid-neon-0: #C8FF00;
-$neon-electric-0: #7DF9FF;
-
-$pale-red: #FFA6B0;
+@import './colors.scss';
+@import './back_colors.scss';
+@import './margin_left.scss';
 
 $margin-right-1-0: 5px;
-$margin-left-1-0: 5px;
-$margin-left-2-0: 15px;
-$margin-left-4-0: 35px;
 
 $margin-bottom-1-0: 5px;
 $margin-bottom-2-0: 15px;
@@ -55,18 +39,6 @@ $w-screen-standart: 1920px;
 
 .width-rec-list {
     width: $width-rec-list;
-}
-
-.color-neon-yellow{
-    color: $neon-yellow-0;
-}
-
-.color-neon-liquid{
-    color: $neon-liquid-neon-0;
-}
-
-.color-neon-laim{
-    color: $neon-laser-laim-0;
 }
 
 .table-row-main{
@@ -297,18 +269,6 @@ $w-screen-standart: 1920px;
     margin-right: $margin-right-1-0;
 }
 
-.margin-left-5{
-    margin-left: $margin-left-1-0;
-}
-
-.margin-left-15{
-    margin-left: $margin-left-2-0;
-}
-
-.margin-left-35{
-    margin-right: $margin-left-4-0;
-}
-
 .margin-top-10{
     margin-top: 10px;
 }
@@ -340,30 +300,6 @@ $w-screen-standart: 1920px;
 
 .height-rec-card{
     height: $height-rec-card;
-}
-
-.color-neon-orange{
-    color: $neon-luminous-orange-0;
-}
-
-.color-pale-red{
-    color: $pale-red;
-}
-
-.color-neon-red{
-    color: $neon-red-0;
-}
-
-.back-color-neon-red{
-    background-color: $neon-luminous-red-0;
-}
-
-.back-color-neon-blue{
-    background-color: $neon-blue-0-1;
-}
-
-.back-color-neon-green{
-    background-color: $neon-green-0;
 }
 
 .square-50-50{
