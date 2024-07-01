@@ -34,8 +34,10 @@ export default {
   },
   methods: {
     sendPack() {
-      this.$emit('senddata', this.addId, this.selectedItem);
-      this.selectedItem = "";
+      if((this.selectedItem != null) && (this.selectedItem != "")){
+        this.$emit('senddata', this.addId, this.selectedItem);
+        this.selectedItem = "";
+      }
     }
   }
 };
