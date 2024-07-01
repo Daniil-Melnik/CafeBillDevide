@@ -61,7 +61,7 @@ export default {
     };
   },
   methods: {
-    getPersonTotal(persId) {
+    getPersonTotal(persId) { // получение затрат посетителя
       var persWithReceipt = this.getPersWithReceipts();
       var reSum = 0;
       for (var i in persWithReceipt) {
@@ -79,18 +79,18 @@ export default {
       return reSum;
     },
 
-    isValidName(value){
+    isValidName(value){ // проверка корректности имени посетителя
       var re = /^(?=.*[^\s])[\u0400-\u04FF0-9A-Za-z\s]+$/
       return re.test(value)
     },
 
-    getPersWithReceipts() {
+    getPersWithReceipts() { // получение посетителей с чеками
       return this.$store.getters.getPersWithRec;
     },
-    setNewName(newName, id) {
+    setNewName(newName, id) { // установка нового имени посетителю
       this.$store.commit('updSetNewName', { newName, id });
     },
-    updRemove(id) {
+    updRemove(id) { // удаление посетителя
       this.$store.commit('updRemove', { id });
     },
   },

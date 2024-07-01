@@ -1,4 +1,4 @@
-<!-- Компонент редактируемого текста -->
+<!-- Компонент редактируемого текста, используется в нескольких местах -->
 <template>
   <div class="d-flex align-center">
     <v-btn @click="sendPack" icon rounded="lg" size="x-small" class="back-color-neon-blue edit-btn hover-btn-blue" color="#4D4DFF">
@@ -42,7 +42,7 @@ export default {
     };
   },
   methods: {
-    sendPack() {
+    sendPack() { // отправка результата корректировки текста через поле для ввода
       if (this.validMethod(this.personName)){
         if (this.isEditable) {
             this.$emit('senddata', this.personName, this.id);

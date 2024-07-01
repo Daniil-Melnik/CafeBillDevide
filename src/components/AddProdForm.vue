@@ -66,15 +66,16 @@ export default {
       alert: false,
       addImage,
 
-      is_valid_price: [
+      is_valid_price: [ // проверка корректности цены
         value => {
           if (value == null) return 'Не может быть пустым'
         },
       ],
 
-      is_valid_title: [
+      is_valid_title: [ // проверка корректности названия
         value => {
-          var re = /^(?=.*[^\s])[\u0400-\u04FF0-9A-Za-z\s]+$/
+          var re = /^(?=.*[^\s])[\u0400-\u04FF0-9A-Za-z\s]+$/ // хотя бы один непробельный символ,
+                                                              // последовательность из латиницы, кириллицы и пробелов
           if (!re.test(value)){
             return 'Недопустимое название'
           }
@@ -83,16 +84,16 @@ export default {
     };
   },
   methods: {
-    isValidTitle(){
+    isValidTitle(){ // метод для провеки корректности названия продукта
       var re = /^(?=.*[^\s])[\u0400-\u04FF0-9A-Za-z\s]+$/
       return (re.test(this.newProdTitle))
     },
 
-    isValidPrice(){
+    isValidPrice(){ // метод для проверки корректности цены продукта
       return (this.newProdPrice != null)
     },
 
-    sendPack() {
+    sendPack() { // отправка нового продукта в ListChecks.vue
       if (this.isValidTitle() && this.isValidPrice()){
         this.$emit('senddata', this.newProdPrice, this.newProdTitle);
         this.alert = false

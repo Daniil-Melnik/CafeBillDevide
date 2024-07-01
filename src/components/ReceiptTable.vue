@@ -30,7 +30,7 @@ export default {
     }
   },
   methods: {
-    remProdTranciv(id) {
+    remProdTranciv(id) { // передача удаления продукта
       this.$emit('remProdSend', id);
     },
   },

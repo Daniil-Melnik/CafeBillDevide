@@ -44,14 +44,14 @@ export default {
   },
 
   methods: {
-    getPersWithReceipts(){
+    getPersWithReceipts(){ // получение посетителей с чеками
       return this.$store.getters.getPersWithRec
     },
-    getPersNameById(id) {
+    getPersNameById(id) { // получение посетителя по id
       var person = this.$store.getters.getPersonById(id);
       return person.name;
     },
-    getCurrMoneyRelat() {
+    getCurrMoneyRelat() { // получение всех денежных отношений кто-кому-сколько
       var objRelat = this.getNRepMoneyRelat();
       var res = [];
       for (var i in objRelat) {
@@ -61,7 +61,7 @@ export default {
       }
       return res;
     },
-    getNRepMoneyRelat() {
+    getNRepMoneyRelat() { // выдача 
       var persAdr = this.getPersWithReceipts();
       var allPers = this.$store.getters.PERSONS;
       var res = [];
@@ -84,7 +84,7 @@ export default {
       res = this.checkRepets(res); 
       return res;
     },
-    checkRepets(objRelat) {
+    checkRepets(objRelat) { // удаление отношений вида g1-g2 = g2-g1 (повторы)
       let resObjRelat = objRelat.slice(); 
       let addList = [];
       for (let oR of objRelat) {

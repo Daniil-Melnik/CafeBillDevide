@@ -47,11 +47,11 @@ export default {
   },
 
   methods: {
-    getPersonById(id) {
+    getPersonById(id) { // получение посетителя по id
       return this.$store.getters.getPersonById(id);
     },
 
-    remEatenPerson(checkPersId, prodID, remPersId) {
+    remEatenPerson(checkPersId, prodID, remPersId) { // удаление посетителя-едока
       this.$store.commit('remEatenPerson', { checkName: checkPersId, prodID: prodID, remPersId: remPersId });
     },
   }

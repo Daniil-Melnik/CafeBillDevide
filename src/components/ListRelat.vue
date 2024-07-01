@@ -32,12 +32,12 @@
       }
     },
     methods: {
-      updLabelsRecv(radios) {
+      updLabelsRecv(radios) { // перехват изменения состояния radio-кнопок из RadioSelect.vue
         this.radios = radios;
         this.checkboxLbl = radios == 1 ? ": Кто должен" : ": Кому должны";
         this.tableLbl = radios == 1 ? "Кому" : "Кто";
       },
-      persons() {
+      persons() { // получение имён посетителей
         var arr = this.$store.getters.PERSONS;
         var eArr = [""];
         for (var i = 0; i < arr.length; i++) {

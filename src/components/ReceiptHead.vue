@@ -38,11 +38,11 @@ export default {
   },
 
   methods: {
-    sendPack() {
+    sendPack() { // отправка действия добавления нового чека
       this.$emit('senddata');
       this.alert = false
     },
-    getCheckSum() {
+    getCheckSum() { // получения суммы чека
       var sum = 0;
       if (this.currCheck != null) {
         var prodList = this.currCheck.products;

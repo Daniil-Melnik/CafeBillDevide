@@ -103,11 +103,11 @@ export default {
       return re.test(value)
     },
 
-    setNewTitleRecv(newTitle, id) {
+    setNewTitleRecv(newTitle, id) { // перехват переноса названия
       this.$store.commit('setNewProdTitle', { checkName: this.currPerson.id, setProdID: id, newProdTitle: newTitle });
     },
 
-    setNewPriceRecv(newPrice, id) {
+    setNewPriceRecv(newPrice, id) { // перехват установки новой цены
       this.$store.commit('setNewPrice', { checkName: this.currPerson.id, setProdID: id, newPrice: Number(newPrice) });
     },
 

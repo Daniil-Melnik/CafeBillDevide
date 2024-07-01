@@ -36,27 +36,6 @@
   import ReceiptHead from './ReceiptHead.vue';
   export default {
     name: 'ListChecks',
-    computed: {
-      testTxt() {
-        var arr = [];
-        if (this.currCheck != null) {
-          for (var i = 0; i < this.currCheck.products.length; i++) {
-            arr[i] = this.currCheck.products[i].price;
-          }
-        }
-        return arr;
-      },
-  
-      prodTitles() {
-        var arr = [];
-        if (this.currCheck != null) {
-          for (var i = 0; i < this.currCheck.products.length; i++) {
-            arr[i] = this.currCheck.products[i].prodTitle;
-          }
-        }
-        return arr;
-      }
-    },
     data: () => ({
       currPerson: null,
       currCheck: null,
@@ -64,7 +43,7 @@
     }),
   
     methods: {
-      personsName() {
+      personsName() { // получение имён посетителей
         var arr = this.$store.getters.PERSONS;
         var eArr = [];
         for (var i = 0; i < arr.length; i++) {
@@ -73,12 +52,12 @@
         return eArr;
       },
   
-      onItemChange(value) {
+      onItemChange(value) { // перехват изменения combobox выбора текущего посетителя для чека
         this.currPerson = this.$store.getters.getPersonByName(value);
         this.currCheck = this.$store.getters.getCheckByName(this.currPerson.id);
       },
   
-      addNewProdRecv(newProdPrice, newProdTitle) {
+      addNewProdRecv(newProdPrice, newProdTitle) { // перехват метода добавления продукта = sendData() из AddProdForm.vue
         var check = this.$store.getters.getCheckByName(this.currPerson.id);
         var prodLen = check != null ? check.products.length : 0;
   
@@ -91,7 +70,7 @@
         });
       },
   
-      remProdRecv(id) {
+      remProdRecv(id) { // перехват удаления продукта из чека
         this.$store.commit('remProdFromCheck', {
           checkName: this.currPerson.id,
           remProdID: id
@@ -99,7 +78,7 @@
         this.currCheck = this.$store.getters.getCheckByName(this.currPerson.id);
       },
   
-      addNewCheckRecv() {
+      addNewCheckRecv() { // перехват добавления нового чека
         this.$store.commit('addNewCheck', {
           checkPersId: this.currPerson.id
         });

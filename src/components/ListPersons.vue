@@ -13,12 +13,12 @@
   export default {
     name: 'ListPersons',
     computed: {
-      persons() {
+      persons() { // список посетителей
         return this.$store.getters.PERSONS;
       },
     },
     methods: {
-      updAdd(newPers) {
+      updAdd(newPers) { // перехват для добавления посетителя
         this.$store.commit('updAdd', { name: newPers });
       },
     },

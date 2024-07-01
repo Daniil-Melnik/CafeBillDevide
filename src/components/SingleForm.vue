@@ -48,7 +48,7 @@ export default {
     };
   },
   methods: {
-    sendPack() {
+    sendPack() { // отправка формы
       var re = /^(?=.*[^\s])[\u0400-\u04FF0-9A-Za-z\s]+$/
       if (re.test(this.textInput) && (this.textInput != null) && (this.textInput != '')){
         this.$emit('senddata', this.textInput);

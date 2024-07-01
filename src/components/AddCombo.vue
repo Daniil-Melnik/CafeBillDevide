@@ -34,7 +34,7 @@ export default {
     };
   },
   methods: {
-    sendPack() {
+    sendPack() { // отправка выбранного посетителя в TableRow.vue
       if((this.selectedItem != null) && (this.selectedItem != "")){
         this.$emit('senddata', this.addId, this.selectedItem);
         this.selectedItem = "";

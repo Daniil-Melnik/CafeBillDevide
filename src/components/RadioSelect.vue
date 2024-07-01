@@ -17,7 +17,7 @@ export default {
     }
   },
   methods: {
-    updLabelsSend() {
+    updLabelsSend() { // перехват-отправка нового состояния radio-кнопок
       this.$emit('senddata', this.radios);
     }
   }
