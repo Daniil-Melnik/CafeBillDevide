@@ -2,6 +2,7 @@
   <v-container class="d-flex flex-column justify-center align-center">
     <PersonTable :persons="persons"></PersonTable>
     <SingleForm title="Имя посетителя" @senddata="updAdd"></SingleForm>
+    <p></p>
   </v-container>
 </template>
   
