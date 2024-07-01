@@ -62,5 +62,5 @@ export default {
 }
 </script>
 <style lang="scss">
-  @import './components/variables.scss';
+  @import './scss/variables.scss';;
 </style>

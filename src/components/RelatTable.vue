@@ -110,4 +110,5 @@ export default {
 </script>
 
 <style lang="scss">
+  //@import '../scss/variables.scss';
 </style>

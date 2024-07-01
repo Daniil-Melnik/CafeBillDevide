@@ -114,5 +114,5 @@
   </script>
   
   <style lang="scss">
-  @import './variables.scss';
+  @import '../scss/variables.scss';
   </style>

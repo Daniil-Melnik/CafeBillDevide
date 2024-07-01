@@ -53,7 +53,7 @@ export default {
 </script>
 
 <style lang="scss">
-  @import './variables.scss';
+@import '../scss/variables.scss';
 
   .edit-btn {
     margin-right: $margin-right-1-0;
