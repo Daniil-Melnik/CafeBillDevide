@@ -7,6 +7,7 @@
       v-model="textInput"
       hint="Введите имя посетителя"
       class="name-input"
+      :rules="required_title"
       >
     </v-text-field>
       <v-btn @click="sendPack()" class="add-btn hover-btn-green" color="#44D62C">
@@ -31,12 +32,24 @@ export default {
   data() {
     return {
       textInput: '',
+      required_title: [
+        value => {
+          var re = /^(?=.*[^\s])[\u0400-\u04FF0-9A-Za-z\s]+$/
+          if (!re.test(value)){
+            return 'Недопустимое имя'
+          }
+        },
+      ],
       addImage,
     };
   },
   methods: {
     sendPack() {
-      this.$emit('senddata', this.textInput);
+      var re = /^(?=.*[^\s])[\u0400-\u04FF0-9A-Za-z\s]+$/
+      if (re.test(this.textInput)){
+        this.$emit('senddata', this.textInput);
+        this.textInput = ''
+      }
     },
   },
 };
