@@ -20,7 +20,7 @@
                 />
               </v-icon>
             </v-btn>
-            <InpLbl :maintext="p.name" :id="p.id" :rule="required_title" type="text" @senddata="setNewName"></InpLbl>
+            <InpLbl :maintext="p.name" :id="p.id" :rule="required_title" type="text" :validMethod="isValidName" @senddata="setNewName" dens="compact"></InpLbl>
           </td>
           <td style="text-align: center;" class="width-td-right">{{ getPersonTotal(p.id) }}</td>
         </tr>
@@ -43,7 +43,14 @@ export default {
   props: ['persons'],
   data() {
     return {
-      required_title: (value) => !!value || 'Не может быть пустым',
+      // required_title: (value) => !!value || 'Не может быть пустым',
+      required_title: [
+        value => {
+          if (value == null || value ==""){
+            return 'Недопустимое название'
+          }
+        },
+      ],
       mdiAccount,
       mdiPencil,
       mdiShareVariant,
@@ -69,6 +76,12 @@ export default {
       }
       return reSum;
     },
+
+    isValidName(value){
+      var re = /^[\u0400-\u04FF0-9A-Za-z ]+$/
+      return re.test(value)
+    },
+
     getPersWithReceipts() {
       return this.$store.getters.getPersWithRec;
     },

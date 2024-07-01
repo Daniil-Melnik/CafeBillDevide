@@ -14,6 +14,7 @@
           :validMethod="isValidTitle"
           hint="Последовательность из букв и цифр"
           type="text"
+          dens="default"
           @senddata="setNewTitleRecv"
           class="text-medium margin-left-5"
         >
@@ -79,7 +80,7 @@ export default {
 
       is_valid_title: [
         value => {
-          var re = /^[\u0400-\u04FF0-9A-Za-z]+$/
+          var re = /^[\u0400-\u04FF0-9A-Za-z ]+$/
           if (!re.test(value)){
             return 'Недопустимое название'
           }
@@ -91,7 +92,7 @@ export default {
   methods: {
 
     isValidTitle(value){
-      var re = /^[\u0400-\u04FF0-9A-Za-z]+$/
+      var re = /^[\u0400-\u04FF0-9A-Za-z ]+$/
       return re.test(value)
     },
 

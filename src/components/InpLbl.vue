@@ -18,7 +18,8 @@
         :rules="rules"
         :type="type"
         :hint="this.hint"
-        class="input-field"
+        :density="this.dens"
+        class="input-field margin-top-15"
       ></v-text-field>
       <p v-else class="margin-left-5 width-title-inpLbl">{{ personName }}</p>
     </div>
@@ -29,7 +30,7 @@
 import editImage from '../assets/edit-2.svg'
 export default {
   name: 'InpLbl',
-  props: ['maintext', 'id', 'rule', 'type', 'subtext', 'validMethod', 'hint'],
+  props: ['maintext', 'id', 'rule', 'type', 'subtext', 'validMethod', 'hint', 'dens'],
   data() {
     return {
       isEditable: false,
