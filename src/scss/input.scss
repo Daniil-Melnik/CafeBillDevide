@@ -11,6 +11,7 @@ $single-form-input: 600px;
     width: $single-form-input;
 }
 
+// для мобильных устройств
 @media (max-width: 415px){
     .input-field {
         width: 140px;

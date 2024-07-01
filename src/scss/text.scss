@@ -14,6 +14,7 @@ $text-size-2: 35px;
     font-size: $text-size-2;
 }
 
+// для мобильных устройств
 @media (max-width: 415px){
     .text-medium{
         font-size: 18px;

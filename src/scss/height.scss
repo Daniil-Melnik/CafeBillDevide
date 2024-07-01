@@ -8,6 +8,7 @@ $height-rec-card: 328px;
     min-height: 60px;
 }
 
+// для мобильных устройств
 @media (max-width: 415px){
     .height-rec-card{
         min-height: 450px;

@@ -59,6 +59,7 @@ $width-700: 700px;
     width: 50%;
 }
 
+// для мобильных устройств
 @media (max-width: 415px){
     .width-rec-card{
         width: 320px;
