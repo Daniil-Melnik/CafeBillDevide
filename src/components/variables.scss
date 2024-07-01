@@ -125,6 +125,8 @@ $w-screen-standart: 1920px;
 .input-field {
     width: 180px;
     margin: 0;
+    margin-top: 0;
+    padding-top: 0;
   }
 
 .width-subtitle-inpLbl {
@@ -233,6 +235,13 @@ $w-screen-standart: 1920px;
         width: 300px;
         height: 60px;
         margin-top: $margin-top-1-0;
+    }
+
+    .input-field {
+        width: 150px;
+        margin: 0;
+        margin-top: 0;
+        padding-top: 0;
     }
 }
 
