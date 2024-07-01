@@ -153,6 +153,34 @@ $w-screen-standart: 1920px;
     margin-top: $margin-top-1-0;
   }
 
+.width-prod-form{
+    width: $width-rec-list;
+}
+
+.margin-top-5{
+    margin-top: $margin-top-1-0;
+}
+
+.margin-top-15{
+    margin-top: $margin-top-2-0;
+}
+
+.margin-top-25{
+    margin-top: $margin-top-3-0;
+}
+
+.margin-top-35{
+    margin-top: $margin-top-4-0;
+}
+
+.no-padding{
+    padding: 0;
+}
+
+.no-margin{
+    margin: 0;
+}
+
 @media (max-width: 415px){
     .text-medium{
         font-size: 18px;
@@ -243,6 +271,26 @@ $w-screen-standart: 1920px;
         margin-top: 0;
         padding-top: 0;
     }
+
+    .width-prod-form{
+        width: 320px;
+    }
+
+    .margin-top-5{
+        margin-top: $margin-top-1-0;
+    }
+    
+    .margin-top-15{
+        margin-top: 5px;
+    }
+    
+    .margin-top-25{
+        margin-top: $margin-top-3-0;
+    }
+    
+    .margin-top-35{
+        margin-top: $margin-top-4-0;
+    }
 }
 
 .margin-right-5{
@@ -265,22 +313,6 @@ $w-screen-standart: 1920px;
     margin-top: 10px;
 }
 
-.margin-top-5{
-    margin-top: $margin-top-1-0;
-}
-
-.margin-top-15{
-    margin-top: $margin-top-2-0;
-}
-
-.margin-top-25{
-    margin-top: $margin-top-3-0;
-}
-
-.margin-top-35{
-    margin-top: $margin-top-4-0;
-}
-
 .margin-bottom-5{
     margin-top: $margin-bottom-1-0;
 }
@@ -300,10 +332,6 @@ $w-screen-standart: 1920px;
 .width-inpLbl{
     width: 180px;
     margin: 0;
-}
-
-.width-prod-form{
-    width: $width-rec-list;
 }
 
 .width-50-pers{

@@ -19,7 +19,8 @@
         :type="type"
         :hint="this.hint"
         :density="this.dens"
-        class="input-field margin-top-15"
+        class="input-field"
+        style="margin: 0; padding: 0;"
       ></v-text-field>
       <p v-else class="margin-left-5 width-title-inpLbl">{{ personName }}</p>
     </div>

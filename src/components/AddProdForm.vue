@@ -1,13 +1,14 @@
 <template>
   <div class="width-prod-form">
     <p class="text-medium">Добавить продукт</p>
-    <v-form fast-fail @submit.prevent title="Добавить продукт" class="margin-top-15">
+    <v-form fast-fail @submit.prevent title="Добавить продукт" class="margin-top-15" theme="dark">
       <v-text-field
         v-model="newProdTitle"
         label="Новый продукт"
         hint="Любая последовательность букв и цифр"
         :rules="is_valid_title"
         @update:modelValue="alert = false"
+        style="margin: 0; padding: 0;"
       ></v-text-field>
 
       <v-number-input
@@ -23,6 +24,8 @@
         max="50000"
         v-model="newProdPrice"
         @update:modelValue="alert = false"
+        style="padding: 0;"
+        class="margin-top-5"
       ></v-number-input>
       <v-btn @click="sendPack()" rounded="lg" class="back-color-neon-green width-prod-form hover-btn-green">
         <v-icon>
