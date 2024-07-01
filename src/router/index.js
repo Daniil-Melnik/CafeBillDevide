@@ -1,3 +1,5 @@
+// Файл-маршрутизатор
+
 import { createRouter, createWebHashHistory } from 'vue-router'
 import ListChecks from '../components/ListChecks.vue'
 import ListPersons from '../components/ListPersons.vue'

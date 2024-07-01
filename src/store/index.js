@@ -1,8 +1,10 @@
+//  файл-менеджер состояний vuex
+
 import { createStore } from 'vuex'
 
 export default createStore({
-  state: {
-    persons: [
+  state: { // состояния
+    persons: [ // список посетителей
       {id: 1, name : "Илья Планков", totalMoney: 0},
       {id: 2, name : "Алексей Лечов", totalMoney: 0},
       {id: 3, name : "Никита Варданов", totalMoney: 0},
@@ -13,15 +15,15 @@ export default createStore({
       {id: 8, name : "Даниил Мукомол", totalMoney: 0},      
     ],
 
-    checks: [
+    checks: [ // список чеков
       {
-        person: 1,
+        person: 1, // id посетителя-владельца
         products: [
           {
-            id: 0,
-            prodTitle: "Молоко",
-            price: 300,
-            eatPersons: [5, 3]
+            id: 0, // id продукта
+            prodTitle: "Молоко", // название продукта
+            price: 300, // цена продукта
+            eatPersons: [5, 3] // список id персон-едоков продукта
           },
 
           {
@@ -93,12 +95,12 @@ export default createStore({
       }
     ]
   },
-  getters: {
-    PERSONS: state => {
+  getters: { // геттеры
+    PERSONS: state => { // получение всех посетителей
       return state.persons;
     },
 
-    getPersWithRec: (state) => {
+    getPersWithRec: (state) => { // получение посетителей-владельцев чеков
       var res = []
       for (var i in state.checks){
         var person = state.persons.find(person => person.id === state.checks[i].person)
@@ -107,19 +109,19 @@ export default createStore({
       return res;
     },
 
-    getPersonByName: (state) => (name) => {
+    getPersonByName: (state) => (name) => { // получение посетителя по имени
       return state.persons.find(person => person.name === name);
     },
 
-    getPersonById: (state) => (id) => {
+    getPersonById: (state) => (id) => { // получение посетителя по id
       return state.persons.find(person => person.id === id);
     },
 
-    getCheckByName: (state) => (person) => {
+    getCheckByName: (state) => (person) => { // получение чека по id владельца
       return state.checks.find(check => check.person === person);
     },
 
-    getCheckProductById: (state) => (person, prodID) => {
+    getCheckProductById: (state) => (person, prodID) => { // получение продукта из определённого чека по id-продукта
       var check = state.checks.find(check => check.person === person)
       var product = check.products[prodID]
       return product.eatPersons;
@@ -129,13 +131,13 @@ export default createStore({
   },
 
   mutations: {
-    updAdd(state, data){
+    updAdd(state, data){ // добавление посетителя
       var perlLen = state.persons.length
       var newId = perlLen != 0 ? state.persons[perlLen - 1].id + 1 : 0
       state.persons.push({id: newId, name : data.name, totalMoney: 0})
     },
 
-    updRemove(state, data){
+    updRemove(state, data){ // удаление посетителя
       var remPersId = data.id;
       for (var rC in state.checks){
         for (var p in state.checks[rC].products){
@@ -150,7 +152,7 @@ export default createStore({
       state.persons = newPersons
     },
     
-    addEatenPerson(state, data){
+    addEatenPerson(state, data){ // добавление едока к продукту в определённом чеке
       var i = 0;
       console.log(state.checks[0])
       while ((state.checks[i].person != data.checkPersId) && (i < state.checks.length - 1)){
@@ -165,7 +167,7 @@ export default createStore({
       }
     },
 
-    remEatenPerson(state, data){
+    remEatenPerson(state, data){ // удаление полесителя-едока
       var i = 0;
       while ((state.checks[i].person != data.checkName) && (i < state.checks.length)){
         i++
@@ -178,7 +180,7 @@ export default createStore({
       }
     },
 
-    addProdToCheck(state, data){
+    addProdToCheck(state, data){ // добавление продукта в чек
       var i = 0;
       while ((i < state.checks.length) && (state.checks[i].person != data.checkName)){
         i++;
@@ -189,7 +191,7 @@ export default createStore({
       }
     },
 
-    remProdFromCheck(state, data){
+    remProdFromCheck(state, data){ // удаление продукта из чека
       var i = 0;
       var j =0;
       while ((state.checks[i].person != data.checkName) && (i < state.checks.length - 1)){
@@ -205,7 +207,7 @@ export default createStore({
       }
     },
 
-    setNewPrice(state, data){
+    setNewPrice(state, data){ // установка новой цены для продукта
       var i = 0;
       while ((state.checks[i].person != data.checkName) && (i < state.checks.length)){
         i++;
@@ -215,7 +217,7 @@ export default createStore({
       }
     },
 
-    setNewProdTitle(state, data){
+    setNewProdTitle(state, data){ // установка нового названия продукта
       var i = 0;
       while ((state.checks[i].person != data.checkName) && (i < state.checks.length)){
         i++;
@@ -225,14 +227,14 @@ export default createStore({
       }
     },
 
-    addNewCheck(state, data){
+    addNewCheck(state, data){ // добавление нового чека
       state.checks.push({
             person: data.checkPersId,
             products: []
           })
     },
 
-    updSetNewName(state, data){
+    updSetNewName(state, data){ // установка нового имени посетителю
       var i = 0;
       while (state.persons[i].id != data.id && i < state.persons.length){
         i++;
@@ -250,7 +252,7 @@ export default createStore({
   modules: {
   },
 
-  getCheck(person){
+  getCheck(person){ // ??
     return this.state.checks.filter(ch => ch.person != person)
   },
 
