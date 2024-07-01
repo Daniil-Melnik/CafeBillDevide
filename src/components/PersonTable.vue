@@ -46,8 +46,9 @@ export default {
       // required_title: (value) => !!value || 'Не может быть пустым',
       required_title: [
         value => {
-          if (value == null || value ==""){
-            return 'Недопустимое название'
+          var re = /^(?=.*[^\s])[\u0400-\u04FF0-9A-Za-z\s]+$/
+          if (!re.test(value)){
+            return 'Недопустимое имя'
           }
         },
       ],
@@ -78,7 +79,7 @@ export default {
     },
 
     isValidName(value){
-      var re = /^[\u0400-\u04FF0-9A-Za-z ]+$/
+      var re = /^(?=.*[^\s])[\u0400-\u04FF0-9A-Za-z\s]+$/
       return re.test(value)
     },
 
