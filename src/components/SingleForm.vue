@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="d-flex flex-column">
     <v-form class="form-main">
       <v-text-field
       clearable

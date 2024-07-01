@@ -21,7 +21,7 @@
         :density="this.dens"
         class="input-field"
       ></v-text-field>
-      <p v-else class="margin-left-5 width-title-inpLbl">{{ personName }}</p>
+      <p v-else class="margin-left-5 width-title-inpLbl margin-top-5">{{ personName }}</p>
     </div>
   </div>
 </template>

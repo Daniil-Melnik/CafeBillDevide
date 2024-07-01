@@ -20,7 +20,7 @@
         v-else
         border="start"
         close-label="Закрыть"
-        color="#04D9FF"
+        color="#FE59C2"
         title="Опа!"
         variant="tonal"
         class="margin-top-15"
