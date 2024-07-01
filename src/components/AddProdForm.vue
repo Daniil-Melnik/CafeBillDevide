@@ -73,7 +73,7 @@ export default {
 
       is_valid_title: [
         value => {
-          var re = /^[\u0400-\u04FF0-9A-Za-z]+$/
+          var re = /^(?=.*[^\s])[\u0400-\u04FF0-9A-Za-z\s]+$/
           if (!re.test(value)){
             return 'Недопустимое название'
           }
@@ -83,7 +83,7 @@ export default {
   },
   methods: {
     isValidTitle(){
-      var re = /^[\u0400-\u04FF0-9A-Za-z]+$/
+      var re = /^(?=.*[^\s])[\u0400-\u04FF0-9A-Za-z\s]+$/
       return (re.test(this.newProdTitle))
     },
 
