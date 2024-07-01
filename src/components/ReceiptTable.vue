@@ -1,3 +1,5 @@
+<!-- Компонент-список карточек продуктов в чеке ListChecks.vue -->
+
 <template>
   <div class="d-flex justify-center">
     <div v-if="currCheck != null">

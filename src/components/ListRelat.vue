@@ -1,3 +1,4 @@
+<!-- Компонент-СТРАНИЦА денежных отношений между посетителями -->
 <template>
     <v-container class="list-relat-container">
       <h2>Распределение {{checkboxLbl }}</h2>

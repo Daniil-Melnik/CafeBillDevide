@@ -1,3 +1,4 @@
+<!-- Компонент добавления посетителей в список едоков продукта, вставляется в TableRow.vue -->
 <template>
   <div class="d-flex-column">
     <v-select

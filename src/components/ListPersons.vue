@@ -1,3 +1,4 @@
+<!-- Компонент-СТРАНИЦА для просмотра посетителей -->
 <template>
   <v-container class="d-flex flex-column justify-center align-center">
     <PersonTable :persons="persons"></PersonTable>

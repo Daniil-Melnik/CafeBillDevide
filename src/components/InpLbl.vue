@@ -1,3 +1,4 @@
+<!-- Компонент редактируемого текста -->
 <template>
   <div class="d-flex align-center">
     <v-btn @click="sendPack" icon rounded="lg" size="x-small" class="back-color-neon-blue edit-btn hover-btn-blue" color="#4D4DFF">

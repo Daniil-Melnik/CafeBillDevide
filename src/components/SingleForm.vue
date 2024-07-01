@@ -1,3 +1,5 @@
+<!-- Компонент-форма для добавления элемента в сисок ListPersons.vue -->
+
 <template>
   <div class="d-flex flex-column">
     <v-form class="form-main">

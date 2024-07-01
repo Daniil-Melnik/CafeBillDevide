@@ -1,3 +1,5 @@
+<!-- Компонент-голова чека в ListChecks.vue -->
+
 <template>
   <div class="receipt-head">
     <div v-if="this.currPerson != null" class="d-flex-column">

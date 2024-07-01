@@ -1,3 +1,4 @@
+<!-- Компонент radio-кнопок для выбора кто/кому -->
 <template>
   <div class="radio-select">
     <v-radio-group v-model="radios" @update:modelValue="updLabelsSend" class="radio-group">

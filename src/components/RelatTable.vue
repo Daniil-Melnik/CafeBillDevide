@@ -1,3 +1,5 @@
+<!-- Таблица денежных отношений между посетителями из ListRelat.vue -->
+
 <template>
   <div class="relat-table">
     <div v-if="persFromObj != null">

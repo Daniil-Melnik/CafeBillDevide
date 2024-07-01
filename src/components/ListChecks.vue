@@ -1,3 +1,5 @@
+<!-- Компонент-СТРАНИЦА для просмотра чеков -->
+
 <template>
     <v-container class="d-flex-column">
       <h2 class="header">Чек посетителя</h2>

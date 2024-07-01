@@ -1,3 +1,5 @@
+<!-- Компонент-карточка для продукта из ReceiptTable.vue -->
+
 <template>
   <v-card
     variant="tonal"

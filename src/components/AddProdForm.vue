@@ -1,3 +1,4 @@
+<!-- Компонент-форма для добавления продукта в чек -->
 <template>
   <div class="width-prod-form">
     <p class="text-medium">Добавить продукт</p>

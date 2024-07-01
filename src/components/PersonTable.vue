@@ -1,3 +1,4 @@
+<!-- Компонент-таблица посетителе, вставляется в ListPersons.vue -->
 <template>
   <div>
     <v-table height="500px" theme="dark"  fixed-header class="width-table-persons">

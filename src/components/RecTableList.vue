@@ -1,3 +1,5 @@
+<!-- Компонент-список едоков из TableRow.vue -->
+
 <template>
   <div>
     <p class="text-medium">Ели:</p>
