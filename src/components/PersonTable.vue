@@ -44,7 +44,6 @@ export default {
   props: ['persons'],
   data() {
     return {
-      // required_title: (value) => !!value || 'Не может быть пустым',
       required_title: [
         value => {
           var re = /^(?=.*[^\s])[\u0400-\u04FF0-9A-Za-z\s]+$/
@@ -102,7 +101,4 @@ export default {
 
 <style lang="scss">
   @import '../scss/_top.scss';
-  .del-btn{
-    margin-right: $margin-right-1-0;
-  }
 </style>

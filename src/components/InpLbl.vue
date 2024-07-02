@@ -56,13 +56,4 @@ export default {
 
 <style lang="scss">
   @import '../scss/_top.scss';
-
-  .edit-btn {
-    margin-right: $margin-right-1-0;
-  }
-
-  .display-text {
-    margin: 0;
-    line-height: 1.5em; /* Adjust this line-height to match the height of your input field */
-  }
 </style>
