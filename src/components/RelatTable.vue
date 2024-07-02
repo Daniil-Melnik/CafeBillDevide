@@ -22,10 +22,9 @@
         v-else
         border="start"
         close-label="Закрыть"
-        color="#FE59C2"
         title="Опа!"
         variant="tonal"
-        class="margin-top-15"
+        class="margin-top-15 color-neon-fuchsia"
       >
         <p class="text-medium margin-top-10">{{ tableLbl == 'Кому' ? 'Никому посетитель не должен!' : 'Никто посетителю не должен' }}</p>
       </v-alert>
@@ -51,7 +50,7 @@ export default {
       var person = this.$store.getters.getPersonById(id);
       return person.name;
     },
-    getCurrMoneyRelat() { // получение всех денежных отношений кто-кому-сколько
+    getCurrMoneyRelat() { // получение денежных отношений по типу кто-кому или кому-кто
       var objRelat = this.getNRepMoneyRelat();
       var res = [];
       for (var i in objRelat) {
@@ -61,7 +60,7 @@ export default {
       }
       return res;
     },
-    getNRepMoneyRelat() { // выдача 
+    getNRepMoneyRelat() { // получение всех денежных отношений дез зеркальных повторов
       var persAdr = this.getPersWithReceipts();
       var allPers = this.$store.getters.PERSONS;
       var res = [];

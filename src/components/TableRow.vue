@@ -71,7 +71,7 @@ export default {
 
   data(){
     return{
-      is_valid_price: [
+      is_valid_price: [ // правило для валидации цены
         value => {
           var re = /^[0-9]+$/
           if (!re.test(value) || value > 50000){
@@ -80,9 +80,9 @@ export default {
         },
       ],
 
-      is_valid_title: [
+      is_valid_title: [ // правило для валидации названия
         value => {
-          var re = /^[\u0400-\u04FF0-9A-Za-z ]+$/
+          var re = /^(?=.*[^\s])[\u0400-\u04FF0-9A-Za-z\s]+$/
           if (!re.test(value)){
             return 'Недопустимое название'
           }
@@ -93,12 +93,12 @@ export default {
 
   methods: {
 
-    isValidTitle(value){
-      var re = /^[\u0400-\u04FF0-9A-Za-z ]+$/
+    isValidTitle(value){ // метод для валидации названия
+      var re = /^(?=.*[^\s])[\u0400-\u04FF0-9A-Za-z\s]+$/
       return re.test(value)
     },
 
-    isValidPrice(value){
+    isValidPrice(value){ // метод для валидации цены
       var re = /^[0-9]+$/
       return re.test(value)
     },
@@ -111,19 +111,19 @@ export default {
       this.$store.commit('setNewPrice', { checkName: this.currPerson.id, setProdID: id, newPrice: Number(newPrice) });
     },
 
-    addEatenPersonRecv(prodID, addPersName) {
+    addEatenPersonRecv(prodID, addPersName) { // перхват добавления нового посктителя
       this.$store.commit('addEatenPerson', { checkPersId: this.currPerson.id, prodID: prodID, addPersName: addPersName });
     },
 
-    remProdSend(id) {
+    remProdSend(id) { // отправка в ReceiptTable.vue удаления продукта
       this.$emit('remProdSend', id);
     },
 
-    personsId() {
+    personsId() { // получение списка id посетителей
       return this.$store.getters.PERSONS.map(person => person.id);
     },
 
-    notEatPersons(prodID){
+    notEatPersons(prodID){ // получение списка не евших продуккт посетителей
         var eatPersons = this.$store.getters.getCheckProductById(this.currPerson.id, prodID);
         var allPersons = this.personsId();
         var notEatPersId = allPersons.filter((el) => !eatPersons.includes(el))
