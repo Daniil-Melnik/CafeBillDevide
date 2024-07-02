@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import addImage from '../assets/add-basket-green.png'
+import addImage from '../assets/add/add-basket-green.png'
 export default {
   name: 'AddProdForm',
   props: [],

@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import delImage from '../assets/delete2-red-3.svg'
+import delImage from '../assets/delete/delete2-red-3.svg'
 export default {
   name: 'RecTableList',
 

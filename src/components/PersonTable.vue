@@ -14,7 +14,7 @@
             <v-btn @click="updRemove(p.id)" icon rounded="lg" class="del-btn hover-btn-red" size="x-small" color="#D22730">
               <v-icon>
                 <img
-                  :src="editImage"
+                  :src="delImage"
                   alt="Удалить"
                   style="width: 30px; height: 30px;"
                   rounded="0"
@@ -32,7 +32,7 @@
 
 <script>
 import InpLbl from './InpLbl.vue';
-import editImage from '../assets/delete2-red-3.svg'
+import delImage from '../assets/delete/delete2-red-3.svg'
 import {
     mdiAccount,
     mdiDelete,
@@ -56,7 +56,7 @@ export default {
       mdiPencil,
       mdiShareVariant,
       mdiDelete,
-      editImage
+      delImage
     };
   },
   methods: {

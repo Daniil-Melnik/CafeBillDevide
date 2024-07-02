@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import editImage from '../assets/edit-2.svg'
+import editImage from '../assets/edit/edit-2.svg'
 export default {
   name: 'InpLbl',
   props: ['maintext', 'id', 'rule', 'type', 'subtext', 'validMethod', 'hint', 'dens'],

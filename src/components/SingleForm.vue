@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import addImage from '../assets/add1-green.png'
+import addImage from '../assets/add/add1-green.png'
 export default {
   name: 'SingleForm',
   props: ['title'],
