@@ -1,9 +1,9 @@
 // Файл-маршрутизатор
 
 import { createRouter, createWebHashHistory } from 'vue-router'
-import ListChecks from '../components/ListChecks.vue'
-import ListPersons from '../components/ListPersons.vue'
-import ListRelat from '../components/ListRelat.vue'
+import ListChecks from '../components/pages/ListChecks.vue'
+import ListPersons from '../components/pages/ListPersons.vue'
+import ListRelat from '../components/pages/ListRelat.vue'
 
 const routes = [
   {

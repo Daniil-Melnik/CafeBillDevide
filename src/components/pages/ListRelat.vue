@@ -17,8 +17,8 @@
   </template>
   
   <script>
-  import RelatTable from './RelatTable.vue'
-  import RadioSelect from './RadioSelect.vue'
+  import RelatTable from '../RelatTable.vue'
+  import RadioSelect from '../RadioSelect.vue'
   
   export default {
     name: 'ListRelat',

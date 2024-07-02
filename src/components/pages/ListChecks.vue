@@ -31,9 +31,9 @@
   </template>
   
   <script>
-  import ReceiptTable from './ReceiptTable.vue';
-  import AddProdForm from './AddProdForm.vue';
-  import ReceiptHead from './ReceiptHead.vue';
+  import ReceiptTable from '../ReceiptTable.vue';
+  import AddProdForm from '../AddProdForm.vue';
+  import ReceiptHead from '../ReceiptHead.vue';
   export default {
     name: 'ListChecks',
     data: () => ({
@@ -95,5 +95,5 @@
   </script>
   
   <style lang="scss">
-    @import '../scss/_top.scss';
+    @import '../../scss/_top.scss';
   </style>

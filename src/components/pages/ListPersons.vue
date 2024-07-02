@@ -8,8 +8,8 @@
 </template>
   
 <script>
-  import PersonTable from './PersonTable.vue';
-  import SingleForm from './SingleForm.vue';
+  import PersonTable from '../PersonTable.vue';
+  import SingleForm from '../SingleForm.vue';
   export default {
     name: 'ListPersons',
     computed: {
