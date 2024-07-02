@@ -7,17 +7,17 @@ import ListRelat from '../components/ListRelat.vue'
 
 const routes = [
   {
-    path: '/',
+    path: '/lsRec', // список чеков
     name: 'ListChecks',
     component: ListChecks
   },
   {
-    path: '/lsPers',
+    path: '/', // главная страница - список посетителей
     name: 'ListPersons',
     component: ListPersons
   },
   {
-    path: '/lsRelat',
+    path: '/lsRelat', // список денежных отношений
     name: 'ListRelat',
     component: ListRelat
   }

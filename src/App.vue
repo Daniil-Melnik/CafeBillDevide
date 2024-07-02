@@ -45,12 +45,12 @@ export default {
       {
         id: 0,
         name: 'Чеки',
-        url: '/'
+        url: '/lsRec'
       },
       {
         id: 1,
         name: 'Люди',
-        url: '/lsPers'
+        url: '/'
       },
       {
         id: 2,
